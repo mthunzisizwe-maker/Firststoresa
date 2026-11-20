@@ -1,271 +1,192 @@
 <!DOCTYPE html>
-<html><head><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>FIRSTSTORE-SA</title>
+<html><head><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Admin - FIRSTSTORE-SA</title>
 <style>
-*{box-sizing:border-box;margin:0;padding:0;font-family:Arial,sans-serif}body{background:#f0f2f5;color:#111}
-.hero{height:78vh;min-height:520px;background:#fff;position:relative;display:flex;flex-direction:column;overflow:hidden;margin:12px;border-radius:18px;box-shadow:0 2px 12px rgba(0,0,0,.06)}
-.heroImg{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#fff;pointer-events:none}
-.hero:after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,transparent 0%,transparent 55%,rgba(255,255,255,.1) 82%,#fff 100%);pointer-events:none}
-.top{position:relative;z-index:5;display:flex;justify-content:flex-end;padding:14px}.call{width:44px;height:44px;background:#fff;border:1px solid #eee;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.08);position:relative;z-index:6}
-.heroMid{flex:1}.heroBottom{position:relative;z-index:6;padding:0 16px 18px}.heroBottom h1{color:#111;font-size:30px;line-height:1.05;font-weight:900}.heroBottom h1 em{color:#0071e3;font-style:normal}
-.pill{display:inline-block;background:#fff;border:1px solid #e5e5e5;padding:7px 12px;border-radius:999px;font-size:11px;font-weight:700;margin:12px 0 14px;color:#555}
-.btnBig{display:block;width:100%;padding:13px;border-radius:12px;font-weight:800;font-size:14px;border:none;cursor:pointer;position:relative;z-index:6;pointer-events:auto}.btnRed{background:#0071e3;color:#fff}.btnBlack{background:#111;color:#fff;margin-top:8px}.btnGold{background:#111;color:#fff;margin-top:8px;border:1px solid #111}.btnAuction{background:#0071e3;color:#fff;margin-top:8px}.btnFaq{background:#fff;color:#111;margin-top:8px;border:1px solid #ddd}
-.section{padding:18px 16px;background:#fff;margin:12px;border-radius:18px;box-shadow:0 2px 12px rgba(0,0,0,.06)}.section h2{font-size:20px;color:#111}.section h2 span{color:#0071e3}
-.featRow{display:flex;gap:12px;padding:14px;border-radius:12px;background:#f7f9fc;border:1px solid #eef1f5;margin-bottom:10px;align-items:center}.featRow:last-child{margin-bottom:0}.featIcon{width:46px;height:46px;min-width:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;color:#fff}.featRow b{font-size:15px;color:#111}.featRow p{font-size:13px;color:#666;margin-top:3px;line-height:1.5}
-.ctaBox{border-radius:18px;padding:20px;margin:12px;text-align:center;box-shadow:0 2px 12px rgba(0,0,0,.06)}.ctaBox h3{font-size:19px}.ctaBox p{font-size:13px;margin:8px 0 14px}.foot{text-align:center;padding:10px 16px 24px;color:#888;font-size:12px}
-.btn{flex:1;padding:12px;border-radius:10px;font-weight:800;cursor:pointer;font-size:13px;border:none;position:relative;z-index:2}.btn-red{background:#0071e3;color:#fff}.btn-green{background:#0071e3;color:#fff}.btn-grey{background:#eee;color:#888}.btn-gold{background:#111;color:#fff}.btn-purple{background:#0071e3;color:#fff}
-.page{display:none;position:fixed;inset:0;background:#f0f2f5;z-index:99;overflow-y:auto;padding:16px 16px 100px;color:#111}.page h2{font-size:22px;color:#111}.page h2 span{color:#0071e3}.sub{color:#666;font-size:13px;line-height:1.6;margin:8px 0 12px}
-.step{padding:12px 0;border-bottom:1px solid #eee;display:flex;gap:10px}.num{background:#0071e3;color:#fff;width:30px;height:30px;min-width:30px;border-radius:50%;text-align:center;line-height:30px;font-weight:900;font-size:13px}.num.gold{background:#111;color:#fff}.num.purple{background:#0071e3}.step b{font-size:14px}.step p{font-size:12px;color:#666;line-height:1.5;margin-top:3px}
-label{font-size:12px;font-weight:800;display:block;margin:14px 0 6px;color:#111}input,textarea,select{width:100%;padding:12px;border-radius:10px;border:1px solid #ddd;background:#fff;font-size:14px;color:#111}.close{padding:12px;text-align:center;font-weight:800;cursor:pointer;color:#888}
-.wa{position:fixed;right:16px;bottom:20px;background:#0071e3;width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;cursor:pointer;z-index:200;box-shadow:0 4px 12px rgba(0,0,0,.15);color:#fff}
-.welcome{background:#fff;border-radius:14px;padding:14px;margin-bottom:12px;border:1px solid #eee}.welcome h3{font-size:19px;color:#111}.welcome h3 span{color:#0071e3}.welcome p{font-size:12px;color:#555;line-height:1.6;margin-top:6px}
-.verifyBox{background:#fff;border:1px solid #0071e3;border-radius:12px;padding:12px;margin:10px 0}.vCard{background:#fff;border-radius:12px;padding:12px;margin:10px 0;border:1px solid #eee}.vCard.done{border-color:#0071e3}.vTop{display:flex;gap:10px;align-items:center}.vNum{background:#0071e3;width:32px;height:32px;min-width:32px;border-radius:50%;text-align:center;line-height:32px;font-weight:900;font-size:13px;color:#fff}.vTick{margin-left:auto;font-size:20px;display:none}.vCard.done .vTick{display:block}
-.uploadBtn{display:block;background:#0071e3;color:#fff;text-align:center;padding:11px;border-radius:10px;font-weight:800;cursor:pointer;margin-top:8px;font-size:13px}.uploadBtn.green{background:#111}.uploadBtn.purple{background:#0071e3}input.hideFile{display:none}.preview{width:100%;border-radius:10px;margin-top:8px;display:none;max-height:150px;object-fit:cover}
-.opt{display:flex;gap:8px;flex-wrap:wrap}.opt div{flex:1;min-width:30%;background:#fff;border:1px solid #ddd;border-radius:10px;padding:10px;text-align:center;cursor:pointer;font-size:13px;color:#111}.opt div.active{background:#0071e3;border-color:#0071e3;color:#fff}
-.nav{position:fixed;bottom:10px;left:10px;right:10px;background:#fff;border:1px solid #eee;border-radius:999px;display:flex;justify-content:space-around;padding:10px 6px;z-index:100;box-shadow:0 4px 16px rgba(0,0,0,.08)}.nav div{color:#777;font-size:11px;text-align:center;cursor:pointer}.nav .plus{background:#0071e3;color:#fff;width:46px;height:46px;border-radius:50%;font-size:26px;line-height:46px;margin-top:-22px}
-.logoSmall{display:flex;align-items:center;gap:8px;margin-bottom:10px}.logoSmall svg{width:42px;height:32px}
-.shopCard{background:#fff;border:1px solid #eee;border-radius:14px;padding:12px;margin:10px 0;display:flex;gap:12px;align-items:center}.shopCard b{font-size:15px;color:#111}.shopCard p{font-size:12px;color:#666;line-height:1.6;margin-top:3px}.shopImg{width:68px;height:68px;min-width:68px;border-radius:12px;background:#f0f0f0;display:flex;align-items:center;justify-content:center;font-size:32px}.price{color:#111;font-weight:900;font-size:15px}
-.auctionCard{background:#fff;border:1px solid #ddd;border-radius:14px;padding:12px;margin:10px 0}.auctionCard b{font-size:15px;color:#111}.auctionCard p{font-size:12px;color:#666;line-height:1.6;margin-top:3px}.bidBox{background:#f7f7f7;border-radius:10px;padding:10px;margin-top:8px;display:flex;justify-content:space-between;align-items:center}
-.howSection{border-radius:14px;padding:14px;margin:12px 0;border:1px solid #eee;background:#fff}.reqBox{background:#f7f9fc;border:1px solid #ddd;border-radius:12px;padding:12px;margin:10px 0}.reqBox b{color:#111}.explainBox{background:#f7f9fc;border:1px solid #ddd;border-radius:12px;padding:12px;margin:10px 0}
-.countdownBox{background:#fff;border:1px solid #111;border-radius:10px;padding:10px;margin-top:8px;text-align:center}.countdownTime{font-size:18px;font-weight:900;color:#111}.countdownUrgent{border-color:#111!important}.countdownUrgent .countdownTime{color:#111!important}.countdownExpired{border-color:#ddd!important;opacity:.6}.countdownExpired .countdownTime{color:#888!important}
-.footer{background:#111;border-top:1px solid #111;padding:18px 16px 20px;text-align:center;margin:12px;border-radius:18px;box-shadow:0 2px 12px rgba(0,0,0,.2)}.footer h3{font-size:16px;color:#fff}.footer p{font-size:12px;color:#ccc;line-height:1.6;margin:8px 0}.fBtn{display:inline-block;background:#222;border:1px solid #333;border-radius:999px;padding:9px 13px;font-size:12px;font-weight:700;margin:4px;cursor:pointer;color:#fff}.fBtn:active{background:#0071e3;color:#fff}
-.faqItem{background:#fff;border:1px solid #eee;border-radius:12px;padding:13px;margin:10px 0}.faqItem b{font-size:14px}.faqItem p{font-size:12px;color:#555;line-height:1.6;margin-top:5px}
-.legalBox{background:#fff;border:1px solid #eee;border-radius:12px;padding:14px;margin:10px 0}.legalBox h3{font-size:15px;margin:14px 0 6px}.legalBox h3:first-child{margin-top:0}.legalBox p,.legalBox li{font-size:12px;color:#444;line-height:1.7}.legalBox ul{padding-left:16px;margin:6px 0}
-.supportCard{background:#fff;border:1px solid #eee;border-radius:14px;padding:14px;margin:10px 0}.supportCard b{font-size:14px}.supportCard p{font-size:12px;color:#555;line-height:1.6;margin-top:5px}
-.reviewsBlock{background:#fff;margin:12px;border-radius:18px;padding:18px 0 16px;box-shadow:0 2px 12px rgba(0,0,0,.06);overflow:hidden}
-.reviewsHead{padding:0 16px;display:flex;justify-content:space-between;align-items:center}.reviewsHead h2{font-size:19px}.reviewsHead h2 span{color:#0071e3}.scrollHint{font-size:11px;color:#888;font-weight:700;white-space:nowrap}
-.reviewsWrap{display:flex;gap:12px;overflow-x:auto;padding:14px 16px 6px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none}.reviewsWrap::-webkit-scrollbar{display:none}
-.reviewCard{min-width:260px;max-width:260px;scroll-snap-align:start;background:#f7f9fc;border:1px solid #eef1f5;border-radius:14px;padding:14px;flex-shrink:0}.reviewCard .stars{font-size:13px;letter-spacing:1px}.reviewCard p{font-size:13px;color:#333;line-height:1.6;margin:10px 0 12px}.reviewAvatar{width:38px;height:38px;border-radius:50%;background:#0071e3;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:14px}.reviewFoot{display:flex;gap:10px;align-items:center;border-top:1px solid #eee;padding-top:10px}.reviewFoot b{font-size:13px}.reviewFoot small{font-size:11px;color:#888}.reviewTag{display:inline-block;background:#111;color:#fff;font-size:10px;font-weight:800;padding:4px 8px;border-radius:999px;margin-top:8px}
-.reviewNav{display:flex;gap:8px;justify-content:center;margin-top:10px}.reviewNav button{width:38px;height:38px;border-radius:50%;border:1px solid #ddd;background:#fff;font-size:16px;cursor:pointer}
-.ticketCard{background:#fff;border:1px solid #eee;border-radius:14px;padding:14px;margin:10px 0}.ticketCard b{font-size:14px}.ticketCard p{font-size:12px;color:#555;line-height:1.6;margin-top:5px}.badge{display:inline-block;padding:4px 9px;border-radius:999px;font-size:10px;font-weight:900;color:#fff}.badge-open{background:#0071e3}.badge-progress{background:#111}.badge-done{background:#22c55e}.badge-urgent{background:#111}
+*{box-sizing:border-box;margin:0;padding:0;font-family:Arial,sans-serif}body{background:#f0f2f5;color:#111;padding:14px 14px 100px}
+h1{font-size:22px}h1 span{color:#0071e3}.sub{color:#666;font-size:13px;line-height:1.6;margin:6px 0 12px}
+.card{background:#fff;border:1px solid #eee;border-radius:14px;padding:14px;margin:10px 0}.card b{font-size:14px}.card p{font-size:12px;color:#555;line-height:1.6;margin-top:4px}
+label{font-size:12px;font-weight:800;display:block;margin:12px 0 6px}input,textarea,select{width:100%;padding:12px;border-radius:10px;border:1px solid #ddd;background:#fff;font-size:14px;color:#111}
+.btn{padding:11px 12px;border-radius:10px;font-weight:800;cursor:pointer;font-size:12px;border:none}.btn-red{background:#0071e3;color:#fff}.btn-green{background:#0071e3;color:#fff}.btn-black{background:#111;color:#fff}.btn-grey{background:#eee;color:#666}.btn-white{background:#fff;border:1px solid #ddd;color:#111}
 .tabBtn{flex:1;padding:11px;border-radius:10px;border:1px solid #ddd;background:#fff;font-weight:800;font-size:12px;cursor:pointer}.tabBtn.active{background:#0071e3;color:#fff;border-color:#0071e3}
+.badge{display:inline-block;padding:4px 9px;border-radius:999px;font-size:10px;font-weight:900;color:#fff}.badge-open{background:#0071e3}.badge-progress{background:#111}.badge-done{background:#22c55e}.badge-pending{background:#111}.badge-approved{background:#22c55e}
+.sellerBox{background:#f7f9fc;border:1px solid #eef1f5;border-radius:10px;padding:8px 10px;margin-top:8px;font-size:12px;line-height:1.6}.thumb{width:68px;height:68px;min-width:68px;border-radius:12px;background:#f0f0f0;display:flex;align-items:center;justify-content:center;font-size:32px;object-fit:cover}
+.topBar{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}.counts{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}.countBox{background:#fff;border:1px solid #eee;border-radius:12px;padding:10px 12px;flex:1;min-width:70px;text-align:center}.countBox b{font-size:18px;display:block}.countBox small{font-size:11px;color:#888}
+.preview{width:100%;border-radius:10px;margin-top:8px;display:none;max-height:150px;object-fit:cover}
+.hidden{display:none!important}
 </style></head><body>
 
-<div id="firstPage">
-<!-- TOP HERO - NO SUPPORT BUTTON HERE ANYMORE -->
-<div class="hero"><img src="https://i.ibb.co/6R09sfzS/background.png" class="heroImg"><div class="top"><a class="call" href="tel:0743627992">📞</a></div><div class="heroMid"></div><div class="heroBottom"><button class="btnBig btnRed" onclick="show('login')">Register Free → Get Cash</button><button class="btnBig btnBlack" onclick="show('how')">How It Works</button><button class="btnBig btnGold" onclick="show('shop')">🛍️ Items For Sale - Shop Now</button><button class="btnBig btnAuction" onclick="show('auction')">🔨 Auction My Pawn - Sell Before It Expires</button></div></div>
-
-<div class="section"><h2>Why People<br>Choose <span>Us</span></h2><div style="margin-top:16px"><div class="featRow"><div class="featIcon" style="background:#0071e3">💸</div><div><b>Up to R10,000 Instant</b><p>Fair price for your phone, laptop, TV or fridge.</p></div></div><div class="featRow"><div class="featIcon" style="background:#111">⚡</div><div><b>Paid in 10 Minutes</b><p>No waiting. Cash to your bank.</p></div></div><div class="featRow"><div class="featIcon" style="background:#0071e3">🔨</div><div><b>Sell Your Pawn Before It Expires</b><p>About to lose your item? Sell the debt, make 20% profit.</p></div></div><div class="featRow"><div class="featIcon" style="background:#111">🎫</div><div><b>Ticket System - No WhatsApp Needed</b><p>Don't like WhatsApp? Open a ticket, we reply here. Admin sees it.</p></div></div></div></div>
-
-<div class="reviewsBlock">
-<div class="reviewsHead"><h2>What Customers <span>Say</span> ⭐</h2><span class="scrollHint">← Swipe →</span></div>
-<p style="font-size:12px;color:#666;padding:6px 16px 0">Real people from Devland & Soweto. Scroll left to right.</p>
-<div class="reviewsWrap" id="reviewsWrap">
-<div class="reviewCard"><div class="stars">⭐⭐⭐⭐⭐</div><p>"I pawned my iPhone, got cash in 10 minutes. No stress, he explained everything. I bought it back the next week."</p><div class="reviewFoot"><div class="reviewAvatar">T</div><div><b>Thabo M.</b><br><small>Devland • Pawned iPhone</small></div></div><span class="reviewTag">PAWN</span></div>
-<div class="reviewCard"><div class="stars">⭐⭐⭐⭐⭐</div><p>"My pawn was about to expire at another shop. He helped me auction it. I got R200 back instead of losing everything."</p><div class="reviewFoot"><div class="reviewAvatar">N</div><div><b>Naledi K.</b><br><small>Soweto • Auction</small></div></div><span class="reviewTag">AUCTION</span></div>
-<div class="reviewCard"><div class="stars">⭐⭐⭐⭐⭐</div><p>"Bought a laptop here, very cheap and working perfectly. He even showed me how to check battery. Genuine guy."</p><div class="reviewFoot"><div class="reviewAvatar">S</div><div><b>Sipho D.</b><br><small>Devland • Bought Laptop</small></div></div><span class="reviewTag">SHOP</span></div>
-<div class="reviewCard"><div class="stars">⭐⭐⭐⭐⭐</div><p>"I was stranded mid-month. Pawned my TV, got money for groceries, bought it back when I got paid. Thank you!"</p><div class="reviewFoot"><div class="reviewAvatar">L</div><div><b>Lerato P.</b><br><small>Devland • Pawned TV</small></div></div><span class="reviewTag">PAWN</span></div>
-<div class="reviewCard"><div class="stars">⭐⭐⭐⭐⭐</div><p>"He builds computers from scratch. My PC is fast and cheap. He is honest, if something is wrong he tells you."</p><div class="reviewFoot"><div class="reviewAvatar">K</div><div><b>Kabelo R.</b><br><small>Johannesburg • PC Build</small></div></div><span class="reviewTag">PC BUILD</span></div>
-<div class="reviewCard"><div class="stars">⭐⭐⭐⭐⭐</div><p>"WhatsApp reply was fast. I sent photos, got offer, brought item, got paid. Simple and clean."</p><div class="reviewFoot"><div class="reviewAvatar">A</div><div><b>Ayanda S.</b><br><small>Soweto • Pawned Phone</small></div></div><span class="reviewTag">PAWN</span></div>
-</div>
-<div class="reviewNav"><button onclick="scrollReviews(-1)">←</button><button onclick="scrollReviews(1)">→</button></div>
-<p style="font-size:11px;color:#888;text-align:center;margin-top:8px">Had a good experience? WhatsApp us your review.</p>
-</div>
-
-<div class="ctaBox" style="background:#0071e3"><h3 style="color:#fff">🔨 Pawn About To Expire?</h3><p style="color:#e6f0ff">Don't lose it! Sell it now. Buyer buys your debt, you make 20% profit!</p><button class="btnBig" style="background:#fff;color:#111" onclick="show('auction')">Auction My Pawn →</button></div>
-
-<div class="ctaBox" style="background:#111"><h3 style="color:#fff">Ready to Get <span style="color:#fff">Paid?</span></h3><button class="btnBig" style="background:#0071e3;color:#fff;margin-top:14px" onclick="show('login')">Start Now →</button></div>
-
-<!-- FOOTER - SUPPORT STAYS HERE ONLY -->
-<div class="footer">
-<h3>FIRSTSTORE-SA</h3>
-<p>Your Trusted Tech Store • Devland, Soweto<br>129, 3137 Hydra Street, Devland, 1811<br>📞 074 362 7992 • 💬 WhatsApp Same Number</p>
-<div>
-<span class="fBtn" onclick="show('tickets')">🎫 My Tickets</span>
-<span class="fBtn" onclick="openAdminTickets()">🔐 Admin Tickets</span>
-<span class="fBtn" onclick="show('support')">🛟 Support</span>
-<span class="fBtn" onclick="show('faq')">❓ FAQ</span>
-<span class="fBtn" onclick="show('terms')">📜 Terms & Conditions</span>
-<span class="fBtn" onclick="show('privacy')">🔒 Privacy Policy</span>
-<span class="fBtn" onclick="show('about')">🏪 About Us</span>
-<span class="fBtn" onclick="show('contact')">📞 Contact Us</span>
-<span class="fBtn" onclick="show('how')">💡 How It Works</span>
-</div>
-<p style="margin-top:12px;color:#999">© 2026 FIRSTSTORE-SA. All rights reserved.<br>By using this site you agree to our Terms & Conditions.</p>
-</div>
-<div class="foot">FIRSTSTORE-SA • Your Trusted Tech Store</div></div>
-
-<!-- TICKETS - CUSTOMER -->
-<div id="tickets" class="page"><div style="text-align:right;cursor:pointer;font-size:20px" onclick="hide()">✕</div><h2>My <span>Tickets</span> 🎫</h2><p class="sub">Don't want WhatsApp? Open a ticket here. We will see it in Admin. No WhatsApp needed.</p>
-<div style="display:flex;gap:8px"><button class="tabBtn active" id="tabCreate" onclick="switchTicketTab('create')">➕ Create Ticket</button><button class="tabBtn" id="tabMy" onclick="switchTicketTab('my')">📋 My Tickets (<span id="myTicketCount">0</span>)</button></div>
-<div id="ticketCreateBox">
-<div class="legalBox">
-<label>Your Name *</label><input id="tickName" placeholder="e.g. Thabo Mokoena">
-<label>Your Phone *</label><input id="tickPhone" placeholder="074 362 7992">
-<label>What Is It About? *</label><select id="tickCat"><option value="Pawn - Get Cash">💸 Pawn - Get Cash</option><option value="Auction My Pawn">🔨 Auction My Pawn</option><option value="Buy An Item">🛍️ Buy An Item</option><option value="Verification / Register">🪪 Verification / Register</option><option value="Payment / Collection">💰 Payment / Collection</option><option value="Expired Pawn">⏰ Expired Pawn</option><option value="Support / Other">🛟 Support / Other</option></select>
-<label>How Urgent?</label><select id="tickUrgent"><option value="Normal">Normal - Reply within a day</option><option value="Urgent">Urgent - Today</option><option value="Very Urgent - Expiring">Very Urgent - Expiring Soon</option></select>
-<label>Describe Your Problem *</label><textarea id="tickMsg" rows="4" placeholder="e.g. I want to pawn my iPhone 13, I need R2000. My pawn at another shop expires tomorrow..."></textarea>
-<p style="font-size:11px;color:#888;margin-top:8px">We reply by phone / SMS / WhatsApp if you give us your number. Or check back here - Admin updates status.</p>
-<button class="btn btn-red" style="width:100%;margin-top:10px" onclick="createTicket()">🎫 Create My Ticket →</button>
-<button class="btn" style="width:100%;margin-top:8px;background:#fff;border:1px solid #0071e3;color:#111" onclick="openWA('Hi, I opened a ticket, please check')">💬 Or Use WhatsApp Instead</button>
+<div id="loginBox">
+<h1>Admin <span>Login</span> 🔐</h1>
+<p class="sub">FIRSTSTORE-SA • Only owner / staff<br>129 Hydra St, Devland • 074 362 7992</p>
+<div class="card">
+<label>Admin PIN</label><input id="pinInput" type="password" placeholder="Enter PIN - default 1234" inputmode="numeric">
+<button class="btn btn-red" style="width:100%;margin-top:12px;padding:13px" onclick="loginAdmin()">🔓 Login →</button>
+<p style="font-size:11px;color:#888;margin-top:10px;text-align:center">Default PIN: <b>1234</b> — Change in code: search for <b>ADMIN_PIN</b></p>
+<button class="btn btn-white" style="width:100%;margin-top:8px" onclick="location.href='index.html'">← Back To Site</button>
 </div>
 </div>
-<div id="ticketMyBox" style="display:none">
-<div id="myTicketsList"></div>
-<button class="btn" style="width:100%;background:#fff;border:1px solid #ddd;color:#111" onclick="switchTicketTab('create')">➕ Create Another Ticket</button>
+
+<div id="adminBox" class="hidden">
+<div class="topBar"><div><h1>FIRSTSTORE <span>Admin</span></h1><p class="sub" style="margin:0">Welcome back, Boss 👋</p></div><button class="btn btn-white" onclick="logoutAdmin()">Logout</button></div>
+
+<div class="counts">
+<div class="countBox"><b id="cShop">0</b><small>🛍️ Shop</small></div>
+<div class="countBox"><b id="cAuction">0</b><small>🔨 Auction</small></div>
+<div class="countBox"><b id="cTickets">0</b><small>🎫 Tickets</small></div>
+<div class="countBox"><b id="cClients">0</b><small>👥 Clients</small></div>
 </div>
-<div class="close" onclick="hide()">← Back to Home</div></div>
 
-<!-- ADMIN TICKETS -->
-<div id="adminTickets" class="page"><div style="text-align:right;cursor:pointer;font-size:20px" onclick="hide()">✕</div><h2>Admin <span>Tickets</span> 🔐</h2><p class="sub">Only for FIRSTSTORE-SA owner / staff. All customer tickets, no WhatsApp needed.</p>
-<div style="display:flex;gap:8px;margin-bottom:10px;flex-wrap:wrap"><button class="btn btn-red" onclick="filterAdminTickets('all')">All (<span id="adminAllCount">0</span>)</button><button class="btn" style="background:#fff;color:#111;border:1px solid #ddd" onclick="filterAdminTickets('Open')">Open</button><button class="btn" style="background:#fff;color:#111;border:1px solid #ddd" onclick="filterAdminTickets('In Progress')">In Progress</button><button class="btn" style="background:#fff;color:#111;border:1px solid #ddd" onclick="filterAdminTickets('Done')">Done</button></div>
-<div id="adminTicketsList"></div>
-<div class="legalBox"><p style="font-size:12px"><b>Admin PIN:</b> 1234 - Change it in code: search for <b>ADMIN_PIN</b> in the script.<br><b>Tip:</b> Tickets are saved on this device / browser. If you open site on another phone, tickets won't show. For multi-device, tell me and I will connect it to a real database.</p></div>
-<div class="close" onclick="hide()">← Back to Home</div></div>
-
-<!-- SUPPORT -->
-<div id="support" class="page"><div style="text-align:right;cursor:pointer;font-size:20px" onclick="hide()">✕</div><h2>Support <span>Centre</span> 🛟</h2><p class="sub">Stuck? Don't stress. Pick your problem below, or open a ticket - no WhatsApp needed.</p>
-<div class="supportCard" style="background:#0071e3;border-color:#0071e3;text-align:center"><b style="color:#fff;font-size:16px">Need Help Right Now?</b><p style="color:#e6f0ff">Mon - Sat: 08:00 - 18:00 • Sun: 09:00 - 14:00</p><button class="btn" style="background:#fff;color:#111;width:100%;margin-top:10px" onclick="show('tickets')">🎫 Open A Ticket (No WhatsApp)</button><button class="btn" style="background:#111;color:#fff;width:100%;margin-top:8px" onclick="openWA('Hi FIRSTSTORE-SA, I need SUPPORT')">💬 WhatsApp Support</button><a href="tel:0743627992" style="display:block;margin-top:10px;font-weight:800;color:#fff;text-decoration:none">📞 Call 074 362 7992</a></div>
-<div class="supportCard"><b>1. 📝 I can't register / create account</b><p>Fill in: Full Name, Phone, Email, Home Address. Or open a Ticket and we will register you manually.</p><button class="btn btn-red" style="width:100%;margin-top:8px" onclick="show('tickets')">Open Ticket →</button></div>
-<div class="supportCard"><b>2. 🪪 Verification - ID / Selfie / Proof of Address</b><p>You need 3 photos: ID, YOU holding ID, Proof of Address. If it says Waiting for Approval, that is normal.</p><button class="btn btn-red" style="width:100%;margin-top:8px" onclick="show('tickets')">Open Ticket →</button></div>
-<div class="supportCard"><b>3. 💸 Pawn - Where is my offer?</b><p>Offers take 5-10 mins on WhatsApp during hours. Or open a Ticket with Name + Item + Amount.</p><button class="btn btn-red" style="width:100%;margin-top:8px" onclick="show('tickets')">Open Ticket →</button></div>
-<div class="supportCard"><b>4. 🔨 Auction - My pawn is about to expire!</b><p>Go to Auction My Pawn, or open an Urgent Ticket. Sooner = better chance to sell.</p><button class="btn btn-red" style="width:100%;margin-top:8px" onclick="show('tickets')">Urgent Ticket →</button></div>
-<label>Or Describe Your Problem</label><textarea id="supportMsg" rows="3" placeholder="e.g. I registered but I am stuck on verification..."></textarea>
-<button class="btn btn-green" style="width:100%;margin-top:10px" onclick="sendSupportTicket()">🎫 Send As Ticket (No WhatsApp) →</button>
-<button class="btn" style="width:100%;margin-top:8px;background:#fff;border:1px solid #0071e3;color:#111" onclick="sendSupport()">💬 Send On WhatsApp Instead</button>
-<div class="close" onclick="hide()">← Back to Home</div></div>
-
-<!-- FAQ -->
-<div id="faq" class="page"><div style="text-align:right;cursor:pointer;font-size:20px" onclick="hide()">✕</div><h2>Frequently Asked <span>Questions</span> ❓</h2><p class="sub">Tap a question - all answers are here. Still stuck? Open a ticket.</p>
-<div class="faqItem"><b>1. What is FIRSTSTORE-SA?</b><p>A small local shop in Devland, Soweto. We help you get fast cash by pawning your phone, laptop, TV, fridge or other items. We also sell tested second-hand items and help you sell a pawn before it expires.</p></div>
-<div class="faqItem"><b>2. How fast do I get paid?</b><p>Register in 10 seconds, verify with 3 photos, send item photo. We reply on WhatsApp in 5-10 minutes with an offer. If you accept, bring the item or arrange delivery and get paid.</p></div>
-<div class="faqItem"><b>3. What do I need to pawn?</b><p>1. SA ID or Passport. 2. Selfie holding your ID. 3. Proof of address. 4. The item must be yours, working, and not stolen. 5. Item photo.</p></div>
-<div class="faqItem"><b>4. How much can I get?</b><p>Up to R10,000 depending on item, condition, model and market value. Final offer is given after we see the item in person.</p></div>
-<div class="faqItem"><b>5. Do I have to use WhatsApp?</b><p>No. You can use our Ticket System. Open a ticket, we see it in Admin, we reply by phone / SMS. WhatsApp is just faster if you have it.</p></div>
-<div class="faqItem"><b>6. What if my pawn expires?</b><p>If it expires and you did not collect or auction it, you lose the item. We cannot hold it after expiry. That is why we show a LIVE countdown on auctions.</p></div>
-<div class="faqItem"><b>7. What is Auction My Pawn?</b><p>If your pawn is about to expire, you can sell it while it is still pawned. A buyer buys your debt - they pay the release amount, you keep 20% profit. Example: Release R1,000 → Sell R1,200 → You keep R200.</p></div>
-<button class="btn btn-green" style="width:100%" onclick="show('tickets')">🎫 Open A Ticket</button>
-<div class="close" onclick="hide()">← Back to Home</div></div>
-
-<!-- TERMS -->
-<div id="terms" class="page"><div style="text-align:right;cursor:pointer;font-size:20px" onclick="hide()">✕</div><h2>Terms & <span>Conditions</span> 📜</h2><p class="sub">Last updated: 21 November 2026 • FIRSTSTORE-SA • 129, 3137 Hydra Street, Devland, 1811 • 074 362 7992</p>
-<div class="legalBox">
-<div style="background:#f7f9fc;border:1px solid #ddd;border-radius:10px;padding:12px"><b>⚠️ IMPORTANT DISCLOSURE - PLEASE READ:</b><p>FIRSTSTORE-SA is a small, local, growing business based in Devland, Soweto. We are currently in the process of acquiring the correct operating paperwork, licences and registrations required to operate as a fully licensed pawn shop / second-hand dealer in South Africa, including under the National Credit Act, Second-Hand Goods Act, and other applicable laws.</p><p><b>Until that paperwork is complete, we operate as a small buy-and-sell / pawn assistance service.</b> By using our services you understand this status.</p></div>
-<h3>1. Who Can Use Us</h3><ul><li>You must be 18 years or older.</li><li>You must have a valid SA ID, Passport or Asylum / Permit document.</li><li>You must be the legal owner of the item.</li></ul>
-<h3>2. Ticket System</h3><p>If you don't want WhatsApp, you can use Tickets. Tickets are stored on the device / browser. Give correct phone number so we can contact you. We aim to reply within 1 working day, urgent tickets same day.</p>
-<h3>3. Pawn Period, Storage & Expiry</h3><ul><li>Your pawn period and expiry date/time will be given on WhatsApp / ticket. Keep it safe.</li><li>You must collect / settle BEFORE expiry.</li><li>If you do NOT collect before expiry, you lose the item.</li></ul>
-<h3>4. Auction My Pawn - 20% Rule</h3><p>Release + 20% only. Example: Release R1,000 → Sell R1,200 → You keep R200.</p>
-<p style="margin-top:10px"><b>By registering, pawning, buying or auctioning with us, you confirm you have read and agree to these Terms.</b></p>
+<div style="display:flex;gap:8px;flex-wrap:wrap">
+<button class="tabBtn active" id="tab-shop" onclick="switchTab('shop')">🛍️ Shop</button>
+<button class="tabBtn" id="tab-auction" onclick="switchTab('auction')">🔨 Auction</button>
+<button class="tabBtn" id="tab-tickets" onclick="switchTab('tickets')">🎫 Tickets</button>
+<button class="tabBtn" id="tab-clients" onclick="switchTab('clients')">👥 Clients</button>
 </div>
-<div class="close" onclick="hide()">← Back to Home</div></div>
 
-<!-- PRIVACY -->
-<div id="privacy" class="page"><div style="text-align:right;cursor:pointer;font-size:20px" onclick="hide()">✕</div><h2>Privacy <span>Policy</span> 🔒</h2><p class="sub">How we handle your personal info - POPIA friendly, plain language.</p>
-<div class="legalBox"><h3>What We Collect</h3><p>Name, phone, email, address, ID photo, selfie with ID, proof of address, item photos, tickets and WhatsApp messages.</p><h3>Who Sees It</h3><p>Only FIRSTSTORE-SA staff. We do NOT sell your data. Tickets are only visible to Admin on this device.</p><h3>Your Rights</h3><p>You can ask: What info do you have about me? Please correct / delete it. WhatsApp us on 074 362 7992 or open a ticket.</p></div>
-<div class="close" onclick="hide()">← Back to Home</div></div>
+<!-- ============ SHOP ============ -->
+<div id="panel-shop">
+<div class="card" style="border:1px dashed #0071e3">
+<h3 id="shopFormTitle">➕ Add New Item For Sale</h3>
+<label>Item Name *</label><input id="sName" placeholder="e.g. iPhone 13 128GB - Mint">
+<label>Category *</label><select id="sCat"><option value="phone">📱 Phone</option><option value="laptop">💻 Laptop</option><option value="tv">📺 TV</option><option value="home">🏠 Home / Fridge / Appliance</option><option value="other">••• Other</option></select>
+<label>Price * (e.g. R4,500)</label><input id="sPrice" placeholder="R4,500">
+<label>Old Price (optional - for discount, e.g. R5,500)</label><input id="sOld" placeholder="Leave empty if no discount">
+<label>Description</label><textarea id="sDesc" rows="2" placeholder="e.g. Battery 89% • No scratches • With charger"></textarea>
+<label>Emoji (if no photo)</label><input id="sEmoji" placeholder="📱 💻 📺 🧊" value="📱">
+<label>Photo - Paste Image Link (optional)</label><input id="sImage" placeholder="https://... or leave empty to use Emoji">
+<label>👤 Seller *</label>
+<select id="sSellerSelect" onchange="sellerSelectChanged()">
+<option value="FIRSTSTORE-SA">FIRSTSTORE-SA - Our Own Stock</option>
+<option value="CUSTOM">✏️ Type Custom Seller... (Helping Someone Sell)</option>
+</select>
+<input id="sSellerCustom" class="hidden" placeholder="e.g. Thabo M. - Devland" style="margin-top:8px">
+<p style="font-size:11px;color:#888;margin-top:6px">If you are helping someone sell, choose Custom and type their name.</p>
 
-<!-- ABOUT -->
-<div id="about" class="page"><div style="text-align:right;cursor:pointer;font-size:20px" onclick="hide()">✕</div><h2>About <span>Us</span> 🏪</h2><p class="sub">The real story behind FIRSTSTORE-SA.</p>
-<div class="legalBox"><p><b>Hi, I'm the owner of FIRSTSTORE-SA.</b><br>I'm a 34-year-old guy from Devland, Gauteng, Johannesburg. I'm a gamer. I love gadgets - always have.</p><p>I saw the gap: gadgets cost so much, and ordinary people just can't afford them. So I started doing what I love - buying from those who are selling, and selling at a very cheap price to those who need gadgets.</p><p><b>Why pawn? Because I know the pain.</b><br>I have lost a lot of things in pawn myself. People pawn with good intention - they think they are going to get the money, buy the item back, but then they don't get the money in time, and they lose the item.</p><p>That's why I introduced <b>Auction Your Pawn</b> - so if you are about to lose something of good value, you can auction it and get something better for yourself.</p><p><b>What I do:</b><br>✅ Search internet, Facebook Marketplace for items to resell<br>✅ Build computers from scratch<br>✅ Refurbish furniture and appliances, then resell<br>✅ Buy phones, laptops, TVs, fridges - test, fix, sell cheap</p><p><b>Why I started this:</b><br>I have tried a lot of businesses. I only did this one because I genuinely want to help people who are struggling, who are stranded financially during the month, to get access to cash by letting me hold some of their things - and then buy it back when they have room to breathe.</p><p><b>Visit Us:</b><br>129, 3137 Hydra Street, Devland, 1811<br>📞 074 362 7992</p></div>
-<button class="btn btn-green" style="width:100%" onclick="openWA('Hi, I read your story, I want to pawn / buy')">💬 Talk To Me On WhatsApp</button>
-<div class="close" onclick="hide()">← Back to Home</div></div>
+<label>📦 Source *</label>
+<select id="sSourceSelect" onchange="sourceSelectChanged()">
+<option value="Our Stock - FIRSTSTORE-SA">Our Stock - FIRSTSTORE-SA</option>
+<option value="Helping Customer Sell">Helping Customer Sell</option>
+<option value="Helping Customer Sell - Facebook Marketplace">Helping Customer Sell - Facebook Marketplace</option>
+<option value="Helping Customer Sell - Pawn Expired">Helping Customer Sell - Pawn Expired</option>
+<option value="Refurbished by Us">Refurbished by Us</option>
+<option value="CUSTOM">✏️ Type Custom Source...</option>
+</select>
+<input id="sSourceCustom" class="hidden" placeholder="e.g. Helping Customer Sell - Yaga" style="margin-top:8px">
 
-<!-- CONTACT -->
-<div id="contact" class="page"><div style="text-align:right;cursor:pointer;font-size:20px" onclick="hide()">✕</div><h2>Contact <span>Us</span> 📞</h2><p class="sub">We reply fastest on WhatsApp, or open a Ticket.</p>
-<div class="legalBox"><p><b>📍 Address:</b><br>129, 3137 Hydra Street, Devland, 1811<br>Soweto, Gauteng</p><p><b>📞 Phone / WhatsApp:</b><br>074 362 7992</p><p><b>🕒 Hours:</b><br>Mon - Sat: 08:00 - 18:00<br>Sun: 09:00 - 14:00</p></div>
-<button class="btn btn-green" style="width:100%" onclick="show('tickets')">🎫 Open A Ticket (No WhatsApp)</button>
-<button class="btn" style="width:100%;margin-top:8px;background:#fff;border:1px solid #0071e3;color:#111" onclick="openWA('Hi FIRSTSTORE-SA, I want to contact you')">💬 WhatsApp Us Now</button>
-<div class="close" onclick="hide()">← Back to Home</div></div>
+<label>In Stock?</label><select id="sStock"><option value="true">✅ In Stock - Show Buy Now</option><option value="false">❌ Sold Out</option></select>
+<button class="btn btn-red" style="width:100%;margin-top:12px;padding:13px" id="shopSaveBtn" onclick="saveShopItem()">✅ Save Item →</button>
+<button class="btn btn-white hidden" style="width:100%;margin-top:8px" id="shopCancelBtn" onclick="cancelEditShop()">Cancel Edit</button>
+<p style="font-size:11px;color:#888;margin-top:8px;text-align:center">This saves to <b>fs_shop</b> — same list customers see in Shop.</p>
+</div>
 
-<!-- AUCTION -->
-<div id="auction" class="page">
-<div style="text-align:right;cursor:pointer;font-size:20px" onclick="hide()">✕</div>
-<div class="logoSmall"><svg viewBox="0 0 100 80"><polygon points="50,2 88,22 50,42 12,22" fill="#0071e3"/><polygon points="12,22 50,42 50,78 12,58" fill="#005bb5"/><polygon points="88,22 50,42 50,78 88,58" fill="#3390e8"/></svg><div><b style="font-size:19px">FIRSTSTORE<span style="color:#0071e3">-SA</span></b></div></div>
-<h2>Live <span style="color:#0071e3">Auction</span> 🔨</h2><p class="sub">Pawned items about to expire. Buy the debt, get the item! Watch countdown — when it hits 0, item is gone!</p>
-<div style="background:#f7f9fc;border:1px solid #ddd;border-radius:12px;padding:12px;margin-bottom:12px;text-align:center"><b style="color:#111">⏰ LIVE COUNTDOWN ON EVERY ITEM</b><p style="font-size:12px;color:#666;margin-top:4px">Each item shows its own expiry countdown.</p><div id="nextExpiry" style="font-size:12px;color:#0071e3;font-weight:800;margin-top:6px"></div></div>
+<div style="display:flex;gap:8px;flex-wrap:wrap;margin:10px 0"><button class="btn btn-red" onclick="filterShopAdmin('all')">All</button><button class="btn btn-white" onclick="filterShopAdmin('phone')">📱 Phones</button><button class="btn btn-white" onclick="filterShopAdmin('laptop')">💻 Laptops</button><button class="btn btn-white" onclick="filterShopAdmin('tv')">📺 TVs</button><button class="btn btn-white" onclick="filterShopAdmin('home')">🏠 Home</button><button class="btn btn-white" onclick="clearShopDemo()">🗑 Clear Demo Items</button></div>
+<div id="shopList"></div>
+</div>
+
+<!-- ============ AUCTION ============ -->
+<div id="panel-auction" class="hidden">
+<div class="card" style="border:1px dashed #0071e3">
+<h3>➕ Add Auction Item</h3>
+<label>Item Name *</label><input id="aName" placeholder="e.g. iPhone 13 - Pawn About To Expire">
+<label>Description</label><textarea id="aDesc" rows="2" placeholder="e.g. Owner: Thabo • Release R1000 • Expires Friday"></textarea>
+<label>To Release (e.g. R1,000)</label><input id="aStart" placeholder="R1,000">
+<label>Buy Debt For / Current (e.g. R1,200)</label><input id="aCurrent" placeholder="R1,200">
+<label>Expiry Date + Time *</label><input id="aExpiryDate" type="date"><input id="aExpiryTime" type="time" value="18:00" style="margin-top:8px">
+<label>Emoji</label><input id="aEmoji" value="📱">
+<label>Photo Link (optional)</label><input id="aImage" placeholder="https://...">
+<button class="btn btn-red" style="width:100%;margin-top:12px;padding:13px" onclick="saveAuctionItem()">✅ Add Auction →</button>
+</div>
 <div id="auctionList"></div>
-<div style="background:#fff;border-radius:14px;padding:14px;margin-top:12px;border:1px dashed #0071e3">
-<h3>Auction YOUR Pawn Before It Expires! 🔨</h3>
-<div class="explainBox"><b style="color:#0071e3">💡 HOW IT WORKS:</b><br><span style="font-size:12px;line-height:1.7;color:#111"><b>We BUY your pawned item if it is about to expire.</b> We do NOT release then auction. You put it up WHILE it is still pawned. Someone BUYS YOUR DEBT - they pay to release it, you make <b>20% profit</b>.<br><br><b>Example:</b> Release = <b>R1,000</b> → Sell <b>R1,200</b> → Buyer pays R1,200, R1,000 releases item, <b>You keep R200 ✅</b> Buyer gets iPhone ✅</span></div>
-<p style="font-size:12px;line-height:1.7"><b style="color:#111">You can sell what you pawned WITH US or WITH ANOTHER SHOP!</b></p>
-<div class="reqBox"><b>📋 REQUIREMENTS:</b><br><span style="font-size:12px;line-height:1.9;color:#111">1. 📷 <b>Item Picture</b> - If possible<br>2. 🧾 <b>Pawn Page / Ticket</b><br>3. 💰 <b>How Much To Release It?</b><br>4. 📅 <b>When Does It Expire?</b> - Date + Time<br>5. 💸 <b>Selling Amount</b> - Release + 20% only</span></div>
-<label>Your Name *</label><input id="aucName" placeholder="e.g. Thabo Mokoena">
-<label>Where Did You Pawn It? *</label><select id="aucWhere"><option value="With FIRSTSTORE-SA">With FIRSTSTORE-SA</option><option value="With Another Shop">With ANOTHER Shop</option></select>
-<label>Which Shop Is Holding It? (If Another Shop)</label><input id="aucShopName" placeholder="e.g. Cash Crusaders, Devland">
-<label>What Item? *</label><input id="aucItem" placeholder="e.g. iPhone 13">
-<label>1. 📷 Item Picture - If Possible</label><div style="border:1px dashed #0071e3;border-radius:12px;padding:12px;background:#f7f9fc;text-align:center"><label class="uploadBtn purple" for="aucItemPic">📷 UPLOAD ITEM PICTURE</label><input type="file" id="aucItemPic" class="hideFile" accept="image/*" onchange="previewAucPic(this,'aucItemPreview','aucItemTick')"><img id="aucItemPreview" class="preview"><p id="aucItemTick" style="display:none;color:#0071e3;font-weight:900;margin-top:8px">✅ Item Picture Uploaded</p></div>
-<label>2. 🧾 Pawn Page / Ticket *</label><div style="border:1px dashed #111;border-radius:12px;padding:12px;text-align:center"><label class="uploadBtn" style="background:#111;color:#fff" for="aucPawnPage">🧾 UPLOAD PAWN PAGE / TICKET</label><input type="file" id="aucPawnPage" class="hideFile" accept="image/*" onchange="previewAucPic(this,'aucPawnPreview','aucPawnTick')"><img id="aucPawnPreview" class="preview"><p id="aucPawnTick" style="display:none;color:#0071e3;font-weight:900;margin-top:8px">✅ Pawn Page Uploaded</p></div>
-<label>3. 💰 How Much To Release It Before It Expires? *</label><input id="aucPawnPrice" type="number" placeholder="e.g. 1000" oninput="calcSelling()"><p style="font-size:11px;color:#888;margin-top:5px">Amount buyer must pay pawn shop to RELEASE your item. On your ticket: Release Amount.</p>
-<label>4. 📅 When Does It Expire? *</label><input id="aucExpiry" type="date"><label style="margin-top:10px">⏰ What Time Does It Expire?</label><input id="aucExpiryTime" type="time" value="18:00"><p style="font-size:11px;color:#888;margin-top:5px">Expiry on your ticket. Item will show LIVE COUNTDOWN.</p><div id="expiryPreview" style="background:#f7f9fc;border:1px solid #ddd;border-radius:10px;padding:10px;margin-top:8px;font-size:12px;line-height:1.6;display:none"></div>
-<label>5. 💸 Your Selling Amount * - Release + 20%</label><input id="aucPrice" type="number" placeholder="e.g. 1200" oninput="checkSellingPrice()"><div id="sellingHint" style="border-radius:10px;padding:10px;margin-top:8px;font-size:12px;line-height:1.6;display:none"></div>
-<div style="background:#f7f9fc;border:1px solid #ddd;border-radius:10px;padding:10px;margin-top:8px;font-size:12px;line-height:1.6;color:#111"><b>⚠️ NOTE:</b> Higher amount will struggle to find buyer. Add only <b>20%</b>.<br>Release R1,000 → Sell <b>R1,200</b> ✅ You make R200<br>Release R1,000 → Sell R1,500 ❌ Too high - Item expires & you lose everything.</div>
-<button class="btn btn-purple" style="width:100%;margin-top:12px" onclick="auctionMyPawn()">🔨 Auction My Pawn Before It Expires →</button>
-<p style="font-size:11px;color:#888;text-align:center;margin-top:8px">After you tap, WhatsApp opens. Please SEND the 2 photos in WhatsApp too. Or open a Ticket.</p></div>
-<div class="close" onclick="hide()">← Back to Home</div></div>
+</div>
 
-<!-- SHOP -->
-<div id="shop" class="page"><div style="text-align:right;cursor:pointer;font-size:20px" onclick="hide()">✕</div><h2>Items <span>For Sale</span> 🛍️</h2><p class="sub">Tested ✅ Working ✅ Guarantee.</p><div style="display:flex;gap:8px;margin-bottom:10px;flex-wrap:wrap"><button class="btn btn-red" onclick="filterShop('all')">All</button><button class="btn" style="background:#fff;color:#111;border:1px solid #ddd" onclick="filterShop('phone')">📱 Phones</button><button class="btn" style="background:#fff;color:#111;border:1px solid #ddd" onclick="filterShop('laptop')">💻 Laptops</button><button class="btn" style="background:#fff;color:#111;border:1px solid #ddd" onclick="filterShop('tv')">📺 TVs</button><button class="btn" style="background:#fff;color:#111;border:1px solid #ddd" onclick="filterShop('home')">🏠 Home</button></div><div id="shopList"></div><div class="close" onclick="hide()">← Back to Home</div></div>
+<!-- ============ TICKETS ============ -->
+<div id="panel-tickets" class="hidden">
+<div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px"><button class="btn btn-red" onclick="filterTicketsAdmin('all')">All</button><button class="btn btn-white" onclick="filterTicketsAdmin('Open')">Open</button><button class="btn btn-white" onclick="filterTicketsAdmin('In Progress')">In Progress</button><button class="btn btn-white" onclick="filterTicketsAdmin('Done')">Done</button></div>
+<div id="ticketList"></div>
+</div>
 
-<!-- HOW -->
-<div id="how" class="page"><div style="text-align:right;cursor:pointer;font-size:20px" onclick="hide()">✕</div><h2>How It <span>Works</span></h2><p class="sub">Pawn • Buy • Auction • Tickets.</p>
-<div class="howSection"><h3 style="color:#0071e3">💸 1. PAWN - Get Cash Fast</h3><div class="step"><div class="num">1</div><div><b>Register</b><p>Name, phone, email, address. 10 seconds.</p></div></div><div class="step"><div class="num">2</div><div><b>Verify</b><p>ID + Selfie with ID + Proof of Address.</p></div></div><div class="step"><div class="num">3</div><div><b>Photo Of Item</b><p>Phone, laptop, TV, fridge.</p></div></div><div class="step"><div class="num">4</div><div><b>Choose Amount</b><p>Instant estimate.</p></div></div><div class="step"><div class="num">5</div><div><b>Wait For Offer</b><p>5-10 mins on WhatsApp or Ticket.</p></div></div><div class="step" style="border:none"><div class="num">6</div><div><b>Bring Item & Collect Money</b><p>129 Hydra St, Devland or delivery.</p></div></div><button class="btn btn-red" style="width:100%" onclick="show('login')">Pawn Now →</button></div>
-<div class="howSection"><h3 style="color:#111">🎫 2. TICKETS - No WhatsApp Needed</h3><p style="font-size:12px;color:#666;line-height:1.7">Open a ticket, Admin sees it, updates status. Check back here for reply.</p><button class="btn btn-gold" style="width:100%" onclick="show('tickets')">Open Ticket →</button></div>
-<div class="howSection"><h3 style="color:#0071e3">🔨 3. AUCTION MY PAWN - Sell Before It Expires</h3><p style="font-size:12px;color:#666;line-height:1.7">Someone BUYS YOUR DEBT. You make <b>20% profit</b>. Every item shows <b>LIVE COUNTDOWN</b>.</p><button class="btn btn-purple" style="width:100%" onclick="show('auction')">Auction My Pawn →</button></div>
-<div class="close" onclick="hide()">← Back</div></div>
+<!-- ============ CLIENTS ============ -->
+<div id="panel-clients" class="hidden">
+<p class="sub">People who registered on site. Approve them so they can pawn.</p>
+<div id="clientList"></div>
+</div>
 
-<!-- LOGIN -->
-<div id="login" class="page"><div style="text-align:right;cursor:pointer;font-size:20px" onclick="hide()">✕</div><h2>Welcome!<br><span>Let's Get You Paid.</span></h2><p class="sub">Create free account. 10 seconds. Sent for approval.</p><label>Full Name *</label><input id="regName" placeholder="e.g. Thabo Mokoena"><label>Phone *</label><input id="regPhone" placeholder="074 362 7992"><label>Email *</label><input id="regEmail" placeholder="thabo@gmail.com"><label>Home Address *</label><textarea id="regAddress" rows="2" placeholder="129 Hydra Street, Devland"></textarea><button class="btn btn-red" style="width:100%;margin-top:14px" onclick="registerNow()">Create My Account →</button><button class="btn" style="width:100%;margin-top:8px;background:#fff;border:1px solid #0071e3;color:#111" onclick="show('tickets')">🎫 Or Open A Ticket Instead</button><div class="close" onclick="hide()">← Back</div></div>
-
-<!-- LANDING -->
-<div id="landing" class="page"><div class="welcome"><h3>Welcome, <span id="welcomeName">Friend</span> 👋</h3><p id="welcomeStatus">⏳ Waiting for Approval</p></div><h2 style="font-size:19px">Verify <span>Yourself</span></h2><p class="sub">3 photos to protect you.</p><div class="verifyBox"><p style="font-size:12px;line-height:1.6;color:#111"><b>🔒 Why?</b> So nobody can pawn YOUR item pretending to be you.</p><div style="height:8px;background:#eee;border-radius:99px;margin-top:10px;overflow:hidden"><div id="verifyBar" style="height:100%;width:0%;background:#0071e3"></div></div><p id="verifyText" style="font-size:11px;color:#888;margin-top:5px">0 / 3 Verified</p></div>
-<div class="vCard" id="card1"><div class="vTop"><div class="vNum">1</div><div><b>Upload Your ID</b></div><div class="vTick">✅</div></div><label class="uploadBtn" id="btn1" for="file1">📷 TAKE PHOTO OF ID</label><input type="file" id="file1" class="hideFile" accept="image/*" onchange="doneVerify(1,this)"><img id="prev1" class="preview"></div>
-<div class="vCard" id="card2"><div class="vTop"><div class="vNum">2</div><div><b>YOU Holding ID</b></div><div class="vTick">✅</div></div><label class="uploadBtn" id="btn2" for="file2">🤳 SELFIE WITH ID</label><input type="file" id="file2" class="hideFile" accept="image/*" onchange="doneVerify(2,this)"><img id="prev2" class="preview"></div>
-<div class="vCard" id="card3"><div class="vTop"><div class="vNum">3</div><div><b>Proof of Address</b></div><div class="vTick">✅</div></div><label class="uploadBtn" id="btn3" for="file3">📄 UPLOAD PROOF</label><input type="file" id="file3" class="hideFile" accept="image/*,.pdf" onchange="doneVerify(3,this)"><img id="prev3" class="preview"></div>
-<button class="btn btn-grey" id="verifyBtn" style="width:100%;margin-top:12px" onclick="goPawn()">⏳ Complete Verification First (0/3)</button></div>
-
-<!-- PAWN -->
-<div id="pawn" class="page"><div style="text-align:right;cursor:pointer;font-size:20px" onclick="show('landing')">✕</div><h2>Pawn Now. <span>Get Paid in 10 Mins.</span></h2><p class="sub">Welcome <span id="pawnWelcome">Friend</span> ✅</p><label>What Are You Pawning?</label><div class="opt"><div class="active" onclick="sel(this)">📱 Phone</div><div onclick="sel(this)">💻 Laptop</div><div onclick="sel(this)">📺 TV</div><div onclick="sel(this)">🧊 Fridge</div><div onclick="sel(this)">🧺 Washing</div><div onclick="sel(this)">••• Other</div></div><label>Item Details</label><input id="pawnModel" placeholder="e.g. iPhone 13"><label>Condition</label><div class="opt"><div class="active" onclick="sel(this)">Excellent</div><div onclick="sel(this)">Good</div><div onclick="sel(this)">Fair</div></div><label>Photo of Item</label><input type="file" accept="image/*" onchange="previewItem(this)"><img id="itemPreview" class="preview" style="display:block"><label>Amount You Want (R)</label><input id="pawnAmount" type="number" placeholder="e.g. 3000"><div style="background:#fff;border:1px solid #0071e3;border-radius:12px;padding:12px;margin-top:10px">🏷️ <b>Estimated: R2,500 - R3,500</b></div><label>How To Finish?</label><div class="opt"><div class="active" onclick="sel(this)">🏃 Bring Item</div><div onclick="sel(this)">🚚 Delivery</div></div><label>Collection Address</label><textarea id="pawnAddr" rows="2"></textarea><button class="btn btn-green" style="width:100%;margin-top:12px" onclick="goOffer()">✅ GET MY OFFER ON WHATSAPP</button><button class="btn" style="width:100%;margin-top:8px;background:#fff;border:1px solid #0071e3;color:#111" onclick="goOfferTicket()">🎫 Or Send As Ticket (No WhatsApp)</button><div class="close" onclick="show('landing')">← Back</div></div>
-
-<!-- STATUS -->
-<div id="status" class="page"><div style="text-align:right;cursor:pointer;font-size:20px" onclick="hide()">✕</div><h2>We Got It! <span>Waiting For Offer.</span></h2><div style="background:#fff;border-radius:14px;padding:14px;border:1px solid #eee;text-align:center"><div style="font-size:32px">⏰</div><p style="font-weight:800;margin:6px 0">Processing your offer...</p><p style="line-height:1.9;font-size:12px;text-align:left">✅ Registered<br>✅ Verified<br>✅ Photo received<br>🔄 Expert reviewing...<br>⚪ Final offer - Waiting</p><button class="btn btn-green" style="width:100%;margin-top:10px" onclick="show('tickets')">🎫 Check My Tickets</button><button class="btn" style="width:100%;margin-top:8px;background:#fff;border:1px solid #0071e3;color:#111" onclick="openWA('Hi, checking my pawn status')">💬 Chat on WhatsApp</button></div><div class="close" onclick="hide()">← Back to Home</div></div>
-
-<div class="wa" onclick="show('tickets')">🎫</div>
-<div class="nav" id="bottomNav" style="display:none"><div onclick="hide()">🏠<br>Home</div><div onclick="show('shop')">🛍️<br>Shop</div><div class="plus" onclick="show('pawn')">+</div><div onclick="show('auction')">🔨<br>Auction</div><div onclick="show('tickets')">🎫<br>Tickets</div></div>
+<button class="btn btn-white" style="width:100%;margin-top:14px" onclick="location.href='index.html'">← Back To Site</button>
+<p style="text-align:center;font-size:11px;color:#999;margin-top:10px">FIRSTSTORE-SA Admin • Data saved on this device / browser (localStorage)</p>
+</div>
 
 <script>
 const ADMIN_PIN='1234';
-let verifyCount=0,verifySet={},currentClientId=null,shopFilter='all',aucItemPicDone=false,aucPawnPicDone=false,adminFilter='all';
-function scrollReviews(dir){let w=document.getElementById('reviewsWrap'); if(w) w.scrollBy({left:dir*272,behavior:'smooth'});}
+let editShopId=null, shopFilter='all', ticketFilter='all';
+function getShop(){try{return JSON.parse(localStorage.getItem('fs_shop')||'[]')}catch(e){return[]}}
+function saveShop(d){localStorage.setItem('fs_shop',JSON.stringify(d))}
+function getAuction(){try{return JSON.parse(localStorage.getItem('fs_auction')||'[]')}catch(e){return[]}}
+function saveAuction(d){localStorage.setItem('fs_auction',JSON.stringify(d))}
 function getTickets(){try{return JSON.parse(localStorage.getItem('fs_tickets')||'[]')}catch(e){return[]}}
-function saveTickets(t){localStorage.setItem('fs_tickets',JSON.stringify(t))}
-function switchTicketTab(tab){document.getElementById('ticketCreateBox').style.display=tab==='create'?'block':'none';document.getElementById('ticketMyBox').style.display=tab==='my'?'block':'none';document.getElementById('tabCreate').classList.toggle('active',tab==='create');document.getElementById('tabMy').classList.toggle('active',tab==='my');if(tab==='my')renderMyTickets();}
-function createTicket(){let n=document.getElementById('tickName').value.trim(),p=document.getElementById('tickPhone').value.trim(),c=document.getElementById('tickCat').value,u=document.getElementById('tickUrgent').value,m=document.getElementById('tickMsg').value.trim();if(!n){alert('Enter your name');return;}if(!p){alert('Enter your phone');return;}if(!m){alert('Describe your problem');return;}let ts=getTickets();let id='FS-'+Math.floor(1000+Math.random()*9000);let t={id:id,name:n,phone:p,cat:c,urgent:u,msg:m,status:'Open',reply:'',date:new Date().toLocaleString()};ts.unshift(t);saveTickets(ts);document.getElementById('tickMsg').value='';alert('✅ Ticket Created! Your Ticket No: '+id+'\nWe will reply by phone. Check My Tickets for status.');switchTicketTab('my');}
-function renderMyTickets(){let ts=getTickets();document.getElementById('myTicketCount').innerText=ts.length;let l=document.getElementById('myTicketsList');if(ts.length===0){l.innerHTML='<div style="text-align:center;color:#888;padding:20px">No tickets yet.<br>Create your first ticket above.</div>';return;}l.innerHTML=ts.map(t=>'<div class="ticketCard"><div style="display:flex;justify-content:space-between;align-items:center"><b>'+t.id+'</b><span class="badge '+(t.status==='Open'?'badge-open':t.status==='Done'?'badge-done':'badge-progress')+'">'+t.status+'</span></div><p><b>'+t.cat+'</b> • '+t.urgent+'<br>'+t.name+' • '+t.phone+'<br>'+t.msg+'</p>'+(t.reply?'<div style="background:#f7f9fc;border:1px solid #ddd;border-radius:10px;padding:10px;margin-top:8px"><b>Admin Reply:</b><p style="margin:0">'+t.reply+'</p></div>':'<p style="font-size:11px;color:#888">⏳ Waiting for Admin reply...</p>')+'<p style="font-size:11px;color:#999">'+t.date+'</p></div>').join('');}
-function openAdminTickets(){let pin=prompt('Admin PIN:');if(pin===null)return;if(pin!==ADMIN_PIN){alert('❌ Wrong PIN');return;}show('adminTickets');renderAdminTickets();}
-function filterAdminTickets(f){adminFilter=f;renderAdminTickets();}
-function renderAdminTickets(){let ts=getTickets();document.getElementById('adminAllCount').innerText=ts.length;let f=adminFilter==='all'?ts:ts.filter(t=>t.status===adminFilter);let l=document.getElementById('adminTicketsList');if(f.length===0){l.innerHTML='<div style="text-align:center;color:#888;padding:20px">No tickets in this filter.</div>';return;}l.innerHTML=f.map(t=>{let idx=getTickets().findIndex(x=>x.id===t.id);return '<div class="ticketCard"><div style="display:flex;justify-content:space-between;align-items:center"><b>'+t.id+' • '+t.name+'</b><span class="badge '+(t.status==='Open'?'badge-open':t.status==='Done'?'badge-done':'badge-progress')+'">'+t.status+'</span></div><p><b>'+t.cat+'</b> • '+t.urgent+'<br>📞 '+t.phone+'<br>'+t.msg+'<br><small>'+t.date+'</small></p><label>Admin Reply (visible to customer)</label><textarea id="reply-'+t.id+'" rows="2" placeholder="Type reply...">'+(t.reply||'')+'</textarea><div style="display:flex;gap:8px;margin-top:8px;flex-wrap:wrap"><button class="btn btn-red" onclick="adminUpdateTicket(\''+t.id+'\',\'In Progress\')">▶ In Progress</button><button class="btn btn-green" onclick="adminUpdateTicket(\''+t.id+'\',\'Done\')">✅ Done</button><button class="btn" style="background:#111;color:#fff" onclick="adminUpdateTicket(\''+t.id+'\',\'Open\')">↩ Open</button><button class="btn" style="background:#fff;border:1px solid #ddd;color:#111" onclick="adminDeleteTicket(\''+t.id+'\')">🗑 Delete</button></div><a href="tel:'+t.phone+'" style="display:block;text-align:center;margin-top:8px;font-weight:800;color:#0071e3;text-decoration:none">📞 Call '+t.phone+'</a></div>';}).join('');}
-function adminUpdateTicket(id,status){let ts=getTickets();let t=ts.find(x=>x.id===id);if(!t)return;let rep=document.getElementById('reply-'+id);if(rep)t.reply=rep.value.trim();t.status=status;saveTickets(ts);renderAdminTickets();renderMyTickets();alert('✅ Ticket '+id+' updated to '+status);}
-function adminDeleteTicket(id){if(!confirm('Delete ticket '+id+'?'))return;let ts=getTickets().filter(x=>x.id!==id);saveTickets(ts);renderAdminTickets();renderMyTickets();}
-function sendSupportTicket(){let m=document.getElementById('supportMsg').value.trim();if(!m){alert('Type your problem first');return;}let n=prompt('Your Name:');if(!n)return;let p=prompt('Your Phone:');if(!p)return;let ts=getTickets();let id='FS-'+Math.floor(1000+Math.random()*9000);ts.unshift({id:id,name:n,phone:p,cat:'Support / Other',urgent:'Normal',msg:m,status:'Open',reply:'',date:new Date().toLocaleString()});saveTickets(ts);document.getElementById('supportMsg').value='';alert('✅ Ticket Created: '+id);show('tickets');switchTicketTab('my');}
-function goOfferTicket(){let m=document.getElementById('pawnModel').value||'iPhone 13',n=document.getElementById('welcomeName').innerText||'Customer',a=document.getElementById('pawnAmount').value||'3000',ad=document.getElementById('pawnAddr').value||'';let ts=getTickets();let id='FS-'+Math.floor(1000+Math.random()*9000);ts.unshift({id:id,name:n,phone:'See registration',cat:'Pawn - Get Cash',urgent:'Normal',msg:'NEW PAWN VIA TICKET\nItem: '+m+'\nAmount: R'+a+'\nAddress: '+ad,status:'Open',reply:'',date:new Date().toLocaleString()});saveTickets(ts);alert('✅ Ticket Created: '+id+'\nWe will contact you.');show('tickets');switchTicketTab('my');}
-function loadShop(){try{return JSON.parse(localStorage.getItem('fs_shop')||'[]')}catch(e){return []}}
-let shopItems=loadShop();
-function loadAuction(){try{return JSON.parse(localStorage.getItem('fs_auction')||'[]')}catch(e){return []}}
-let auctionItems=loadAuction();
-function formatCountdown(expISO){if(!expISO) return{text:'⏰ See Time Left',cls:'',urgent:false,expired:false};let now=new Date(),exp=new Date(expISO),diff=exp-now;if(diff<=0)return{text:'❌ EXPIRED',cls:'countdownExpired',urgent:false,expired:true};let days=Math.floor(diff/86400000),hrs=Math.floor(diff%86400000/3600000),mins=Math.floor(diff%3600000/60000),secs=Math.floor(diff%60000/1000);let pad=n=>String(n).padStart(2,'0');let txt=(days>0?days+' Day'+(days>1?'s':'')+' ':'')+pad(hrs)+':'+pad(mins)+':'+pad(secs);return{text:txt,cls:diff<86400000?'countdownUrgent':'',urgent:diff<86400000,expired:false};}
-function updateCountdowns(){document.querySelectorAll('.countdownBox').forEach(box=>{let exp=box.getAttribute('data-expiry'); if(!exp) return; let info=formatCountdown(exp);let t=box.querySelector('.countdownTime'),l=box.querySelector('.countdownLabel');if(t)t.innerText=info.text;box.className='countdownBox '+info.cls;if(l)l.innerText=info.expired?'This pawn has EXPIRED!':info.urgent?'🔥 URGENT - Less than 1 day! Buy now!':'⏰ Time left to buy debt:';});let n=document.getElementById('nextExpiry');if(n){ if(auctionItems.length){let withExp=auctionItems.filter(a=>a.expiry); if(withExp.length){let s=withExp.map(a=>new Date(a.expiry)).sort((a,b)=>a-b)[0];n.innerText='Next expiry: '+formatCountdown(s.toISOString()).text+' left';} else {n.innerText='';}} else {n.innerText='No live auctions yet.';}}}
-setInterval(updateCountdowns,1000);
-function renderShop(){let l=document.getElementById('shopList');let f=shopItems.filter(i=>shopFilter==='all'||i.cat===shopFilter);if(f.length===0){l.innerHTML='<div style="text-align:center;color:#888;padding:20px">No items for sale yet.<br>Check back soon.</div>';return;}l.innerHTML=f.map(i=>'<div class="shopCard">'+(i.image?'<img src="'+i.image+'" class="shopImg" style="object-fit:cover;padding:0">':'<div class="shopImg">'+(i.emoji||'📱')+'</div>')+'<div style="flex:1"><b>'+i.name+'</b><p>'+(i.desc||'')+'<br><span class="price">'+i.price+'</span> '+(i.old?'<span style="text-decoration:line-through;color:#777">'+i.old+'</span>':'')+'</p><button class="btn '+(i.stock?'btn-green':'btn-grey')+'" style="width:100%;margin-top:8px;padding:12px" '+(i.stock?'onclick="buyItem(\''+i.name+'\',\''+i.price+'\')"':'disabled')+'>'+(i.stock?'🛒 Buy Now':'❌ Sold Out')+'</button></div></div>').join('');}
-function filterShop(f){shopFilter=f;renderShop();}
-function buyItem(n,p){openWA('🛍️ I WANT TO BUY\n\nItem: '+n+'\nPrice: '+p+'\nIs it still available?');}
-function renderAuction(){let l=document.getElementById('auctionList');if(auctionItems.length===0){l.innerHTML='<div style="text-align:center;color:#888;padding:20px">No live auctions yet.<br>Check back soon.</div>';return;}l.innerHTML=auctionItems.map(i=>{let exp=i.expiry||null; let info=formatCountdown(exp); let timeText=i.expiryDisplay||i.time||''; return '<div class="auctionCard"><div style="display:flex;gap:12px;align-items:center">'+(i.image?'<img src="'+i.image+'" class="shopImg" style="object-fit:cover;padding:0;border:1px solid #0071e3">':'<div class="shopImg" style="border:1px solid #0071e3">'+(i.emoji||'📱')+'</div>')+'<div><b>'+i.name+'</b><p>'+(i.desc||'')+'</p>'+(timeText?'<p style="font-size:12px;color:#0071e3;font-weight:900">📅 '+timeText+'</p>':'')+'</div></div>'+(exp?'<div class="countdownBox '+info.cls+'" data-expiry="'+i.expiry+'"><div class="countdownLabel" style="font-size:12px;color:#888">'+(info.expired?'EXPIRED':info.urgent?'🔥 URGENT!':'⏰ Time left:')+'</div><div class="countdownTime">'+info.text+'</div></div>':(timeText?'':'<div class="countdownBox" style="text-align:center;color:#111;font-weight:900">'+(i.time||'⏰ Ends Soon')+'</div>'))+'<div class="bidBox"><div><small style="color:#888">To Release</small><br><span style="text-decoration:line-through;color:#888">'+(i.start||'')+'</span></div><div style="text-align:right"><small style="color:#888">Buy Debt For • '+(i.bids||0)+' bids</small><br><span class="price" style="font-size:20px">'+i.current+'</span></div></div><div style="display:flex;gap:8px;margin-top:12px"><input id="bid-'+i.id+'" type="number" placeholder="Your bid" style="flex:1;margin:0"><button class="btn btn-purple" style="flex:1" '+(info.expired?'disabled style="opacity:.5"':'onclick="placeBid('+i.id+',\''+i.name+'\',\''+i.current+'\')"')+'>'+(info.expired?'❌ Expired':'🔨 Buy Debt')+'</button></div></div>';}).join('');setTimeout(updateCountdowns,100);}
-function placeBid(id,name,cur){let v=document.getElementById('bid-'+id).value;if(!v){alert('Enter your bid. Current '+cur);return;}openWA('🔨 I WANT TO BUY THIS PAWN DEBT\n\nItem: '+name+'\nI Will Pay: R'+v+'\nCurrent: '+cur+'\nI understand: My payment releases item, seller keeps 20% profit.');}
-function previewAucPic(inp,prev,tick){if(!inp.files[0])return;let r=new FileReader();r.onload=e=>{let img=document.getElementById(prev);img.src=e.target.result;img.style.display='block';document.getElementById(tick).style.display='block';if(prev==='aucItemPreview')aucItemPicDone=true;if(prev==='aucPawnPreview')aucPawnPicDone=true;};r.readAsDataURL(inp.files[0]);}
-function updateExpiryPreview(){let d=document.getElementById('aucExpiry').value,t=document.getElementById('aucExpiryTime').value||'18:00',box=document.getElementById('expiryPreview');if(!d){box.style.display='none';return;}let exp=new Date(d+'T'+t+':00'),info=formatCountdown(exp.toISOString());box.style.display='block';box.innerHTML='📅 <b>Expires: '+exp.toLocaleDateString('en-ZA',{day:'numeric',month:'long',year:'numeric'})+' at '+t+'</b><br>⏰ Countdown buyers will see: <b style="color:#0071e3">'+info.text+' left</b>';}
-document.addEventListener('change',e=>{if(e.target&&(e.target.id==='aucExpiry'||e.target.id==='aucExpiryTime'))updateExpiryPreview();});
-function calcSelling(){let rel=parseFloat(document.getElementById('aucPawnPrice').value)||0,h=document.getElementById('sellingHint');if(rel<=0){h.style.display='none';return;}let sug=Math.round(rel*1.20),prof=sug-rel;h.style.display='block';h.style.background='#f7f9fc';h.style.border='1px solid #ddd';h.innerHTML='💡 <b>Recommended: R'+sug+'</b><br>Release R'+rel+' + 20% (R'+prof+' profit) = R'+sug;let s=document.getElementById('aucPrice');if(!s.value)s.value=sug;checkSellingPrice();}
-function checkSellingPrice(){let rel=parseFloat(document.getElementById('aucPawnPrice').value)||0,sel=parseFloat(document.getElementById('aucPrice').value)||0,h=document.getElementById('sellingHint');if(rel<=0||sel<=0)return;let max=Math.round(rel*1.20),prof=sel-rel,pct=Math.round(prof/rel*100);if(sel>max){h.style.display='block';h.style.background='#f0f2f5';h.style.border='1px solid #111';h.innerHTML='⚠️ <b>TOO HIGH! Will struggle!</b><br>You added '+pct+'% - Max 20%. Release R'+rel+' → Max R'+max;}else{h.style.display='block';h.style.background='#f7f9fc';h.style.border='1px solid #ddd';h.innerHTML='✅ <b>Perfect! R'+sel+' good.</b><br>Release R'+rel+' + '+pct+'% = R'+sel+' Profit R'+prof;}}
-function auctionMyPawn(){let n=document.getElementById('aucName').value.trim(),w=document.getElementById('aucWhere').value,sh=document.getElementById('aucShopName').value.trim(),it=document.getElementById('aucItem').value.trim(),rel=document.getElementById('aucPawnPrice').value.trim(),ex=document.getElementById('aucExpiry').value,et=document.getElementById('aucExpiryTime').value||'18:00',pr=document.getElementById('aucPrice').value.trim();if(!n){alert('Enter Name');return;}if(!it){alert('Enter Item');return;}if(!rel){alert('Enter HOW MUCH TO RELEASE');return;}if(!ex){alert('Enter WHEN DOES IT EXPIRE');return;}if(!pr){alert('Enter Selling Amount');return;}let r=parseFloat(rel),s=parseFloat(pr),prof=s-r,exp=new Date(ex+'T'+et+':00'),info=formatCountdown(exp.toISOString());if(s>r*1.20){if(!confirm('⚠️ Selling R'+s+' is MORE than 20% above release R'+r+' (Max R'+Math.round(r*1.20)+'). Higher will struggle, item expires & you lose everything.\nOK to still send?'))return;}openWA('🔨 I WANT TO AUCTION MY PAWN BEFORE IT EXPIRES\n\nName: '+n+'\nWhere Pawned: '+w+'\nShop: '+(sh||'FIRSTSTORE-SA')+'\nItem: '+it+'\n\n1. Item Picture: '+(aucItemPicDone?'✅ Uploaded':'❌ No picture')+'\n2. Pawn Page: '+(aucPawnPicDone?'✅ Uploaded':'❌ No ticket')+'\n3. HOW MUCH TO RELEASE: R'+rel+'\n4. WHEN EXPIRES: '+exp.toLocaleDateString('en-ZA',{day:'numeric',month:'long',year:'numeric'})+' at '+et+' (Countdown: '+info.text+' left)\n5. SELLING: R'+pr+'\nMy Profit: R'+prof+'\nBuyer buys debt, R'+rel+' releases, I keep R'+prof);alert('✅ Sent! Now SEND 2 photos in WhatsApp.');}
-function getClients(){try{return JSON.parse(localStorage.getItem('fs_clients')||'[]')}catch(e){return[]}}function saveClients(c){localStorage.setItem('fs_clients',JSON.stringify(c))}
-function show(id){document.querySelectorAll('.page').forEach(p=>p.style.display='none');document.getElementById(id).style.display='block';if(['landing','pawn','status','shop','auction','faq','terms','privacy','about','contact','support','tickets','adminTickets'].includes(id))document.getElementById('bottomNav').style.display='flex';if(id==='shop'){shopItems=loadShop();renderShop();}if(id==='auction'){auctionItems=loadAuction();renderAuction();}if(id==='tickets'){renderMyTickets();}window.scrollTo(0,0);}
-function hide(){document.querySelectorAll('.page').forEach(p=>p.style.display='none');document.getElementById('bottomNav').style.display='none';}
-function sel(el){el.parentElement.querySelectorAll('div').forEach(d=>d.classList.remove('active'));el.classList.add('active');}
-function registerNow(){let n=document.getElementById('regName').value.trim(),p=document.getElementById('regPhone').value.trim(),e=document.getElementById('regEmail').value.trim(),a=document.getElementById('regAddress').value.trim();if(!n){alert('Enter name');return;}if(!p){alert('Enter phone');return;}if(!e){alert('Enter email');return;}if(!a){alert('Enter address');return;}let cs=getClients(),nc={id:Date.now(),name:n,phone:p,email:e,address:a,status:'pending',date:new Date().toLocaleString(),verified:0};cs.unshift(nc);saveClients(cs);currentClientId=nc.id;document.getElementById('welcomeName').innerText=n;document.getElementById('pawnWelcome').innerText=n;document.getElementById('pawnAddr').value=a;document.getElementById('welcomeStatus').innerHTML='⏳ <b>Waiting for Approval</b><br>📞 '+p+'<br>✉️ '+e+'<br>📍 '+a;openWA('🆕 NEW REGISTRATION\n\nName: '+n+'\nPhone: '+p+'\nEmail: '+e+'\nAddress: '+a);alert('✅ Thanks '+n+'! Now complete verification.');show('landing');}
-function openWA(m){window.open('https://wa.me/27743627992?text='+encodeURIComponent(m),'_blank');}
-function previewItem(inp){if(!inp.files[0])return;let r=new FileReader();r.onload=e=>{let img=document.getElementById('itemPreview');img.src=e.target.result;img.style.display='block';};r.readAsDataURL(inp.files[0]);}
-function doneVerify(n,inp){if(!inp.files[0])return;let r=new FileReader();r.onload=e=>{let img=document.getElementById('prev'+n);img.src=e.target.result;img.style.display='block';};r.readAsDataURL(inp.files[0]);if(!verifySet[n]){verifySet[n]=true;verifyCount++;}document.getElementById('card'+n).classList.add('done');let b=document.getElementById('btn'+n);b.innerText='✅ UPLOADED';b.classList.add('green');document.getElementById('verifyBar').style.width=(verifyCount/3*100)+'%';document.getElementById('verifyText').innerText=verifyCount+' / 3 Verified';let btn=document.getElementById('verifyBtn');if(verifyCount>=3){btn.className='btn btn-green';btn.innerText='✅ VERIFIED - CONTINUE TO PAWN →';}else{btn.innerText='⏳ Complete Verification First ('+verifyCount+'/3)';}if(verifyCount>=3&&currentClientId){let cs=getClients(),c=cs.find(x=>x.id==currentClientId);if(c){c.verified=3;saveClients(cs);}}}
-function goPawn(){let cs=getClients(),me=cs.find(x=>x.id==currentClientId);if(me&&me.status!=='approved'){alert('⏳ Waiting for Approval');return;}if(verifyCount<3){alert('Upload all 3 first');return;}show('pawn');}
-function goOffer(){let m=document.getElementById('pawnModel').value||'iPhone 13',n=document.getElementById('welcomeName').innerText||'Customer',a=document.getElementById('pawnAmount').value||'3000',ad=document.getElementById('pawnAddr').value||'';openWA('NEW PAWN ✅ VERIFIED\n\nName: '+n+'\nItem: '+m+'\nAmount: R'+a+'\nAddress: '+ad);show('status');}
-function sendSupport(){let m=document.getElementById('supportMsg').value.trim();openWA('🛟 I NEED SUPPORT\n\nProblem: '+(m||'Please help me')); }
-renderShop();renderAuction();renderMyTickets();
+function saveTickets(d){localStorage.setItem('fs_tickets',JSON.stringify(d))}
+function getClients(){try{return JSON.parse(localStorage.getItem('fs_clients')||'[]')}catch(e){return[]}}
+function saveClients(d){localStorage.setItem('fs_clients',JSON.stringify(d))}
+
+function loginAdmin(){let p=document.getElementById('pinInput').value.trim();if(p===ADMIN_PIN){document.getElementById('loginBox').classList.add('hidden');document.getElementById('adminBox').classList.remove('hidden');refreshAll();}else{alert('❌ Wrong PIN');}}
+function logoutAdmin(){document.getElementById('adminBox').classList.add('hidden');document.getElementById('loginBox').classList.remove('hidden');document.getElementById('pinInput').value='';}
+function switchTab(t){['shop','auction','tickets','clients'].forEach(x=>{document.getElementById('panel-'+x).classList.toggle('hidden',x!==t);document.getElementById('tab-'+x).classList.toggle('active',x===t);});if(t==='shop')renderShopAdmin();if(t==='auction')renderAuctionAdmin();if(t==='tickets')renderTicketsAdmin();if(t==='clients')renderClientsAdmin();}
+function refreshAll(){updateCounts();renderShopAdmin();renderAuctionAdmin();renderTicketsAdmin();renderClientsAdmin();}
+function updateCounts(){document.getElementById('cShop').innerText=getShop().length;document.getElementById('cAuction').innerText=getAuction().length;document.getElementById('cTickets').innerText=getTickets().length;document.getElementById('cClients').innerText=getClients().length;}
+
+// SELLER / SOURCE SELECTS
+function sellerSelectChanged(){let v=document.getElementById('sSellerSelect').value;document.getElementById('sSellerCustom').classList.toggle('hidden',v!=='CUSTOM');if(v!=='CUSTOM')document.getElementById('sSellerCustom').value='';}
+function sourceSelectChanged(){let v=document.getElementById('sSourceSelect').value;document.getElementById('sSourceCustom').classList.toggle('hidden',v!=='CUSTOM');if(v!=='CUSTOM')document.getElementById('sSourceCustom').value='';}
+function getSellerValue(){let sel=document.getElementById('sSellerSelect').value;if(sel==='CUSTOM'){let c=document.getElementById('sSellerCustom').value.trim();return c||'FIRSTSTORE-SA';}return sel;}
+function getSourceValue(){let sel=document.getElementById('sSourceSelect').value;if(sel==='CUSTOM'){let c=document.getElementById('sSourceCustom').value.trim();return c||'Helping Customer Sell';}return sel;}
+
+// SHOP CRUD
+function saveShopItem(){
+let name=document.getElementById('sName').value.trim(),price=document.getElementById('sPrice').value.trim();
+if(!name){alert('Enter Item Name');return;}if(!price){alert('Enter Price');return;}
+let seller=getSellerValue(),source=getSourceValue();
+let item={id:editShopId||Date.now(),cat:document.getElementById('sCat').value,name:name,price:price.startsWith('R')?price:'R'+price,old:document.getElementById('sOld').value.trim(),desc:document.getElementById('sDesc').value.trim(),emoji:document.getElementById('sEmoji').value.trim()||'📱',image:document.getElementById('sImage').value.trim(),seller:seller,source:source,stock:document.getElementById('sStock').value==='true'};
+let list=getShop();
+if(editShopId){let idx=list.findIndex(x=>x.id==editShopId);if(idx>=0)list[idx]=item;}else{list.unshift(item);}
+saveShop(list);cancelEditShop();refreshAll();alert('✅ Saved! Customers will see:\nSeller: '+seller+'\nSource: '+source);
+}
+function cancelEditShop(){editShopId=null;document.getElementById('shopFormTitle').innerText='➕ Add New Item For Sale';document.getElementById('shopSaveBtn').innerText='✅ Save Item →';document.getElementById('shopCancelBtn').classList.add('hidden');['sName','sPrice','sOld','sDesc','sImage','sSellerCustom','sSourceCustom'].forEach(id=>document.getElementById(id).value='');document.getElementById('sEmoji').value='📱';document.getElementById('sSellerSelect').value='FIRSTSTORE-SA';document.getElementById('sSourceSelect').value='Our Stock - FIRSTSTORE-SA';sellerSelectChanged();sourceSelectChanged();}
+function editShop(id){let i=getShop().find(x=>x.id==id);if(!i)return;editShopId=id;document.getElementById('shopFormTitle').innerText='✏️ Editing: '+i.name;document.getElementById('shopSaveBtn').innerText='💾 Update Item →';document.getElementById('shopCancelBtn').classList.remove('hidden');document.getElementById('sName').value=i.name;document.getElementById('sCat').value=i.cat||'phone';document.getElementById('sPrice').value=i.price;document.getElementById('sOld').value=i.old||'';document.getElementById('sDesc').value=i.desc||'';document.getElementById('sEmoji').value=i.emoji||'📱';document.getElementById('sImage').value=i.image||'';document.getElementById('sStock').value=i.stock?'true':'false';
+// Seller
+if(i.seller==='FIRSTSTORE-SA'){document.getElementById('sSellerSelect').value='FIRSTSTORE-SA';}else{document.getElementById('sSellerSelect').value='CUSTOM';document.getElementById('sSellerCustom').value=i.seller||'';}
+sellerSelectChanged();
+// Source
+let src=i.source||'Our Stock - FIRSTSTORE-SA';let opts=[...document.getElementById('sSourceSelect').options].map(o=>o.value);if(opts.includes(src)){document.getElementById('sSourceSelect').value=src;}else{document.getElementById('sSourceSelect').value='CUSTOM';document.getElementById('sSourceCustom').value=src;}
+sourceSelectChanged();
+switchTab('shop');window.scrollTo(0,0);
+}
+function deleteShop(id){if(!confirm('Delete this item?'))return;saveShop(getShop().filter(x=>x.id!=id));refreshAll();}
+function toggleStockShop(id){let l=getShop();let i=l.find(x=>x.id==id);if(i){i.stock=!i.stock;saveShop(l);refreshAll();}}
+function filterShopAdmin(f){shopFilter=f;renderShopAdmin();}
+function clearShopDemo(){if(!confirm('Clear ALL shop items?'))return;saveShop([]);refreshAll();}
+function renderShopAdmin(){let list=getShop();let f=shopFilter==='all'?list:list.filter(x=>x.cat===shopFilter);let el=document.getElementById('shopList');if(f.length===0){el.innerHTML='<div class="card" style="text-align:center;color:#888">No items yet. Add your first item above.</div>';return;}el.innerHTML=f.map(i=>{let seller=i.seller||'FIRSTSTORE-SA',source=i.source||'Our Stock - FIRSTSTORE-SA';return '<div class="card"><div style="display:flex;gap:12px;align-items:flex-start">'+(i.image?'<img src="'+i.image+'" class="thumb">':'<div class="thumb">'+(i.emoji||'📱')+'</div>')+'<div style="flex:1"><b>'+i.name+'</b><p>'+(i.desc||'')+'<br><b style="color:#111;font-size:14px">'+i.price+'</b> '+(i.old?'<span style="text-decoration:line-through">'+i.old+'</span>':'')+' • '+(i.stock?'✅ In Stock':'❌ Sold Out')+' • '+(i.cat||'')+'</p><div class="sellerBox">👤 <b>Seller:</b> '+seller+'<br>📦 <b>Source:</b> '+source+'</div><div style="display:flex;gap:8px;margin-top:10px;flex-wrap:wrap"><button class="btn btn-red" onclick="editShop('+i.id+')">✏️ Edit</button><button class="btn btn-black" onclick="toggleStockShop('+i.id+')">'+(i.stock?'❌ Mark Sold Out':'✅ Mark In Stock')+'</button><button class="btn btn-white" onclick="deleteShop('+i.id+')">🗑 Delete</button></div></div></div></div>';}).join('');}
+
+// AUCTION CRUD
+function saveAuctionItem(){
+let name=document.getElementById('aName').value.trim(),cur=document.getElementById('aCurrent').value.trim(),d=document.getElementById('aExpiryDate').value,t=document.getElementById('aExpiryTime').value||'18:00';
+if(!name){alert('Enter Item Name');return;}if(!cur){alert('Enter Buy Debt For');return;}if(!d){alert('Pick Expiry Date');return;}
+let exp=new Date(d+'T'+t+':00');
+let item={id:Date.now(),name:name,desc:document.getElementById('aDesc').value.trim(),start:document.getElementById('aStart').value.trim(),current:cur.startsWith('R')?cur:'R'+cur,bids:0,emoji:document.getElementById('aEmoji').value.trim()||'📱',image:document.getElementById('aImage').value.trim(),expiry:exp.toISOString(),expiryDisplay:exp.toLocaleDateString('en-ZA',{day:'numeric',month:'long',year:'numeric'})+' at '+t,time:'Ends '+exp.toLocaleDateString('en-ZA')};
+let l=getAuction();l.unshift(item);saveAuction(l);['aName','aDesc','aStart','aCurrent','aImage'].forEach(id=>document.getElementById(id).value='');document.getElementById('aEmoji').value='📱';refreshAll();alert('✅ Auction Added!');
+}
+function deleteAuction(id){if(!confirm('Delete auction?'))return;saveAuction(getAuction().filter(x=>x.id!=id));refreshAll();}
+function renderAuctionAdmin(){let l=getAuction();let el=document.getElementById('auctionList');if(l.length===0){el.innerHTML='<div class="card" style="text-align:center;color:#888">No auctions yet.</div>';return;}el.innerHTML=l.map(i=>'<div class="card"><b>'+i.name+'</b><p>'+(i.desc||'')+'<br>Release: '+(i.start||'')+' • Buy: '+(i.current||'')+'<br>📅 '+(i.expiryDisplay||i.time||'')+'</p><button class="btn btn-white" onclick="deleteAuction('+i.id+')">🗑 Delete</button></div>').join('');}
+
+// TICKETS
+function filterTicketsAdmin(f){ticketFilter=f;renderTicketsAdmin();}
+function renderTicketsAdmin(){let l=getTickets();let f=ticketFilter==='all'?l:l.filter(x=>x.status===ticketFilter);let el=document.getElementById('ticketList');if(f.length===0){el.innerHTML='<div class="card" style="text-align:center;color:#888">No tickets in this filter.</div>';return;}el.innerHTML=f.map(t=>'<div class="card"><div style="display:flex;justify-content:space-between"><b>'+t.id+' • '+t.name+'</b><span class="badge '+(t.status==='Open'?'badge-open':t.status==='Done'?'badge-done':'badge-progress')+'">'+t.status+'</span></div><p><b>'+t.cat+'</b> • '+t.urgent+'<br>📞 '+t.phone+'<br>'+t.msg+'<br><small>'+t.date+'</small></p><label>Reply to Customer</label><textarea id="reply-'+t.id+'" rows="2">'+(t.reply||'')+'</textarea><div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px"><button class="btn btn-red" onclick="updateTicket(\''+t.id+'\',\'In Progress\')">▶ In Progress</button><button class="btn btn-green" onclick="updateTicket(\''+t.id+'\',\'Done\')">✅ Done</button><button class="btn btn-black" onclick="updateTicket(\''+t.id+'\',\'Open\')">↩ Open</button><button class="btn btn-white" onclick="deleteTicket(\''+t.id+'\')">🗑 Delete</button></div><a href="tel:'+t.phone+'" style="display:block;text-align:center;margin-top:8px;font-weight:800;color:#0071e3;text-decoration:none">📞 Call '+t.phone+'</a></div>').join('');}
+function updateTicket(id,status){let l=getTickets();let t=l.find(x=>x.id===id);if(!t)return;let rep=document.getElementById('reply-'+id);if(rep)t.reply=rep.value.trim();t.status=status;saveTickets(l);refreshAll();alert('✅ Ticket '+id+' → '+status);}
+function deleteTicket(id){if(!confirm('Delete ticket '+id+'?'))return;saveTickets(getTickets().filter(x=>x.id!==id));refreshAll();}
+
+// CLIENTS
+function renderClientsAdmin(){let l=getClients();let el=document.getElementById('clientList');if(l.length===0){el.innerHTML='<div class="card" style="text-align:center;color:#888">No registrations yet.</div>';return;}el.innerHTML=l.map(c=>'<div class="card"><div style="display:flex;justify-content:space-between"><b>'+c.name+'</b><span class="badge '+(c.status==='approved'?'badge-approved':'badge-pending')+'">'+(c.status||'pending')+'</span></div><p>📞 '+c.phone+'<br>✉️ '+c.email+'<br>📍 '+c.address+'<br><small>'+c.date+'</small><br>Verified: '+(c.verified||0)+'/3</p><div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px"><button class="btn btn-green" onclick="setClientStatus('+c.id+',\'approved\')">✅ Approve</button><button class="btn btn-black" onclick="setClientStatus('+c.id+',\'pending\')">⏳ Pending</button><button class="btn btn-white" onclick="deleteClient('+c.id+')">🗑 Delete</button></div></div>').join('');}
+function setClientStatus(id,st){let l=getClients();let c=l.find(x=>x.id==id);if(c){c.status=st;saveClients(l);refreshAll();}}
+function deleteClient(id){if(!confirm('Delete client?'))return;saveClients(getClients().filter(x=>x.id!=id));refreshAll();}
+
+// Auto-login if already? No - always ask PIN for safety
+document.getElementById('pinInput').addEventListener('keypress',e=>{if(e.key==='Enter')loginAdmin();});
 </script>
 </body></html>
