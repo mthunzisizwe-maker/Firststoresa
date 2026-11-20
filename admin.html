@@ -31,28 +31,23 @@ input,select{width:100%;padding:14px;border-radius:12px;border:2px solid #333;ba
 <div class="logo"><svg viewBox="0 0 100 80"><polygon points="50,2 88,22 50,42 12,22" fill="#FF0000"/><polygon points="12,22 50,42 50,78 12,58" fill="#E60000"/><polygon points="88,22 50,42 50,78 88,58" fill="#FF2A2A"/></svg><div><b style="font-size:20px">FIRSTSTORE<span style="color:#FF0000">-SA</span></b><div style="font-size:9px;letter-spacing:2px;color:#999">ADMIN ONLY - DO NOT SHARE</div></div></div>
 <h2>Admin <span>Panel</span></h2>
 <p class="sub">Manage Clients, Shop Items & Auction Items here. Changes show on user site.</p>
-
 <div id="adminLogin">
 <label>Enter Admin PIN</label>
 <input id="adminPin" type="password" inputmode="numeric" placeholder="Enter PIN">
 <button class="btn btn-red" style="width:100%;margin-top:12px" onclick="checkAdmin()">Unlock Admin →</button>
 <p style="font-size:12px;color:#888;margin-top:10px">Default PIN is <b>7992</b></p>
 </div>
-
 <div id="adminContent" style="display:none">
 <div style="display:flex;gap:10px;margin:10px 0">
 <div style="flex:1;background:#1A1A1A;border-radius:14px;padding:14px;text-align:center"><b id="statPending" style="font-size:22px">0</b><br><small>Pending Clients</small></div>
 <div style="flex:1;background:#1A1A1A;border-radius:14px;padding:14px;text-align:center"><b id="statShop" style="font-size:22px;color:#FFD700">0</b><br><small>Shop Items</small></div>
 <div style="flex:1;background:#1A1A1A;border-radius:14px;padding:14px;text-align:center"><b id="statAuction" style="font-size:22px;color:#A78BFA">0</b><br><small>Auction Items</small></div>
 </div>
-
 <div class="tabBar">
 <div id="tabClients" class="active" onclick="switchTab('clients')">👥 Clients</div>
 <div id="tabShop" onclick="switchTab('shop')">🛍️ Shop</div>
 <div id="tabAuction" onclick="switchTab('auction')">🔨 Auction</div>
 </div>
-
-<!-- CLIENTS TAB -->
 <div id="viewClients">
 <div style="display:flex;gap:8px;margin-bottom:10px">
 <button class="btn btn-red" onclick="filterClients('all')">All</button>
@@ -71,8 +66,6 @@ input,select{width:100%;padding:14px;border-radius:12px;border:2px solid #333;ba
 </div>
 <div id="clientList"></div>
 </div>
-
-<!-- SHOP TAB -->
 <div id="viewShop" style="display:none">
 <div style="background:#1A1A1A;border:2px solid #FFD700;border-radius:16px;padding:16px">
 <h3>➕ Add / Edit Shop Item</h3>
@@ -90,8 +83,6 @@ input,select{width:100%;padding:14px;border-radius:12px;border:2px solid #333;ba
 </div>
 <div id="shopList"></div>
 </div>
-
-<!-- AUCTION TAB -->
 <div id="viewAuction" style="display:none">
 <div style="background:#1A0A2E;border:2px solid #7C3AED;border-radius:16px;padding:16px">
 <h3>🔨 Add / Edit Auction Item</h3>
@@ -109,13 +100,10 @@ input,select{width:100%;padding:14px;border-radius:12px;border:2px solid #333;ba
 </div>
 <div id="auctionList"></div>
 </div>
-
 <p style="text-align:center;color:#555;font-size:12px;margin-top:20px"><a href="Index.html" style="color:#888">← Back to User Site</a></p>
 </div>
-
 <script>
 let currentFilter='all'; let currentTab='clients';
-// --- STORAGE HELPERS ---
 function getClients(){try{return JSON.parse(localStorage.getItem('fs_clients')||'[]')}catch(e){return []}}
 function saveClients(c){localStorage.setItem('fs_clients',JSON.stringify(c))}
 function getShop(){try{let d=JSON.parse(localStorage.getItem('fs_shop')||'null'); if(d) return d; return [
@@ -128,15 +116,14 @@ function getShop(){try{let d=JSON.parse(localStorage.getItem('fs_shop')||'null')
 {id:7,cat:'tv',emoji:'📺',name:'LG 43" Smart TV',desc:'Full HD • Netflix • Excellent',price:'R2,900',old:'R3,800',stock:true},
 {id:8,cat:'home',emoji:'🧊',name:'Defy Double Door Fridge',desc:'Excellent • Very Cold • No Rust',price:'R3,200',old:'R4,200',stock:true},
 ];}catch(e){return []}}
-function saveShop(s){localStorage.setItem('fs_shop',JSON.stringify(s))}
+function persistShop(s){localStorage.setItem('fs_shop',JSON.stringify(s))}
 function getAuction(){try{let d=JSON.parse(localStorage.getItem('fs_auction')||'null'); if(d) return d; return [
 {id:1,emoji:'📱',name:'iPhone 12 64GB - Uncollected Pawn',desc:'Good condition • Battery 82% • No cracks',start:'R800',current:'R1,450',bids:12,time:'⏰ Ends in 2 Days'},
 {id:2,emoji:'💻',name:'Dell Laptop i5 - Uncollected Pawn',desc:'8GB RAM • 256GB SSD • Charger included',start:'R1,000',current:'R1,800',bids:8,time:'⏰ Ends in 2 Days'},
 {id:3,emoji:'📺',name:'Hisense 50" TV - Uncollected Pawn',desc:'Smart TV • Remote • Working perfectly',start:'R900',current:'R1,600',bids:15,time:'⏰ Ends in 1 Day'},
 {id:4,emoji:'📱',name:'Samsung S21 - Uncollected Pawn',desc:'Excellent • Dual SIM • With box',start:'R1,200',current:'R2,100',bids:21,time:'⏰ Ends in 3 Days'},
 ];}catch(e){return []}}
-function saveAuction(a){localStorage.setItem('fs_auction',JSON.stringify(a))}
-
+function persistAuction(a){localStorage.setItem('fs_auction',JSON.stringify(a))}
 function checkAdmin(){let pin=document.getElementById('adminPin').value; if(pin==='7992'){document.getElementById('adminLogin').style.display='none';document.getElementById('adminContent').style.display='block';renderAll();} else{alert('Wrong PIN. Try 7992');}}
 function switchTab(t){currentTab=t; document.getElementById('tabClients').classList.toggle('active',t==='clients'); document.getElementById('tabShop').classList.toggle('active',t==='shop'); document.getElementById('tabAuction').classList.toggle('active',t==='auction'); document.getElementById('viewClients').style.display=t==='clients'?'block':'none'; document.getElementById('viewShop').style.display=t==='shop'?'block':'none'; document.getElementById('viewAuction').style.display=t==='auction'?'block':'none'; renderAll();}
 function renderAll(){
@@ -146,7 +133,6 @@ document.getElementById('statShop').innerText=shop.length;
 document.getElementById('statAuction').innerText=auc.length;
 renderClients(); renderShopAdmin(); renderAuctionAdmin();
 }
-// --- CLIENTS ---
 function showAddClient(){document.getElementById('addClientForm').style.display='block';}
 function addManual(){
 let name=document.getElementById('mName').value.trim(); let phone=document.getElementById('mPhone').value.trim(); let email=document.getElementById('mEmail').value.trim(); let addr=document.getElementById('mAddr').value.trim();
@@ -167,7 +153,6 @@ function setStatus(id,status){let clients=getClients();let c=clients.find(x=>x.i
 function delClient(id){if(!confirm('Delete this client?'))return;let clients=getClients().filter(x=>x.id!=id);saveClients(clients);renderAll();}
 function waClient(phone,name){let clean=phone.replace(/[^0-9]/g,'');if(clean.startsWith('0')){clean='27'+clean.substring(1);} window.open('https://wa.me/'+clean+'?text='+encodeURIComponent('Hi '+name+', this is FIRSTSTORE-SA ✅ You are APPROVED! You can now pawn your item.'),'_blank');}
 function exportClients(){let clients=getClients();if(clients.length===0){alert('No clients yet');return;}let csv='Name,Phone,Email,Address,Status,Date,Verified\n'+clients.map(c=>'"'+c.name+'","'+c.phone+'","'+c.email+'","'+c.address+'","'+c.status+'","'+c.date+'","'+(c.verified||0)+'/3"').join('\n');let a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv'}));a.download='FIRSTSTORE-clients.csv';a.click();}
-// --- SHOP ---
 function saveShop(){
 let id=document.getElementById('shopEditId').value;
 let name=document.getElementById('sName').value.trim(); let price=document.getElementById('sPrice').value.trim();
@@ -175,18 +160,17 @@ if(!name||!price){alert('Enter Name + Price');return;}
 let item={id:id?parseInt(id):Date.now(),cat:document.getElementById('sCat').value,emoji:document.getElementById('sEmoji').value,name:name,desc:document.getElementById('sDesc').value.trim(),price:price,old:document.getElementById('sOld').value.trim(),stock:document.getElementById('sStock').value==='true'};
 let shop=getShop();
 if(id){let i=shop.findIndex(x=>x.id==id); if(i>=0) shop[i]=item;} else{shop.unshift(item);}
-saveShop(shop); clearShopForm(); renderAll(); alert('✅ Shop item saved! It will show on user site.');
+persistShop(shop); clearShopForm(); renderAll(); alert('✅ Shop item saved! It will show on user site.');
 }
 function clearShopForm(){document.getElementById('shopEditId').value='';document.getElementById('sName').value='';document.getElementById('sDesc').value='';document.getElementById('sPrice').value='';document.getElementById('sOld').value='';}
 function editShop(id){let s=getShop().find(x=>x.id==id);if(!s)return;document.getElementById('shopEditId').value=s.id;document.getElementById('sName').value=s.name;document.getElementById('sCat').value=s.cat;document.getElementById('sEmoji').value=s.emoji;document.getElementById('sDesc').value=s.desc;document.getElementById('sPrice').value=s.price;document.getElementById('sOld').value=s.old;document.getElementById('sStock').value=s.stock?'true':'false';window.scrollTo(0,0);alert('Editing: '+s.name+' - Change and tap Save');}
-function delShop(id){if(!confirm('Delete this shop item?'))return;saveShop(getShop().filter(x=>x.id!=id));renderAll();}
-function toggleShopStock(id){let shop=getShop();let s=shop.find(x=>x.id==id);if(s){s.stock=!s.stock;saveShop(shop);renderAll();}}
+function delShop(id){if(!confirm('Delete this shop item?'))return;persistShop(getShop().filter(x=>x.id!=id));renderAll();}
+function toggleShopStock(id){let shop=getShop();let s=shop.find(x=>x.id==id);if(s){s.stock=!s.stock;persistShop(shop);renderAll();}}
 function renderShopAdmin(){
 let shop=getShop();let list=document.getElementById('shopList');
 if(shop.length===0){list.innerHTML='<div class="card" style="text-align:center;color:#888">No shop items. Add one above.</div>';return;}
 list.innerHTML=shop.map(s=>'<div class="card"><div style="display:flex;justify-content:space-between"><b>'+s.emoji+' '+s.name+'</b><span class="badge" style="background:'+(s.stock?'#22C55E':'#FF1E1E')+'">'+(s.stock?'IN STOCK':'SOLD OUT')+'</span></div><p class="small" style="margin-top:8px">'+s.desc+'<br><b style="color:#FFD700;font-size:16px">'+s.price+'</b> <span style="text-decoration:line-through">'+s.old+'</span> • '+s.cat+'</p><div style="display:flex;gap:8px;margin-top:10px"><button class="btn btn-gold" onclick="editShop('+s.id+')">✏️ Edit</button><button class="btn btn-grey" onclick="toggleShopStock('+s.id+')">'+(s.stock?'❌ Mark Sold':'✅ Mark In Stock')+'</button><button class="btn btn-red" onclick="delShop('+s.id+')">🗑️</button></div></div>').join('');
 }
-// --- AUCTION ---
 function saveAuction(){
 let id=document.getElementById('aEditId').value;
 let name=document.getElementById('aName').value.trim(); let cur=document.getElementById('aCurrent').value.trim();
@@ -194,11 +178,11 @@ if(!name||!cur){alert('Enter Name + Current Bid');return;}
 let item={id:id?parseInt(id):Date.now(),emoji:document.getElementById('aEmoji').value,name:name,desc:document.getElementById('aDesc').value.trim(),start:document.getElementById('aStart').value.trim()||'R500',current:cur,bids:parseInt(document.getElementById('aBids').value)||0,time:document.getElementById('aTime').value.trim()||'⏰ Ends in 2 Days'};
 let auc=getAuction();
 if(id){let i=auc.findIndex(x=>x.id==id); if(i>=0) auc[i]=item;} else{auc.unshift(item);}
-saveAuction(auc); clearAuctionForm(); renderAll(); alert('✅ Auction item saved!');
+persistAuction(auc); clearAuctionForm(); renderAll(); alert('✅ Auction item saved!');
 }
 function clearAuctionForm(){document.getElementById('aEditId').value='';document.getElementById('aName').value='';document.getElementById('aDesc').value='';document.getElementById('aStart').value='';document.getElementById('aCurrent').value='';document.getElementById('aBids').value='';document.getElementById('aTime').value='';}
 function editAuction(id){let a=getAuction().find(x=>x.id==id);if(!a)return;document.getElementById('aEditId').value=a.id;document.getElementById('aName').value=a.name;document.getElementById('aEmoji').value=a.emoji;document.getElementById('aDesc').value=a.desc;document.getElementById('aStart').value=a.start;document.getElementById('aCurrent').value=a.current;document.getElementById('aBids').value=a.bids;document.getElementById('aTime').value=a.time;window.scrollTo(0,0);alert('Editing: '+a.name);}
-function delAuction(id){if(!confirm('Delete this auction item?'))return;saveAuction(getAuction().filter(x=>x.id!=id));renderAll();}
+function delAuction(id){if(!confirm('Delete this auction item?'))return;persistAuction(getAuction().filter(x=>x.id!=id));renderAll();}
 function renderAuctionAdmin(){
 let auc=getAuction();let list=document.getElementById('auctionList');
 if(auc.length===0){list.innerHTML='<div class="card" style="text-align:center;color:#888">No auction items. Add one above.</div>';return;}
