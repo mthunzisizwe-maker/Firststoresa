@@ -4,189 +4,154 @@
 *{box-sizing:border-box;margin:0;padding:0;font-family:Arial,sans-serif}body{background:#f0f2f5;color:#111;padding:14px 14px 100px}
 h1{font-size:22px}h1 span{color:#0071e3}.sub{color:#666;font-size:13px;line-height:1.6;margin:6px 0 12px}
 .card{background:#fff;border:1px solid #eee;border-radius:14px;padding:14px;margin:10px 0}.card b{font-size:14px}.card p{font-size:12px;color:#555;line-height:1.6;margin-top:4px}
-label{font-size:12px;font-weight:800;display:block;margin:12px 0 6px}input,textarea,select{width:100%;padding:12px;border-radius:10px;border:1px solid #ddd;background:#fff;font-size:14px;color:#111}
-.btn{padding:11px 12px;border-radius:10px;font-weight:800;cursor:pointer;font-size:12px;border:none}.btn-red{background:#0071e3;color:#fff}.btn-green{background:#0071e3;color:#fff}.btn-black{background:#111;color:#fff}.btn-grey{background:#eee;color:#666}.btn-white{background:#fff;border:1px solid #ddd;color:#111}
+label{font-size:12px;font-weight:800;display:block;margin:12px 0 6px}input,textarea,select{width:100%;padding:12px;border-radius:10px;border:1px solid #ddd;background:#fff;font-size:14px}
+.btn{padding:11px 12px;border-radius:10px;font-weight:800;cursor:pointer;font-size:12px;border:none}.btn-red{background:#0071e3;color:#fff}.btn-green{background:#0071e3;color:#fff}.btn-black{background:#111;color:#fff}.btn-white{background:#fff;border:1px solid #ddd;color:#111}
 .tabBtn{flex:1;padding:11px;border-radius:10px;border:1px solid #ddd;background:#fff;font-weight:800;font-size:12px;cursor:pointer}.tabBtn.active{background:#0071e3;color:#fff;border-color:#0071e3}
 .badge{display:inline-block;padding:4px 9px;border-radius:999px;font-size:10px;font-weight:900;color:#fff}.badge-open{background:#0071e3}.badge-progress{background:#111}.badge-done{background:#22c55e}.badge-pending{background:#111}.badge-approved{background:#22c55e}
 .sellerBox{background:#f7f9fc;border:1px solid #eef1f5;border-radius:10px;padding:8px 10px;margin-top:8px;font-size:12px;line-height:1.6}.thumb{width:68px;height:68px;min-width:68px;border-radius:12px;background:#f0f0f0;display:flex;align-items:center;justify-content:center;font-size:32px;object-fit:cover}
-.topBar{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}.counts{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}.countBox{background:#fff;border:1px solid #eee;border-radius:12px;padding:10px 12px;flex:1;min-width:70px;text-align:center}.countBox b{font-size:18px;display:block}.countBox small{font-size:11px;color:#888}
-.preview{width:100%;border-radius:10px;margin-top:8px;display:none;max-height:150px;object-fit:cover}
-.hidden{display:none!important}
+.counts{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}.countBox{background:#fff;border:1px solid #eee;border-radius:12px;padding:10px 12px;flex:1;min-width:70px;text-align:center}.countBox b{font-size:18px;display:block}.countBox small{font-size:11px;color:#888}
+.hidden{display:none!important}.magicBox{background:#111;border-radius:14px;padding:14px;margin:10px 0;color:#fff}.magicBox p{color:#ccc;font-size:12px;line-height:1.6}.previewBox{background:#f7f9fc;border:1px solid #0071e3;border-radius:12px;padding:12px;margin-top:10px;display:none;color:#111}
 </style></head><body>
-
-<div id="loginBox">
-<h1>Admin <span>Login</span> 🔐</h1>
-<p class="sub">FIRSTSTORE-SA • Only owner / staff<br>129 Hydra St, Devland • 074 362 7992</p>
-<div class="card">
-<label>Admin PIN</label><input id="pinInput" type="password" placeholder="Enter PIN - default 1234" inputmode="numeric">
-<button class="btn btn-red" style="width:100%;margin-top:12px;padding:13px" onclick="loginAdmin()">🔓 Login →</button>
-<p style="font-size:11px;color:#888;margin-top:10px;text-align:center">Default PIN: <b>1234</b> — Change in code: search for <b>ADMIN_PIN</b></p>
-<button class="btn btn-white" style="width:100%;margin-top:8px" onclick="location.href='index.html'">← Back To Site</button>
-</div>
-</div>
-
+<div id="loginBox"><h1>Admin <span>Login</span> 🔐</h1><p class="sub">FIRSTSTORE-SA • PIN 1234</p><div class="card"><label>Admin PIN</label><input id="pinInput" type="password" placeholder="1234"><button class="btn btn-red" style="width:100%;margin-top:12px;padding:13px" onclick="loginAdmin()">🔓 Login →</button><button class="btn btn-white" style="width:100%;margin-top:8px" onclick="location.href='index.html'">← Back To Site</button></div></div>
 <div id="adminBox" class="hidden">
-<div class="topBar"><div><h1>FIRSTSTORE <span>Admin</span></h1><p class="sub" style="margin:0">Welcome back, Boss 👋</p></div><button class="btn btn-white" onclick="logoutAdmin()">Logout</button></div>
+<div style="display:flex;justify-content:space-between;align-items:center"><div><h1>FIRSTSTORE <span>Admin</span></h1><p class="sub" style="margin:0">Welcome back, Boss 👋</p></div><button class="btn btn-white" onclick="logoutAdmin()">Logout</button></div>
+<div class="counts"><div class="countBox"><b id="cShop">0</b><small>🛍️ Shop</small></div><div class="countBox"><b id="cAuction">0</b><small>🔨 Auction</small></div><div class="countBox"><b id="cTickets">0</b><small>🎫 Tickets</small></div><div class="countBox"><b id="cClients">0</b><small>👥 Clients</small></div></div>
+<div style="display:flex;gap:8px;flex-wrap:wrap"><button class="tabBtn active" id="tab-shop" onclick="switchTab('shop')">🛍️ Sale</button><button class="tabBtn" id="tab-auction" onclick="switchTab('auction')">🔨 Auction</button><button class="tabBtn" id="tab-tickets" onclick="switchTab('tickets')">🎫 Tickets</button><button class="tabBtn" id="tab-clients" onclick="switchTab('clients')">👥 Clients</button></div>
 
-<div class="counts">
-<div class="countBox"><b id="cShop">0</b><small>🛍️ Shop</small></div>
-<div class="countBox"><b id="cAuction">0</b><small>🔨 Auction</small></div>
-<div class="countBox"><b id="cTickets">0</b><small>🎫 Tickets</small></div>
-<div class="countBox"><b id="cClients">0</b><small>👥 Clients</small></div>
-</div>
-
-<div style="display:flex;gap:8px;flex-wrap:wrap">
-<button class="tabBtn active" id="tab-shop" onclick="switchTab('shop')">🛍️ Shop</button>
-<button class="tabBtn" id="tab-auction" onclick="switchTab('auction')">🔨 Auction</button>
-<button class="tabBtn" id="tab-tickets" onclick="switchTab('tickets')">🎫 Tickets</button>
-<button class="tabBtn" id="tab-clients" onclick="switchTab('clients')">👥 Clients</button>
-</div>
-
-<!-- ============ SHOP ============ -->
+<!-- SHOP -->
 <div id="panel-shop">
-<div class="card" style="border:1px dashed #0071e3">
-<h3 id="shopFormTitle">➕ Add New Item For Sale</h3>
-<label>Item Name *</label><input id="sName" placeholder="e.g. iPhone 13 128GB - Mint">
-<label>Category *</label><select id="sCat"><option value="phone">📱 Phone</option><option value="laptop">💻 Laptop</option><option value="tv">📺 TV</option><option value="home">🏠 Home / Fridge / Appliance</option><option value="other">••• Other</option></select>
-<label>Price * (e.g. R4,500)</label><input id="sPrice" placeholder="R4,500">
-<label>Old Price (optional - for discount, e.g. R5,500)</label><input id="sOld" placeholder="Leave empty if no discount">
-<label>Description</label><textarea id="sDesc" rows="2" placeholder="e.g. Battery 89% • No scratches • With charger"></textarea>
-<label>Emoji (if no photo)</label><input id="sEmoji" placeholder="📱 💻 📺 🧊" value="📱">
-<label>Photo - Paste Image Link (optional)</label><input id="sImage" placeholder="https://... or leave empty to use Emoji">
-<label>👤 Seller *</label>
-<select id="sSellerSelect" onchange="sellerSelectChanged()">
-<option value="FIRSTSTORE-SA">FIRSTSTORE-SA - Our Own Stock</option>
-<option value="CUSTOM">✏️ Type Custom Seller... (Helping Someone Sell)</option>
-</select>
-<input id="sSellerCustom" class="hidden" placeholder="e.g. Thabo M. - Devland" style="margin-top:8px">
-<p style="font-size:11px;color:#888;margin-top:6px">If you are helping someone sell, choose Custom and type their name.</p>
-
-<label>📦 Source *</label>
-<select id="sSourceSelect" onchange="sourceSelectChanged()">
-<option value="Our Stock - FIRSTSTORE-SA">Our Stock - FIRSTSTORE-SA</option>
-<option value="Helping Customer Sell">Helping Customer Sell</option>
-<option value="Helping Customer Sell - Facebook Marketplace">Helping Customer Sell - Facebook Marketplace</option>
-<option value="Helping Customer Sell - Pawn Expired">Helping Customer Sell - Pawn Expired</option>
-<option value="Refurbished by Us">Refurbished by Us</option>
-<option value="CUSTOM">✏️ Type Custom Source...</option>
-</select>
-<input id="sSourceCustom" class="hidden" placeholder="e.g. Helping Customer Sell - Yaga" style="margin-top:8px">
-
-<label>In Stock?</label><select id="sStock"><option value="true">✅ In Stock - Show Buy Now</option><option value="false">❌ Sold Out</option></select>
-<button class="btn btn-red" style="width:100%;margin-top:12px;padding:13px" id="shopSaveBtn" onclick="saveShopItem()">✅ Save Item →</button>
-<button class="btn btn-white hidden" style="width:100%;margin-top:8px" id="shopCancelBtn" onclick="cancelEditShop()">Cancel Edit</button>
-<p style="font-size:11px;color:#888;margin-top:8px;text-align:center">This saves to <b>fs_shop</b> — same list customers see in Shop.</p>
+<div class="magicBox"><h3>✨ MAGIC PASTE - FOR SALE</h3><p>Paste Facebook / WhatsApp text, tap button, it puts Name, Price, Desc, Seller, Source in right order.</p><label style="color:#fff">Paste Listing Here 👇</label><textarea id="magicPaste" rows="6" placeholder="RGB Gaming PC
+Intel i5, 16GB RAM, 8GB Graphics
+Price R5000
+Seller: Mpk Mtshali
+Source: Facebook Marketplace"></textarea><button class="btn btn-red" style="width:100%;margin-top:10px;padding:14px" onclick="autoFillFromPaste()">✨ AUTO-FILL - Put It In Right Order →</button><button class="btn btn-white" style="width:100%;margin-top:8px" onclick="clearMagic()">🧹 Clear</button><div id="magicPreview" class="previewBox"></div></div>
+<div class="card" style="border:1px dashed #0071e3"><h3 id="shopFormTitle">➕ Add Item For Sale</h3>
+<label>1. Item Name *</label><input id="sName" placeholder="e.g. iPhone 13">
+<label>2. Category *</label><select id="sCat"><option value="phone">📱 Phone</option><option value="laptop">💻 Laptop</option><option value="tv">📺 TV</option><option value="home">🏠 Home</option><option value="other">••• Other</option></select>
+<label>3. Price *</label><input id="sPrice" placeholder="R4,500">
+<label>4. Old Price</label><input id="sOld" placeholder="">
+<label>5. Description</label><textarea id="sDesc" rows="3"></textarea>
+<label>6. Emoji</label><input id="sEmoji" value="📱">
+<label>7. Photo Link</label><input id="sImage" placeholder="https://...">
+<label>8. 👤 Seller *</label><select id="sSellerSelect" onchange="sellerSelectChanged()"><option value="FIRSTSTORE-SA">FIRSTSTORE-SA - Our Stock</option><option value="CUSTOM">✏️ Custom Seller...</option></select><input id="sSellerCustom" class="hidden" placeholder="e.g. Mpk Mtshali" style="margin-top:8px">
+<label>9. 📦 Source *</label><select id="sSourceSelect" onchange="sourceSelectChanged()"><option value="Our Stock - FIRSTSTORE-SA">Our Stock - FIRSTSTORE-SA</option><option value="Helping Customer Sell">Helping Customer Sell</option><option value="Helping Customer Sell - Facebook Marketplace">Helping Customer Sell - Facebook Marketplace</option><option value="Helping Customer Sell - Pawn Expired">Helping Customer Sell - Pawn Expired</option><option value="Refurbished by Us">Refurbished by Us</option><option value="CUSTOM">✏️ Custom Source...</option></select><input id="sSourceCustom" class="hidden" placeholder="e.g. Helping Customer Sell - Yaga" style="margin-top:8px">
+<label>10. In Stock?</label><select id="sStock"><option value="true">✅ In Stock</option><option value="false">❌ Sold Out</option></select>
+<button class="btn btn-red" style="width:100%;margin-top:12px;padding:14px" id="shopSaveBtn" onclick="saveShopItem()">✅ SAVE ITEM →</button><button class="btn btn-white hidden" style="width:100%;margin-top:8px" id="shopCancelBtn" onclick="cancelEditShop()">Cancel Edit</button></div>
+<div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn btn-red" onclick="filterShopAdmin('all')">All</button><button class="btn btn-white" onclick="filterShopAdmin('phone')">📱 Phones</button><button class="btn btn-white" onclick="filterShopAdmin('laptop')">💻 Laptops</button><button class="btn btn-white" onclick="filterShopAdmin('tv')">📺 TVs</button><button class="btn btn-white" onclick="filterShopAdmin('home')">🏠 Home</button><button class="btn btn-white" onclick="clearShopDemo()">🗑 Clear All</button></div><div id="shopList"></div>
 </div>
 
-<div style="display:flex;gap:8px;flex-wrap:wrap;margin:10px 0"><button class="btn btn-red" onclick="filterShopAdmin('all')">All</button><button class="btn btn-white" onclick="filterShopAdmin('phone')">📱 Phones</button><button class="btn btn-white" onclick="filterShopAdmin('laptop')">💻 Laptops</button><button class="btn btn-white" onclick="filterShopAdmin('tv')">📺 TVs</button><button class="btn btn-white" onclick="filterShopAdmin('home')">🏠 Home</button><button class="btn btn-white" onclick="clearShopDemo()">🗑 Clear Demo Items</button></div>
-<div id="shopList"></div>
-</div>
-
-<!-- ============ AUCTION ============ -->
+<!-- AUCTION -->
 <div id="panel-auction" class="hidden">
-<div class="card" style="border:1px dashed #0071e3">
-<h3>➕ Add Auction Item</h3>
-<label>Item Name *</label><input id="aName" placeholder="e.g. iPhone 13 - Pawn About To Expire">
-<label>Description</label><textarea id="aDesc" rows="2" placeholder="e.g. Owner: Thabo • Release R1000 • Expires Friday"></textarea>
-<label>To Release (e.g. R1,000)</label><input id="aStart" placeholder="R1,000">
-<label>Buy Debt For / Current (e.g. R1,200)</label><input id="aCurrent" placeholder="R1,200">
-<label>Expiry Date + Time *</label><input id="aExpiryDate" type="date"><input id="aExpiryTime" type="time" value="18:00" style="margin-top:8px">
-<label>Emoji</label><input id="aEmoji" value="📱">
-<label>Photo Link (optional)</label><input id="aImage" placeholder="https://...">
-<button class="btn btn-red" style="width:100%;margin-top:12px;padding:13px" onclick="saveAuctionItem()">✅ Add Auction →</button>
-</div>
-<div id="auctionList"></div>
-</div>
-
-<!-- ============ TICKETS ============ -->
-<div id="panel-tickets" class="hidden">
-<div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px"><button class="btn btn-red" onclick="filterTicketsAdmin('all')">All</button><button class="btn btn-white" onclick="filterTicketsAdmin('Open')">Open</button><button class="btn btn-white" onclick="filterTicketsAdmin('In Progress')">In Progress</button><button class="btn btn-white" onclick="filterTicketsAdmin('Done')">Done</button></div>
-<div id="ticketList"></div>
+<div class="magicBox"><h3>✨ MAGIC PASTE - AUCTION</h3><p>Paste auction text, tap button, it fills Item, Release, Selling, Seller, Source, Expiry.</p><label style="color:#fff">Paste Auction Here 👇</label><textarea id="magicPasteAuction" rows="6" placeholder="iPhone 13 - Pawn Expiring
+Release R1000, Sell R1200
+Expires 25 Nov at 18:00
+Seller: Thabo M.
+Source: Cash Crusaders / Another Shop"></textarea><button class="btn btn-red" style="width:100%;margin-top:10px;padding:14px" onclick="autoFillAuction()">✨ AUTO-FILL Auction →</button><div id="magicPreviewAuction" class="previewBox"></div></div>
+<div class="card" style="border:1px dashed #0071e3"><h3>➕ Add Auction Item</h3>
+<label>1. Item Name *</label><input id="aName" placeholder="e.g. iPhone 13 - Pawn Expiring">
+<label>2. Description</label><textarea id="aDesc" rows="2"></textarea>
+<label>3. To Release * (e.g. R1,000)</label><input id="aStart" placeholder="R1,000">
+<label>4. Buy Debt For / Selling * (e.g. R1,200)</label><input id="aCurrent" placeholder="R1,200">
+<label>5. Expiry Date + Time *</label><input id="aExpiryDate" type="date"><input id="aExpiryTime" type="time" value="18:00" style="margin-top:8px">
+<label>6. 👤 Seller *</label><select id="aSellerSelect" onchange="aSellerChanged()"><option value="FIRSTSTORE-SA">FIRSTSTORE-SA</option><option value="CUSTOM">✏️ Custom Seller...</option></select><input id="aSellerCustom" class="hidden" placeholder="e.g. Thabo M. - Devland" style="margin-top:8px">
+<label>7. 📦 Source *</label><select id="aSourceSelect" onchange="aSourceChanged()"><option value="Pawn With FIRSTSTORE-SA">Pawn With FIRSTSTORE-SA</option><option value="Pawn With Another Shop">Pawn With Another Shop</option><option value="Pawn With Another Shop - Cash Crusaders">Pawn With Another Shop - Cash Crusaders</option><option value="Pawn With Another Shop - Facebook Marketplace">Pawn With Another Shop - Facebook Marketplace</option><option value="CUSTOM">✏️ Custom Source...</option></select><input id="aSourceCustom" class="hidden" placeholder="e.g. Pawn With Another Shop - Devland" style="margin-top:8px">
+<label>8. Which Shop Holding It? (if Another Shop)</label><input id="aShopName" placeholder="e.g. Cash Crusaders, Devland">
+<label>9. Emoji</label><input id="aEmoji" value="📱"><label>10. Photo Link</label><input id="aImage" placeholder="https://...">
+<button class="btn btn-red" style="width:100%;margin-top:12px;padding:14px" onclick="saveAuctionItem()">✅ Add Auction →</button></div><div id="auctionList"></div>
 </div>
 
-<!-- ============ CLIENTS ============ -->
-<div id="panel-clients" class="hidden">
-<p class="sub">People who registered on site. Approve them so they can pawn.</p>
-<div id="clientList"></div>
-</div>
-
-<button class="btn btn-white" style="width:100%;margin-top:14px" onclick="location.href='index.html'">← Back To Site</button>
-<p style="text-align:center;font-size:11px;color:#999;margin-top:10px">FIRSTSTORE-SA Admin • Data saved on this device / browser (localStorage)</p>
-</div>
+<div id="panel-tickets" class="hidden"><div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px"><button class="btn btn-red" onclick="filterTicketsAdmin('all')">All</button><button class="btn btn-white" onclick="filterTicketsAdmin('Open')">Open</button><button class="btn btn-white" onclick="filterTicketsAdmin('In Progress')">In Progress</button><button class="btn btn-white" onclick="filterTicketsAdmin('Done')">Done</button></div><div id="ticketList"></div></div>
+<div id="panel-clients" class="hidden"><div id="clientList"></div></div>
+<button class="btn btn-white" style="width:100%;margin-top:14px" onclick="location.href='index.html'">← Back To Site</button></div>
 
 <script>
 const ADMIN_PIN='1234';
-let editShopId=null, shopFilter='all', ticketFilter='all';
-function getShop(){try{return JSON.parse(localStorage.getItem('fs_shop')||'[]')}catch(e){return[]}}
-function saveShop(d){localStorage.setItem('fs_shop',JSON.stringify(d))}
-function getAuction(){try{return JSON.parse(localStorage.getItem('fs_auction')||'[]')}catch(e){return[]}}
-function saveAuction(d){localStorage.setItem('fs_auction',JSON.stringify(d))}
-function getTickets(){try{return JSON.parse(localStorage.getItem('fs_tickets')||'[]')}catch(e){return[]}}
-function saveTickets(d){localStorage.setItem('fs_tickets',JSON.stringify(d))}
-function getClients(){try{return JSON.parse(localStorage.getItem('fs_clients')||'[]')}catch(e){return[]}}
-function saveClients(d){localStorage.setItem('fs_clients',JSON.stringify(d))}
-
-function loginAdmin(){let p=document.getElementById('pinInput').value.trim();if(p===ADMIN_PIN){document.getElementById('loginBox').classList.add('hidden');document.getElementById('adminBox').classList.remove('hidden');refreshAll();}else{alert('❌ Wrong PIN');}}
-function logoutAdmin(){document.getElementById('adminBox').classList.add('hidden');document.getElementById('loginBox').classList.remove('hidden');document.getElementById('pinInput').value='';}
+let editShopId=null,shopFilter='all',ticketFilter='all';
+function getShop(){try{return JSON.parse(localStorage.getItem('fs_shop')||'[]')}catch(e){return[]}}function saveShop(d){localStorage.setItem('fs_shop',JSON.stringify(d))}
+function getAuction(){try{return JSON.parse(localStorage.getItem('fs_auction')||'[]')}catch(e){return[]}}function saveAuction(d){localStorage.setItem('fs_auction',JSON.stringify(d))}
+function getTickets(){try{return JSON.parse(localStorage.getItem('fs_tickets')||'[]')}catch(e){return[]}}function saveTickets(d){localStorage.setItem('fs_tickets',JSON.stringify(d))}
+function getClients(){try{return JSON.parse(localStorage.getItem('fs_clients')||'[]')}catch(e){return[]}}function saveClients(d){localStorage.setItem('fs_clients',JSON.stringify(d))}
+function loginAdmin(){if(document.getElementById('pinInput').value.trim()===ADMIN_PIN){document.getElementById('loginBox').classList.add('hidden');document.getElementById('adminBox').classList.remove('hidden');refreshAll();}else alert('❌ Wrong PIN');}
+function logoutAdmin(){document.getElementById('adminBox').classList.add('hidden');document.getElementById('loginBox').classList.remove('hidden');}
 function switchTab(t){['shop','auction','tickets','clients'].forEach(x=>{document.getElementById('panel-'+x).classList.toggle('hidden',x!==t);document.getElementById('tab-'+x).classList.toggle('active',x===t);});if(t==='shop')renderShopAdmin();if(t==='auction')renderAuctionAdmin();if(t==='tickets')renderTicketsAdmin();if(t==='clients')renderClientsAdmin();}
 function refreshAll(){updateCounts();renderShopAdmin();renderAuctionAdmin();renderTicketsAdmin();renderClientsAdmin();}
 function updateCounts(){document.getElementById('cShop').innerText=getShop().length;document.getElementById('cAuction').innerText=getAuction().length;document.getElementById('cTickets').innerText=getTickets().length;document.getElementById('cClients').innerText=getClients().length;}
-
-// SELLER / SOURCE SELECTS
-function sellerSelectChanged(){let v=document.getElementById('sSellerSelect').value;document.getElementById('sSellerCustom').classList.toggle('hidden',v!=='CUSTOM');if(v!=='CUSTOM')document.getElementById('sSellerCustom').value='';}
-function sourceSelectChanged(){let v=document.getElementById('sSourceSelect').value;document.getElementById('sSourceCustom').classList.toggle('hidden',v!=='CUSTOM');if(v!=='CUSTOM')document.getElementById('sSourceCustom').value='';}
-function getSellerValue(){let sel=document.getElementById('sSellerSelect').value;if(sel==='CUSTOM'){let c=document.getElementById('sSellerCustom').value.trim();return c||'FIRSTSTORE-SA';}return sel;}
-function getSourceValue(){let sel=document.getElementById('sSourceSelect').value;if(sel==='CUSTOM'){let c=document.getElementById('sSourceCustom').value.trim();return c||'Helping Customer Sell';}return sel;}
-
-// SHOP CRUD
-function saveShopItem(){
-let name=document.getElementById('sName').value.trim(),price=document.getElementById('sPrice').value.trim();
-if(!name){alert('Enter Item Name');return;}if(!price){alert('Enter Price');return;}
-let seller=getSellerValue(),source=getSourceValue();
-let item={id:editShopId||Date.now(),cat:document.getElementById('sCat').value,name:name,price:price.startsWith('R')?price:'R'+price,old:document.getElementById('sOld').value.trim(),desc:document.getElementById('sDesc').value.trim(),emoji:document.getElementById('sEmoji').value.trim()||'📱',image:document.getElementById('sImage').value.trim(),seller:seller,source:source,stock:document.getElementById('sStock').value==='true'};
-let list=getShop();
-if(editShopId){let idx=list.findIndex(x=>x.id==editShopId);if(idx>=0)list[idx]=item;}else{list.unshift(item);}
-saveShop(list);cancelEditShop();refreshAll();alert('✅ Saved! Customers will see:\nSeller: '+seller+'\nSource: '+source);
+function clearMagic(){document.getElementById('magicPaste').value='';document.getElementById('magicPreview').style.display='none';}
+function parseSellerSource(txt){
+let lower=txt.toLowerCase(),seller='FIRSTSTORE-SA',source='Our Stock - FIRSTSTORE-SA';
+let sm=txt.match(/seller\s*[:\-]\s*([A-Za-z ]+)/i);if(sm){let s=sm[1].trim().split('\n')[0].trim();if(s&&s.length>1&&s.length<40)seller=s;}
+let srcm=txt.match(/source\s*[:\-]\s*([^\n]+)/i);if(srcm){source=srcm[1].trim();}
+else if(lower.includes('facebook')||lower.includes('marketplace'))source='Helping Customer Sell - Facebook Marketplace';
+else if(lower.includes('cash crusader'))source='Pawn With Another Shop - Cash Crusaders';
+else if(lower.includes('another shop'))source='Pawn With Another Shop';
+else if(lower.includes('yaga'))source='Helping Customer Sell - Yaga';
+else if(seller!=='FIRSTSTORE-SA')source='Helping Customer Sell';
+return{seller,source};
 }
-function cancelEditShop(){editShopId=null;document.getElementById('shopFormTitle').innerText='➕ Add New Item For Sale';document.getElementById('shopSaveBtn').innerText='✅ Save Item →';document.getElementById('shopCancelBtn').classList.add('hidden');['sName','sPrice','sOld','sDesc','sImage','sSellerCustom','sSourceCustom'].forEach(id=>document.getElementById(id).value='');document.getElementById('sEmoji').value='📱';document.getElementById('sSellerSelect').value='FIRSTSTORE-SA';document.getElementById('sSourceSelect').value='Our Stock - FIRSTSTORE-SA';sellerSelectChanged();sourceSelectChanged();}
-function editShop(id){let i=getShop().find(x=>x.id==id);if(!i)return;editShopId=id;document.getElementById('shopFormTitle').innerText='✏️ Editing: '+i.name;document.getElementById('shopSaveBtn').innerText='💾 Update Item →';document.getElementById('shopCancelBtn').classList.remove('hidden');document.getElementById('sName').value=i.name;document.getElementById('sCat').value=i.cat||'phone';document.getElementById('sPrice').value=i.price;document.getElementById('sOld').value=i.old||'';document.getElementById('sDesc').value=i.desc||'';document.getElementById('sEmoji').value=i.emoji||'📱';document.getElementById('sImage').value=i.image||'';document.getElementById('sStock').value=i.stock?'true':'false';
-// Seller
-if(i.seller==='FIRSTSTORE-SA'){document.getElementById('sSellerSelect').value='FIRSTSTORE-SA';}else{document.getElementById('sSellerSelect').value='CUSTOM';document.getElementById('sSellerCustom').value=i.seller||'';}
-sellerSelectChanged();
-// Source
-let src=i.source||'Our Stock - FIRSTSTORE-SA';let opts=[...document.getElementById('sSourceSelect').options].map(o=>o.value);if(opts.includes(src)){document.getElementById('sSourceSelect').value=src;}else{document.getElementById('sSourceSelect').value='CUSTOM';document.getElementById('sSourceCustom').value=src;}
-sourceSelectChanged();
-switchTab('shop');window.scrollTo(0,0);
+function parsePrice(txt){
+let m=txt.match(/(?:price|R)\s*:?\s*R?\s*([\d,]{3,})/i);if(m){let n=parseInt(m[1].replace(/,/g,''));if(n>=100&&n<=200000)return 'R'+n.toLocaleString('en-ZA').replace(/,/g,' ');}
+let all=[...txt.matchAll(/R\s?([\d\s]{3,})/g)].map(x=>parseInt(x[1].replace(/\s/g,''))).filter(n=>n>=100&&n<=200000);if(all.length)return 'R'+Math.max(...all).toLocaleString('en-ZA').replace(/,/g,' ');return '';
 }
-function deleteShop(id){if(!confirm('Delete this item?'))return;saveShop(getShop().filter(x=>x.id!=id));refreshAll();}
+function guessCatEmoji(txt){
+let l=txt.toLowerCase();if(l.includes('iphone')||l.includes('phone')||l.includes('samsung')&&l.includes('phone'))return{cat:'phone',emoji:'📱'};
+if(l.includes('laptop')||l.includes('pc')||l.includes('i5')||l.includes('i7')||l.includes('processor')||l.includes('graphics'))return{cat:'laptop',emoji:l.includes('gaming')?'🎮':'💻'};
+if(l.includes('tv'))return{cat:'tv',emoji:'📺'};if(l.includes('fridge')||l.includes('washing')||l.includes('stove'))return{cat:'home',emoji:'🧊'};if(l.includes('gaming'))return{cat:'other',emoji:'🎮'};return{cat:'other',emoji:'📦'};
+}
+// MAGIC SHOP
+function autoFillFromPaste(){
+let txt=document.getElementById('magicPaste').value.trim();if(!txt){alert('Paste first');return;}
+let lines=txt.split('\n').map(s=>s.trim()).filter(Boolean);let price=parsePrice(txt);let ss=parseSellerSource(txt);let ce=guessCatEmoji(txt);
+let name='';for(let l of lines){let ll=l.toLowerCase();if(ll.includes('price')||ll.startsWith('seller')||ll.startsWith('source')||ll==='description'||ll.includes('hi, is this'))continue;if(l.length>3&&l.length<80){name=l.replace(/for sale/gi,'').replace(/\s+/g,' ').trim();break;}}if(!name)name=lines[0]||'Item For Sale';
+name=name.split(' ').map(w=>w.length>1?w.charAt(0).toUpperCase()+w.slice(1):w).join(' ');
+let desc=lines.filter(l=>{let ll=l.toLowerCase();return !ll.startsWith('seller')&&!ll.startsWith('source')&&!ll.includes('hi, is this')&&ll!==name.toLowerCase();}).join(' • ');if(desc.length>400)desc=desc.substring(0,400);
+document.getElementById('sName').value=name;document.getElementById('sCat').value=ce.cat;document.getElementById('sPrice').value=price;document.getElementById('sDesc').value=desc;document.getElementById('sEmoji').value=ce.emoji;
+if(ss.seller==='FIRSTSTORE-SA'){document.getElementById('sSellerSelect').value='FIRSTSTORE-SA';}else{document.getElementById('sSellerSelect').value='CUSTOM';document.getElementById('sSellerCustom').value=ss.seller;}sellerSelectChanged();
+let opts=[...document.getElementById('sSourceSelect').options].map(o=>o.value);if(opts.includes(ss.source)){document.getElementById('sSourceSelect').value=ss.source;}else{document.getElementById('sSourceSelect').value='CUSTOM';document.getElementById('sSourceCustom').value=ss.source;}sourceSelectChanged();
+let pv=document.getElementById('magicPreview');pv.style.display='block';pv.innerHTML='<b>✅ Sorted!</b><br>Name: '+name+'<br>Price: '+price+'<br>Seller: '+ss.seller+'<br>Source: '+ss.source+'<br><b>👇 Check fields, tap SAVE ITEM</b>';alert('✅ Done!\nName: '+name+'\nPrice: '+price+'\nSeller: '+ss.seller+'\nSource: '+ss.source);
+}
+// MAGIC AUCTION
+function autoFillAuction(){
+let txt=document.getElementById('magicPasteAuction').value.trim();if(!txt){alert('Paste auction first');return;}
+let relM=txt.match(/release\s*R?\s*([\d,]+)/i),sellM=txt.match(/sell(?:ing)?\s*R?\s*([\d,]+)/i);
+let rel=relM?'R'+relM[1]:'',sell=sellM?'R'+sellM[1]:parsePrice(txt);
+if(!sell){let all=[...txt.matchAll(/R\s?([\d,]+)/g)];if(all.length>=2)sell='R'+all[1][1];}
+let ss=parseSellerSource(txt);
+// If source was for shop, convert to auction source
+if(ss.source.includes('Helping Customer Sell'))ss.source='Pawn With Another Shop';
+if(txt.toLowerCase().includes('firststore'))ss.source='Pawn With FIRSTSTORE-SA';
+let firstLine=txt.split('\n')[0].trim();
+document.getElementById('aName').value=firstLine.substring(0,60);document.getElementById('aDesc').value=txt.substring(0,250);document.getElementById('aStart').value=rel;document.getElementById('aCurrent').value=sell;
+if(ss.seller==='FIRSTSTORE-SA'){document.getElementById('aSellerSelect').value='FIRSTSTORE-SA';}else{document.getElementById('aSellerSelect').value='CUSTOM';document.getElementById('aSellerCustom').value=ss.seller;}aSellerChanged();
+let opts=[...document.getElementById('aSourceSelect').options].map(o=>o.value);if(opts.includes(ss.source)){document.getElementById('aSourceSelect').value=ss.source;}else{document.getElementById('aSourceSelect').value='CUSTOM';document.getElementById('aSourceCustom').value=ss.source;}aSourceChanged();
+if(txt.toLowerCase().includes('cash crusader'))document.getElementById('aShopName').value='Cash Crusaders';
+let pv=document.getElementById('magicPreviewAuction');pv.style.display='block';pv.innerHTML='<b>✅ Auction Sorted!</b><br>Name: '+firstLine+'<br>Release: '+rel+'<br>Selling: '+sell+'<br>Seller: '+ss.seller+'<br>Source: '+ss.source+'<br><b>👇 Pick Expiry Date, tap Add Auction</b>';alert('✅ Auction Done!\nRelease: '+rel+'\nSelling: '+sell+'\nSeller: '+ss.seller+'\nSource: '+ss.source+'\n\nNow pick Expiry Date!');
+}
+function sellerSelectChanged(){document.getElementById('sSellerCustom').classList.toggle('hidden',document.getElementById('sSellerSelect').value!=='CUSTOM');}
+function sourceSelectChanged(){document.getElementById('sSourceCustom').classList.toggle('hidden',document.getElementById('sSourceSelect').value!=='CUSTOM');}
+function aSellerChanged(){document.getElementById('aSellerCustom').classList.toggle('hidden',document.getElementById('aSellerSelect').value!=='CUSTOM');}
+function aSourceChanged(){document.getElementById('aSourceCustom').classList.toggle('hidden',document.getElementById('aSourceSelect').value!=='CUSTOM');}
+function getSellerValue(){let s=document.getElementById('sSellerSelect').value;return s==='CUSTOM'?(document.getElementById('sSellerCustom').value.trim()||'FIRSTSTORE-SA'):s;}
+function getSourceValue(){let s=document.getElementById('sSourceSelect').value;return s==='CUSTOM'?(document.getElementById('sSourceCustom').value.trim()||'Helping Customer Sell'):s;}
+function getASeller(){let s=document.getElementById('aSellerSelect').value;return s==='CUSTOM'?(document.getElementById('aSellerCustom').value.trim()||'FIRSTSTORE-SA'):s;}
+function getASource(){let s=document.getElementById('aSourceSelect').value;return s==='CUSTOM'?(document.getElementById('aSourceCustom').value.trim()||'Pawn With FIRSTSTORE-SA'):s;}
+function saveShopItem(){let name=document.getElementById('sName').value.trim(),price=document.getElementById('sPrice').value.trim();if(!name||!price){alert('Fill Name + Price');return;}let seller=getSellerValue(),source=getSourceValue();let item={id:editShopId||Date.now(),cat:document.getElementById('sCat').value,name:name,price:price.startsWith('R')?price:'R'+price,old:document.getElementById('sOld').value.trim(),desc:document.getElementById('sDesc').value.trim(),emoji:document.getElementById('sEmoji').value.trim()||'📱',image:document.getElementById('sImage').value.trim(),seller:seller,source:source,stock:document.getElementById('sStock').value==='true'};let l=getShop();if(editShopId){let idx=l.findIndex(x=>x.id==editShopId);if(idx>=0)l[idx]=item;}else l.unshift(item);saveShop(l);cancelEditShop();refreshAll();alert('✅ Saved! Seller: '+seller+' | Source: '+source);}
+function cancelEditShop(){editShopId=null;document.getElementById('shopFormTitle').innerText='➕ Add Item For Sale';document.getElementById('shopSaveBtn').innerText='✅ SAVE ITEM →';document.getElementById('shopCancelBtn').classList.add('hidden');['sName','sPrice','sOld','sDesc','sImage','sSellerCustom','sSourceCustom'].forEach(id=>document.getElementById(id).value='');document.getElementById('sEmoji').value='📱';document.getElementById('sSellerSelect').value='FIRSTSTORE-SA';document.getElementById('sSourceSelect').value='Our Stock - FIRSTSTORE-SA';sellerSelectChanged();sourceSelectChanged();}
+function editShop(id){let i=getShop().find(x=>x.id==id);if(!i)return;editShopId=id;document.getElementById('shopFormTitle').innerText='✏️ Editing: '+i.name;document.getElementById('shopSaveBtn').innerText='💾 Update →';document.getElementById('shopCancelBtn').classList.remove('hidden');document.getElementById('sName').value=i.name;document.getElementById('sCat').value=i.cat||'phone';document.getElementById('sPrice').value=i.price;document.getElementById('sOld').value=i.old||'';document.getElementById('sDesc').value=i.desc||'';document.getElementById('sEmoji').value=i.emoji||'📱';document.getElementById('sImage').value=i.image||'';document.getElementById('sStock').value=i.stock?'true':'false';if(i.seller==='FIRSTSTORE-SA')document.getElementById('sSellerSelect').value='FIRSTSTORE-SA';else{document.getElementById('sSellerSelect').value='CUSTOM';document.getElementById('sSellerCustom').value=i.seller;}sellerSelectChanged();let src=i.source||'Our Stock - FIRSTSTORE-SA';let opts=[...document.getElementById('sSourceSelect').options].map(o=>o.value);if(opts.includes(src))document.getElementById('sSourceSelect').value=src;else{document.getElementById('sSourceSelect').value='CUSTOM';document.getElementById('sSourceCustom').value=src;}sourceSelectChanged();switchTab('shop');window.scrollTo(0,0);}
+function deleteShop(id){if(!confirm('Delete?'))return;saveShop(getShop().filter(x=>x.id!=id));refreshAll();}
 function toggleStockShop(id){let l=getShop();let i=l.find(x=>x.id==id);if(i){i.stock=!i.stock;saveShop(l);refreshAll();}}
 function filterShopAdmin(f){shopFilter=f;renderShopAdmin();}
-function clearShopDemo(){if(!confirm('Clear ALL shop items?'))return;saveShop([]);refreshAll();}
-function renderShopAdmin(){let list=getShop();let f=shopFilter==='all'?list:list.filter(x=>x.cat===shopFilter);let el=document.getElementById('shopList');if(f.length===0){el.innerHTML='<div class="card" style="text-align:center;color:#888">No items yet. Add your first item above.</div>';return;}el.innerHTML=f.map(i=>{let seller=i.seller||'FIRSTSTORE-SA',source=i.source||'Our Stock - FIRSTSTORE-SA';return '<div class="card"><div style="display:flex;gap:12px;align-items:flex-start">'+(i.image?'<img src="'+i.image+'" class="thumb">':'<div class="thumb">'+(i.emoji||'📱')+'</div>')+'<div style="flex:1"><b>'+i.name+'</b><p>'+(i.desc||'')+'<br><b style="color:#111;font-size:14px">'+i.price+'</b> '+(i.old?'<span style="text-decoration:line-through">'+i.old+'</span>':'')+' • '+(i.stock?'✅ In Stock':'❌ Sold Out')+' • '+(i.cat||'')+'</p><div class="sellerBox">👤 <b>Seller:</b> '+seller+'<br>📦 <b>Source:</b> '+source+'</div><div style="display:flex;gap:8px;margin-top:10px;flex-wrap:wrap"><button class="btn btn-red" onclick="editShop('+i.id+')">✏️ Edit</button><button class="btn btn-black" onclick="toggleStockShop('+i.id+')">'+(i.stock?'❌ Mark Sold Out':'✅ Mark In Stock')+'</button><button class="btn btn-white" onclick="deleteShop('+i.id+')">🗑 Delete</button></div></div></div></div>';}).join('');}
-
-// AUCTION CRUD
-function saveAuctionItem(){
-let name=document.getElementById('aName').value.trim(),cur=document.getElementById('aCurrent').value.trim(),d=document.getElementById('aExpiryDate').value,t=document.getElementById('aExpiryTime').value||'18:00';
-if(!name){alert('Enter Item Name');return;}if(!cur){alert('Enter Buy Debt For');return;}if(!d){alert('Pick Expiry Date');return;}
-let exp=new Date(d+'T'+t+':00');
-let item={id:Date.now(),name:name,desc:document.getElementById('aDesc').value.trim(),start:document.getElementById('aStart').value.trim(),current:cur.startsWith('R')?cur:'R'+cur,bids:0,emoji:document.getElementById('aEmoji').value.trim()||'📱',image:document.getElementById('aImage').value.trim(),expiry:exp.toISOString(),expiryDisplay:exp.toLocaleDateString('en-ZA',{day:'numeric',month:'long',year:'numeric'})+' at '+t,time:'Ends '+exp.toLocaleDateString('en-ZA')};
-let l=getAuction();l.unshift(item);saveAuction(l);['aName','aDesc','aStart','aCurrent','aImage'].forEach(id=>document.getElementById(id).value='');document.getElementById('aEmoji').value='📱';refreshAll();alert('✅ Auction Added!');
-}
+function clearShopDemo(){if(!confirm('Clear ALL shop?'))return;saveShop([]);refreshAll();}
+function renderShopAdmin(){let l=getShop();let f=shopFilter==='all'?l:l.filter(x=>x.cat===shopFilter);let el=document.getElementById('shopList');if(!f.length){el.innerHTML='<div class="card" style="text-align:center;color:#888">No items yet. Paste above.</div>';return;}el.innerHTML=f.map(i=>'<div class="card"><div style="display:flex;gap:12px">'+(i.image?'<img src="'+i.image+'" class="thumb">':'<div class="thumb">'+(i.emoji||'📱')+'</div>')+'<div style="flex:1"><b>'+i.name+'</b><p>'+(i.desc||'')+'<br><b>'+i.price+'</b> • '+(i.stock?'✅ In Stock':'❌ Sold Out')+'</p><div class="sellerBox">👤 <b>Seller:</b> '+(i.seller||'FIRSTSTORE-SA')+'<br>📦 <b>Source:</b> '+(i.source||'Our Stock')+'</div><div style="display:flex;gap:8px;margin-top:8px"><button class="btn btn-red" onclick="editShop('+i.id+')">✏️ Edit</button><button class="btn btn-black" onclick="toggleStockShop('+i.id+')">Stock</button><button class="btn btn-white" onclick="deleteShop('+i.id+')">🗑 Delete</button></div></div></div></div>').join('');}
+function saveAuctionItem(){let name=document.getElementById('aName').value.trim(),cur=document.getElementById('aCurrent').value.trim(),d=document.getElementById('aExpiryDate').value,t=document.getElementById('aExpiryTime').value||'18:00';if(!name||!cur||!d){alert('Fill Name, Selling, Expiry');return;}let exp=new Date(d+'T'+t+':00');let seller=getASeller(),source=getASource();let shopName=document.getElementById('aShopName').value.trim();if(shopName&&source==='Pawn With Another Shop')source=source+' - '+shopName;let item={id:Date.now(),name:name,desc:document.getElementById('aDesc').value.trim(),start:document.getElementById('aStart').value.trim(),current:cur.startsWith('R')?cur:'R'+cur,bids:0,emoji:document.getElementById('aEmoji').value.trim()||'📱',image:document.getElementById('aImage').value.trim(),expiry:exp.toISOString(),expiryDisplay:exp.toLocaleDateString('en-ZA',{day:'numeric',month:'long',year:'numeric'})+' at '+t,time:'Ends '+exp.toLocaleDateString('en-ZA'),seller:seller,source:source,shopName:shopName};let l=getAuction();l.unshift(item);saveAuction(l);['aName','aDesc','aStart','aCurrent','aImage','aShopName'].forEach(id=>document.getElementById(id).value='');refreshAll();alert('✅ Auction Added! Seller: '+seller+' | Source: '+source);}
 function deleteAuction(id){if(!confirm('Delete auction?'))return;saveAuction(getAuction().filter(x=>x.id!=id));refreshAll();}
-function renderAuctionAdmin(){let l=getAuction();let el=document.getElementById('auctionList');if(l.length===0){el.innerHTML='<div class="card" style="text-align:center;color:#888">No auctions yet.</div>';return;}el.innerHTML=l.map(i=>'<div class="card"><b>'+i.name+'</b><p>'+(i.desc||'')+'<br>Release: '+(i.start||'')+' • Buy: '+(i.current||'')+'<br>📅 '+(i.expiryDisplay||i.time||'')+'</p><button class="btn btn-white" onclick="deleteAuction('+i.id+')">🗑 Delete</button></div>').join('');}
-
-// TICKETS
+function renderAuctionAdmin(){let l=getAuction();let el=document.getElementById('auctionList');if(!l.length){el.innerHTML='<div class="card" style="text-align:center;color:#888">No auctions yet.</div>';return;}el.innerHTML=l.map(i=>'<div class="card"><b>'+i.name+'</b><p>'+(i.desc||'')+'<br>Release: '+(i.start||'')+' • Buy: '+(i.current||'')+'<br>📅 '+(i.expiryDisplay||'')+'</p><div class="sellerBox">👤 <b>Seller:</b> '+(i.seller||'FIRSTSTORE-SA')+'<br>📦 <b>Source:</b> '+(i.source||'Pawn With FIRSTSTORE-SA')+'</div><button class="btn btn-white" style="margin-top:8px" onclick="deleteAuction('+i.id+')">🗑 Delete</button></div>').join('');}
 function filterTicketsAdmin(f){ticketFilter=f;renderTicketsAdmin();}
-function renderTicketsAdmin(){let l=getTickets();let f=ticketFilter==='all'?l:l.filter(x=>x.status===ticketFilter);let el=document.getElementById('ticketList');if(f.length===0){el.innerHTML='<div class="card" style="text-align:center;color:#888">No tickets in this filter.</div>';return;}el.innerHTML=f.map(t=>'<div class="card"><div style="display:flex;justify-content:space-between"><b>'+t.id+' • '+t.name+'</b><span class="badge '+(t.status==='Open'?'badge-open':t.status==='Done'?'badge-done':'badge-progress')+'">'+t.status+'</span></div><p><b>'+t.cat+'</b> • '+t.urgent+'<br>📞 '+t.phone+'<br>'+t.msg+'<br><small>'+t.date+'</small></p><label>Reply to Customer</label><textarea id="reply-'+t.id+'" rows="2">'+(t.reply||'')+'</textarea><div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px"><button class="btn btn-red" onclick="updateTicket(\''+t.id+'\',\'In Progress\')">▶ In Progress</button><button class="btn btn-green" onclick="updateTicket(\''+t.id+'\',\'Done\')">✅ Done</button><button class="btn btn-black" onclick="updateTicket(\''+t.id+'\',\'Open\')">↩ Open</button><button class="btn btn-white" onclick="deleteTicket(\''+t.id+'\')">🗑 Delete</button></div><a href="tel:'+t.phone+'" style="display:block;text-align:center;margin-top:8px;font-weight:800;color:#0071e3;text-decoration:none">📞 Call '+t.phone+'</a></div>').join('');}
-function updateTicket(id,status){let l=getTickets();let t=l.find(x=>x.id===id);if(!t)return;let rep=document.getElementById('reply-'+id);if(rep)t.reply=rep.value.trim();t.status=status;saveTickets(l);refreshAll();alert('✅ Ticket '+id+' → '+status);}
-function deleteTicket(id){if(!confirm('Delete ticket '+id+'?'))return;saveTickets(getTickets().filter(x=>x.id!==id));refreshAll();}
-
-// CLIENTS
-function renderClientsAdmin(){let l=getClients();let el=document.getElementById('clientList');if(l.length===0){el.innerHTML='<div class="card" style="text-align:center;color:#888">No registrations yet.</div>';return;}el.innerHTML=l.map(c=>'<div class="card"><div style="display:flex;justify-content:space-between"><b>'+c.name+'</b><span class="badge '+(c.status==='approved'?'badge-approved':'badge-pending')+'">'+(c.status||'pending')+'</span></div><p>📞 '+c.phone+'<br>✉️ '+c.email+'<br>📍 '+c.address+'<br><small>'+c.date+'</small><br>Verified: '+(c.verified||0)+'/3</p><div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px"><button class="btn btn-green" onclick="setClientStatus('+c.id+',\'approved\')">✅ Approve</button><button class="btn btn-black" onclick="setClientStatus('+c.id+',\'pending\')">⏳ Pending</button><button class="btn btn-white" onclick="deleteClient('+c.id+')">🗑 Delete</button></div></div>').join('');}
+function renderTicketsAdmin(){let l=getTickets();let f=ticketFilter==='all'?l:l.filter(x=>x.status===ticketFilter);let el=document.getElementById('ticketList');if(!f.length){el.innerHTML='<div class="card" style="text-align:center;color:#888">No tickets.</div>';return;}el.innerHTML=f.map(t=>'<div class="card"><b>'+t.id+' • '+t.name+'</b><p>'+t.cat+' • '+t.urgent+'<br>📞 '+t.phone+'<br>'+t.msg+'</p><label>Reply</label><textarea id="reply-'+t.id+'" rows="2">'+(t.reply||'')+'</textarea><div style="display:flex;gap:8px;margin-top:8px"><button class="btn btn-red" onclick="updateTicket(\''+t.id+'\',\'In Progress\')">▶ In Progress</button><button class="btn btn-green" onclick="updateTicket(\''+t.id+'\',\'Done\')">✅ Done</button><button class="btn btn-white" onclick="deleteTicket(\''+t.id+'\')">🗑 Delete</button></div></div>').join('');}
+function updateTicket(id,st){let l=getTickets();let t=l.find(x=>x.id===id);if(!t)return;let r=document.getElementById('reply-'+id);if(r)t.reply=r.value.trim();t.status=st;saveTickets(l);refreshAll();}
+function deleteTicket(id){if(!confirm('Delete?'))return;saveTickets(getTickets().filter(x=>x.id!==id));refreshAll();}
+function renderClientsAdmin(){let l=getClients();let el=document.getElementById('clientList');if(!l.length){el.innerHTML='<div class="card" style="text-align:center;color:#888">No registrations.</div>';return;}el.innerHTML=l.map(c=>'<div class="card"><b>'+c.name+'</b><p>📞 '+c.phone+'<br>✉️ '+c.email+'<br>📍 '+c.address+'<br>Status: '+(c.status||'pending')+'</p><div style="display:flex;gap:8px"><button class="btn btn-green" onclick="setClientStatus('+c.id+',\'approved\')">✅ Approve</button><button class="btn btn-white" onclick="deleteClient('+c.id+')">🗑 Delete</button></div></div>').join('');}
 function setClientStatus(id,st){let l=getClients();let c=l.find(x=>x.id==id);if(c){c.status=st;saveClients(l);refreshAll();}}
-function deleteClient(id){if(!confirm('Delete client?'))return;saveClients(getClients().filter(x=>x.id!=id));refreshAll();}
-
-// Auto-login if already? No - always ask PIN for safety
+function deleteClient(id){if(!confirm('Delete?'))return;saveClients(getClients().filter(x=>x.id!=id));refreshAll();}
 document.getElementById('pinInput').addEventListener('keypress',e=>{if(e.key==='Enter')loginAdmin();});
 </script>
 </body></html>
