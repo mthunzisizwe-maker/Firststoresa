@@ -18,10 +18,8 @@ label{font-size:12px;font-weight:800;display:block;margin:12px 0 6px}input,texta
 <div style="display:flex;justify-content:space-between;align-items:center"><div><h1>FIRSTSTORE <span>Admin</span></h1><p class="sub" style="margin:0">Welcome back, Boss 👋</p></div><button class="btn btn-white" onclick="logoutAdmin()">Logout</button></div>
 <div class="counts"><div class="countBox"><b id="cShop">0</b><small>🛍️ Shop</small></div><div class="countBox"><b id="cAuction">0</b><small>🔨 Auction</small></div><div class="countBox"><b id="cTickets">0</b><small>🎫 Tickets</small></div><div class="countBox"><b id="cClients">0</b><small>👥 Clients</small></div></div>
 <div style="display:flex;gap:8px;flex-wrap:wrap"><button class="tabBtn active" id="tab-shop" onclick="switchTab('shop')">🛍️ Sale</button><button class="tabBtn" id="tab-auction" onclick="switchTab('auction')">🔨 Auction</button><button class="tabBtn" id="tab-tickets" onclick="switchTab('tickets')">🎫 Tickets</button><button class="tabBtn" id="tab-clients" onclick="switchTab('clients')">👥 Clients</button></div>
-
-<!-- SHOP -->
 <div id="panel-shop">
-<div class="magicBox"><h3>✨ MAGIC PASTE - FOR SALE</h3><p>Paste Facebook / WhatsApp text, tap button, it puts Name, Price, Desc, Seller, Source in right order.</p><label style="color:#fff">Paste Listing Here 👇</label><textarea id="magicPaste" rows="5" placeholder="RGB Gaming PC
+<div class="magicBox"><h3>✨ MAGIC PASTE - FOR SALE</h3><p>Paste Facebook / WhatsApp text, tap button, it puts Name, Price, Desc, Seller, Source in right order.</p><label style="color:#fff">Paste Listing Here</label><textarea id="magicPaste" rows="5" placeholder="RGB Gaming PC
 Intel i5, 16GB RAM, 8GB Graphics
 Price R5000
 Seller: Mpk Mtshali
@@ -32,16 +30,9 @@ Source: Facebook Marketplace"></textarea><button class="btn btn-red" style="widt
 <label>3. Price *</label><input id="sPrice" placeholder="R4,500">
 <label>4. Old Price</label><input id="sOld" placeholder="">
 <label>5. Description</label><textarea id="sDesc" rows="3"></textarea>
-<label>6. 📷 PHOTO - Tap To Upload From Gallery / Camera *NEW - FIXED*</label>
-<div class="photoBox">
-<label class="uploadBtn" for="sPhotoFile">📷 UPLOAD PHOTO - Tap Here</label>
-<input type="file" id="sPhotoFile" class="hideFile" accept="image/*" onchange="handlePhotoUpload(this,'shop')">
-<img id="sPhotoPreview" class="photoPreview">
-<p id="sPhotoTick" style="display:none;color:#0071e3;font-weight:900;margin-top:8px">✅ Photo Added - Will Show On Site</p>
-<button class="btn btn-white" style="margin-top:8px" onclick="removeShopPhoto()">❌ Remove Photo</button>
-<p style="font-size:11px;color:#888;margin-top:6px">Or paste link below if you have a link. Upload is easier - just pick from gallery.</p>
-</div>
-<label>7. Photo Link (optional - only if you didn't upload)</label><input id="sImage" placeholder="https://...">
+<label>6. 📷 PHOTO - Tap To Upload From Gallery / Camera</label>
+<div class="photoBox"><label class="uploadBtn" for="sPhotoFile">📷 UPLOAD PHOTO - Tap Here</label><input type="file" id="sPhotoFile" class="hideFile" accept="image/*" onchange="handlePhotoUpload(this,'shop')"><img id="sPhotoPreview" class="photoPreview"><p id="sPhotoTick" style="display:none;color:#0071e3;font-weight:900;margin-top:8px">✅ Photo Added</p><button class="btn btn-white" style="margin-top:8px" onclick="removeShopPhoto()">❌ Remove Photo</button></div>
+<label>7. Photo Link (optional)</label><input id="sImage" placeholder="https://...">
 <label>8. Emoji (if no photo)</label><input id="sEmoji" value="📱">
 <label>9. 👤 Seller *</label><select id="sSellerSelect" onchange="sellerSelectChanged()"><option value="FIRSTSTORE-SA">FIRSTSTORE-SA - Our Stock</option><option value="CUSTOM">✏️ Custom Seller...</option></select><input id="sSellerCustom" class="hidden" placeholder="e.g. Mpk Mtshali" style="margin-top:8px">
 <label>10. 📦 Source *</label><select id="sSourceSelect" onchange="sourceSelectChanged()"><option value="Our Stock - FIRSTSTORE-SA">Our Stock - FIRSTSTORE-SA</option><option value="Helping Customer Sell">Helping Customer Sell</option><option value="Helping Customer Sell - Facebook Marketplace">Helping Customer Sell - Facebook Marketplace</option><option value="Helping Customer Sell - Pawn Expired">Helping Customer Sell - Pawn Expired</option><option value="Refurbished by Us">Refurbished by Us</option><option value="CUSTOM">✏️ Custom Source...</option></select><input id="sSourceCustom" class="hidden" placeholder="e.g. Helping Customer Sell - Yaga" style="margin-top:8px">
@@ -49,10 +40,8 @@ Source: Facebook Marketplace"></textarea><button class="btn btn-red" style="widt
 <button class="btn btn-red" style="width:100%;margin-top:12px;padding:14px" id="shopSaveBtn" onclick="saveShopItem()">✅ SAVE ITEM →</button><button class="btn btn-white hidden" style="width:100%;margin-top:8px" id="shopCancelBtn" onclick="cancelEditShop()">Cancel Edit</button></div>
 <div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn btn-red" onclick="filterShopAdmin('all')">All</button><button class="btn btn-white" onclick="filterShopAdmin('phone')">📱 Phones</button><button class="btn btn-white" onclick="filterShopAdmin('laptop')">💻 Laptops</button><button class="btn btn-white" onclick="filterShopAdmin('tv')">📺 TVs</button><button class="btn btn-white" onclick="filterShopAdmin('home')">🏠 Home</button><button class="btn btn-white" onclick="clearShopDemo()">🗑 Clear All</button></div><div id="shopList"></div>
 </div>
-
-<!-- AUCTION -->
 <div id="panel-auction" class="hidden">
-<div class="magicBox"><h3>✨ MAGIC PASTE - AUCTION</h3><p>Paste auction text, tap button, it fills Item, Release, Selling, Seller, Source.</p><label style="color:#fff">Paste Auction Here 👇</label><textarea id="magicPasteAuction" rows="5" placeholder="iPhone 13 - Pawn Expiring
+<div class="magicBox"><h3>✨ MAGIC PASTE - AUCTION</h3><p>Paste auction text, tap button, it fills Item, Release, Selling, Seller, Source.</p><label style="color:#fff">Paste Auction Here</label><textarea id="magicPasteAuction" rows="5" placeholder="iPhone 13 - Pawn Expiring
 Release R1000, Sell R1200
 Expires 25 Nov at 18:00
 Seller: Thabo M.
@@ -63,14 +52,8 @@ Source: Cash Crusaders"></textarea><button class="btn btn-red" style="width:100%
 <label>3. To Release *</label><input id="aStart" placeholder="R1,000">
 <label>4. Buy Debt For *</label><input id="aCurrent" placeholder="R1,200">
 <label>5. Expiry Date + Time *</label><input id="aExpiryDate" type="date"><input id="aExpiryTime" type="time" value="18:00" style="margin-top:8px">
-<label>6. 📷 PHOTO - Tap To Upload *NEW - FIXED*</label>
-<div class="photoBox">
-<label class="uploadBtn black" for="aPhotoFile">📷 UPLOAD PHOTO - Tap Here</label>
-<input type="file" id="aPhotoFile" class="hideFile" accept="image/*" onchange="handlePhotoUpload(this,'auction')">
-<img id="aPhotoPreview" class="photoPreview">
-<p id="aPhotoTick" style="display:none;color:#0071e3;font-weight:900;margin-top:8px">✅ Photo Added</p>
-<button class="btn btn-white" style="margin-top:8px" onclick="removeAuctionPhoto()">❌ Remove Photo</button>
-</div>
+<label>6. 📷 PHOTO - Tap To Upload</label>
+<div class="photoBox"><label class="uploadBtn black" for="aPhotoFile">📷 UPLOAD PHOTO - Tap Here</label><input type="file" id="aPhotoFile" class="hideFile" accept="image/*" onchange="handlePhotoUpload(this,'auction')"><img id="aPhotoPreview" class="photoPreview"><p id="aPhotoTick" style="display:none;color:#0071e3;font-weight:900;margin-top:8px">✅ Photo Added</p><button class="btn btn-white" style="margin-top:8px" onclick="removeAuctionPhoto()">❌ Remove Photo</button></div>
 <label>7. Photo Link (optional)</label><input id="aImage" placeholder="https://...">
 <label>8. 👤 Seller *</label><select id="aSellerSelect" onchange="aSellerChanged()"><option value="FIRSTSTORE-SA">FIRSTSTORE-SA</option><option value="CUSTOM">✏️ Custom Seller...</option></select><input id="aSellerCustom" class="hidden" placeholder="e.g. Thabo M. - Devland" style="margin-top:8px">
 <label>9. 📦 Source *</label><select id="aSourceSelect" onchange="aSourceChanged()"><option value="Pawn With FIRSTSTORE-SA">Pawn With FIRSTSTORE-SA</option><option value="Pawn With Another Shop">Pawn With Another Shop</option><option value="Pawn With Another Shop - Cash Crusaders">Pawn With Another Shop - Cash Crusaders</option><option value="Pawn With Another Shop - Facebook Marketplace">Pawn With Another Shop - Facebook Marketplace</option><option value="CUSTOM">✏️ Custom Source...</option></select><input id="aSourceCustom" class="hidden" placeholder="e.g. Pawn With Another Shop - Devland" style="margin-top:8px">
@@ -78,11 +61,9 @@ Source: Cash Crusaders"></textarea><button class="btn btn-red" style="width:100%
 <label>11. Emoji</label><input id="aEmoji" value="📱">
 <button class="btn btn-red" style="width:100%;margin-top:12px;padding:14px" onclick="saveAuctionItem()">✅ Add Auction →</button></div><div id="auctionList"></div>
 </div>
-
 <div id="panel-tickets" class="hidden"><div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px"><button class="btn btn-red" onclick="filterTicketsAdmin('all')">All</button><button class="btn btn-white" onclick="filterTicketsAdmin('Open')">Open</button><button class="btn btn-white" onclick="filterTicketsAdmin('In Progress')">In Progress</button><button class="btn btn-white" onclick="filterTicketsAdmin('Done')">Done</button></div><div id="ticketList"></div></div>
 <div id="panel-clients" class="hidden"><div id="clientList"></div></div>
 <button class="btn btn-white" style="width:100%;margin-top:14px" onclick="location.href='index.html'">← Back To Site</button></div>
-
 <script>
 const ADMIN_PIN='1234';
 let editShopId=null,shopFilter='all',ticketFilter='all';
@@ -97,86 +78,14 @@ function switchTab(t){['shop','auction','tickets','clients'].forEach(x=>{documen
 function refreshAll(){updateCounts();renderShopAdmin();renderAuctionAdmin();renderTicketsAdmin();renderClientsAdmin();}
 function updateCounts(){document.getElementById('cShop').innerText=getShop().length;document.getElementById('cAuction').innerText=getAuction().length;document.getElementById('cTickets').innerText=getTickets().length;document.getElementById('cClients').innerText=getClients().length;}
 function clearMagic(){document.getElementById('magicPaste').value='';document.getElementById('magicPreview').style.display='none';}
-
-// ===== 📷 PHOTO UPLOAD - FIXED - COMPRESS SO IT SAVES =====
-function handlePhotoUpload(input,type){
-if(!input.files||!input.files[0])return;
-let file=input.files[0];
-let reader=new FileReader();
-reader.onload=function(e){
-let img=new Image();
-img.onload=function(){
-let canvas=document.createElement('canvas');
-let maxW=800;
-let scale=Math.min(1,maxW/img.width);
-canvas.width=img.width*scale;
-canvas.height=img.height*scale;
-let ctx=canvas.getContext('2d');
-ctx.drawImage(img,0,0,canvas.width,canvas.height);
-let compressed=canvas.toDataURL('image/jpeg',0.70);
-if(type==='shop'){
-shopPhotoData=compressed;
-document.getElementById('sPhotoPreview').src=compressed;
-document.getElementById('sPhotoPreview').style.display='block';
-document.getElementById('sPhotoTick').style.display='block';
-document.getElementById('sImage').value='';
-alert('✅ Photo Added! It will show on site after you tap SAVE ITEM');
-}else{
-auctionPhotoData=compressed;
-document.getElementById('aPhotoPreview').src=compressed;
-document.getElementById('aPhotoPreview').style.display='block';
-document.getElementById('aPhotoTick').style.display='block';
-document.getElementById('aImage').value='';
-alert('✅ Photo Added! Tap Add Auction to save');
-}
-};
-img.src=e.target.result;
-};
-reader.readAsDataURL(file);
-}
+function handlePhotoUpload(input,type){if(!input.files||!input.files[0])return;let reader=new FileReader();reader.onload=function(e){let img=new Image();img.onload=function(){let canvas=document.createElement('canvas');let maxW=800;let scale=Math.min(1,maxW/img.width);canvas.width=img.width*scale;canvas.height=img.height*scale;let ctx=canvas.getContext('2d');ctx.drawImage(img,0,0,canvas.width,canvas.height);let compressed=canvas.toDataURL('image/jpeg',0.70);if(type==='shop'){shopPhotoData=compressed;document.getElementById('sPhotoPreview').src=compressed;document.getElementById('sPhotoPreview').style.display='block';document.getElementById('sPhotoTick').style.display='block';document.getElementById('sImage').value='';alert('✅ Photo Added! Tap SAVE ITEM');}else{auctionPhotoData=compressed;document.getElementById('aPhotoPreview').src=compressed;document.getElementById('aPhotoPreview').style.display='block';document.getElementById('aPhotoTick').style.display='block';document.getElementById('aImage').value='';alert('✅ Photo Added! Tap Add Auction');}};img.src=e.target.result;};reader.readAsDataURL(input.files[0]);}
 function removeShopPhoto(){shopPhotoData='';document.getElementById('sPhotoPreview').style.display='none';document.getElementById('sPhotoTick').style.display='none';document.getElementById('sPhotoFile').value='';}
 function removeAuctionPhoto(){auctionPhotoData='';document.getElementById('aPhotoPreview').style.display='none';document.getElementById('aPhotoTick').style.display='none';document.getElementById('aPhotoFile').value='';}
-
-function parseSellerSource(txt){
-let lower=txt.toLowerCase(),seller='FIRSTSTORE-SA',source='Our Stock - FIRSTSTORE-SA';
-let sm=txt.match(/seller\s*[:\-]\s*([A-Za-z ]+)/i);if(sm){let s=sm[1].trim().split('\n')[0].trim();if(s&&s.length>1&&s.length<40)seller=s;}
-let srcm=txt.match(/source\s*[:\-]\s*([^\n]+)/i);if(srcm){source=srcm[1].trim();}
-else if(lower.includes('facebook')||lower.includes('marketplace'))source='Helping Customer Sell - Facebook Marketplace';
-else if(lower.includes('cash crusader'))source='Pawn With Another Shop - Cash Crusaders';
-else if(lower.includes('another shop'))source='Pawn With Another Shop';
-else if(seller!=='FIRSTSTORE-SA')source='Helping Customer Sell';
-return{seller,source};
-}
-function parsePrice(txt){
-let m=txt.match(/(?:price|R)\s*:?\s*R?\s*([\d,]{3,})/i);if(m){let n=parseInt(m[1].replace(/,/g,''));if(n>=100&&n<=200000)return 'R'+n.toLocaleString('en-ZA').replace(/,/g,' ');}
-let all=[...txt.matchAll(/R\s?([\d\s]{3,})/g)].map(x=>parseInt(x[1].replace(/\s/g,''))).filter(n=>n>=100&&n<=200000);if(all.length)return 'R'+Math.max(...all).toLocaleString('en-ZA').replace(/,/g,' ');return '';
-}
-function guessCatEmoji(txt){
-let l=txt.toLowerCase();if(l.includes('iphone')||l.includes('phone'))return{cat:'phone',emoji:'📱'};
-if(l.includes('laptop')||l.includes('pc')||l.includes('i5')||l.includes('processor'))return{cat:'laptop',emoji:l.includes('gaming')?'🎮':'💻'};
-if(l.includes('tv'))return{cat:'tv',emoji:'📺'};if(l.includes('fridge')||l.includes('washing'))return{cat:'home',emoji:'🧊'};return{cat:'other',emoji:'📦'};
-}
-function autoFillFromPaste(){
-let txt=document.getElementById('magicPaste').value.trim();if(!txt){alert('Paste first');return;}
-let lines=txt.split('\n').map(s=>s.trim()).filter(Boolean);let price=parsePrice(txt);let ss=parseSellerSource(txt);let ce=guessCatEmoji(txt);
-let name='';for(let l of lines){let ll=l.toLowerCase();if(ll.includes('price')||ll.startsWith('seller')||ll.startsWith('source')||ll.includes('hi, is this'))continue;if(l.length>3&&l.length<80){name=l.replace(/for sale/gi,'').trim();break;}}if(!name)name=lines[0]||'Item For Sale';
-name=name.split(' ').map(w=>w.length>1?w.charAt(0).toUpperCase()+w.slice(1):w).join(' ');
-let desc=lines.filter(l=>{let ll=l.toLowerCase();return !ll.startsWith('seller')&&!ll.startsWith('source');}).join(' • ');
-document.getElementById('sName').value=name;document.getElementById('sCat').value=ce.cat;document.getElementById('sPrice').value=price;document.getElementById('sDesc').value=desc.substring(0,400);document.getElementById('sEmoji').value=ce.emoji;
-if(ss.seller==='FIRSTSTORE-SA')document.getElementById('sSellerSelect').value='FIRSTSTORE-SA';else{document.getElementById('sSellerSelect').value='CUSTOM';document.getElementById('sSellerCustom').value=ss.seller;}sellerSelectChanged();
-let opts=[...document.getElementById('sSourceSelect').options].map(o=>o.value);if(opts.includes(ss.source))document.getElementById('sSourceSelect').value=ss.source;else{document.getElementById('sSourceSelect').value='CUSTOM';document.getElementById('sSourceCustom').value=ss.source;}sourceSelectChanged();
-let pv=document.getElementById('magicPreview');pv.style.display='block';pv.innerHTML='<b>✅ Sorted!</b><br>Name: '+name+'<br>Price: '+price+'<br>Seller: '+ss.seller+'<br>Source: '+ss.source+'<br><b>👇 Now add PHOTO above, then SAVE</b>';alert('✅ Done! Now add PHOTO, then SAVE');
-}
-function autoFillAuction(){
-let txt=document.getElementById('magicPasteAuction').value.trim();if(!txt){alert('Paste auction first');return;}
-let relM=txt.match(/release\s*R?\s*([\d,]+)/i),sellM=txt.match(/sell(?:ing)?\s*R?\s*([\d,]+)/i);
-let rel=relM?'R'+relM[1]:'',sell=sellM?'R'+sellM[1]:parsePrice(txt);let ss=parseSellerSource(txt);if(ss.source.includes('Helping'))ss.source='Pawn With Another Shop';if(txt.toLowerCase().includes('firststore'))ss.source='Pawn With FIRSTSTORE-SA';
-let firstLine=txt.split('\n')[0].trim();document.getElementById('aName').value=firstLine.substring(0,60);document.getElementById('aDesc').value=txt.substring(0,250);document.getElementById('aStart').value=rel;document.getElementById('aCurrent').value=sell;
-if(ss.seller==='FIRSTSTORE-SA')document.getElementById('aSellerSelect').value='FIRSTSTORE-SA';else{document.getElementById('aSellerSelect').value='CUSTOM';document.getElementById('aSellerCustom').value=ss.seller;}aSellerChanged();
-let opts=[...document.getElementById('aSourceSelect').options].map(o=>o.value);if(opts.includes(ss.source))document.getElementById('aSourceSelect').value=ss.source;else{document.getElementById('aSourceSelect').value='CUSTOM';document.getElementById('aSourceCustom').value=ss.source;}aSourceChanged();
-if(txt.toLowerCase().includes('cash crusader'))document.getElementById('aShopName').value='Cash Crusaders';
-let pv=document.getElementById('magicPreviewAuction');pv.style.display='block';pv.innerHTML='<b>✅ Auction Sorted!</b><br>Release: '+rel+'<br>Selling: '+sell+'<br>Seller: '+ss.seller+'<br>Source: '+ss.source+'<br><b>👇 Add PHOTO + Pick Expiry, tap Add Auction</b>';alert('✅ Auction Done! Add PHOTO + Expiry');
-}
+function parseSellerSource(txt){let lower=txt.toLowerCase(),seller='FIRSTSTORE-SA',source='Our Stock - FIRSTSTORE-SA';let sm=txt.match(/seller\s*[:\-]\s*([A-Za-z ]+)/i);if(sm){let s=sm[1].trim().split('\n')[0].trim();if(s&&s.length>1&&s.length<40)seller=s;}let srcm=txt.match(/source\s*[:\-]\s*([^\n]+)/i);if(srcm){source=srcm[1].trim();}else if(lower.includes('facebook')||lower.includes('marketplace'))source='Helping Customer Sell - Facebook Marketplace';else if(lower.includes('cash crusader'))source='Pawn With Another Shop - Cash Crusaders';else if(lower.includes('another shop'))source='Pawn With Another Shop';else if(seller!=='FIRSTSTORE-SA')source='Helping Customer Sell';return{seller,source};}
+function parsePrice(txt){let m=txt.match(/(?:price|R)\s*:?\s*R?\s*([\d,]{3,})/i);if(m){let n=parseInt(m[1].replace(/,/g,''));if(n>=100&&n<=200000)return 'R'+n.toLocaleString('en-ZA').replace(/,/g,' ');}let all=[...txt.matchAll(/R\s?([\d\s]{3,})/g)].map(x=>parseInt(x[1].replace(/\s/g,''))).filter(n=>n>=100&&n<=200000);if(all.length)return 'R'+Math.max(...all).toLocaleString('en-ZA').replace(/,/g,' ');return '';}
+function guessCatEmoji(txt){let l=txt.toLowerCase();if(l.includes('iphone')||l.includes('phone'))return{cat:'phone',emoji:'📱'};if(l.includes('laptop')||l.includes('pc')||l.includes('i5')||l.includes('processor'))return{cat:'laptop',emoji:l.includes('gaming')?'🎮':'💻'};if(l.includes('tv'))return{cat:'tv',emoji:'📺'};if(l.includes('fridge')||l.includes('washing'))return{cat:'home',emoji:'🧊'};return{cat:'other',emoji:'📦'};}
+function autoFillFromPaste(){let txt=document.getElementById('magicPaste').value.trim();if(!txt){alert('Paste first');return;}let lines=txt.split('\n').map(s=>s.trim()).filter(Boolean);let price=parsePrice(txt);let ss=parseSellerSource(txt);let ce=guessCatEmoji(txt);let name='';for(let l of lines){let ll=l.toLowerCase();if(ll.includes('price')||ll.startsWith('seller')||ll.startsWith('source')||ll.includes('hi, is this'))continue;if(l.length>3&&l.length<80){name=l.replace(/for sale/gi,'').trim();break;}}if(!name)name=lines[0]||'Item For Sale';name=name.split(' ').map(w=>w.length>1?w.charAt(0).toUpperCase()+w.slice(1):w).join(' ');let desc=lines.filter(l=>{let ll=l.toLowerCase();return !ll.startsWith('seller')&&!ll.startsWith('source');}).join(' • ');document.getElementById('sName').value=name;document.getElementById('sCat').value=ce.cat;document.getElementById('sPrice').value=price;document.getElementById('sDesc').value=desc.substring(0,400);document.getElementById('sEmoji').value=ce.emoji;if(ss.seller==='FIRSTSTORE-SA')document.getElementById('sSellerSelect').value='FIRSTSTORE-SA';else{document.getElementById('sSellerSelect').value='CUSTOM';document.getElementById('sSellerCustom').value=ss.seller;}sellerSelectChanged();let opts=[...document.getElementById('sSourceSelect').options].map(o=>o.value);if(opts.includes(ss.source))document.getElementById('sSourceSelect').value=ss.source;else{document.getElementById('sSourceSelect').value='CUSTOM';document.getElementById('sSourceCustom').value=ss.source;}sourceSelectChanged();let pv=document.getElementById('magicPreview');pv.style.display='block';pv.innerHTML='<b>✅ Sorted!</b><br>Name: '+name+'<br>Price: '+price+'<br>Seller: '+ss.seller+'<br>Source: '+ss.source;alert('✅ Done! Now add PHOTO, then SAVE');}
+function autoFillAuction(){let txt=document.getElementById('magicPasteAuction').value.trim();if(!txt){alert('Paste auction first');return;}let relM=txt.match(/release\s*R?\s*([\d,]+)/i),sellM=txt.match(/sell(?:ing)?\s*R?\s*([\d,]+)/i);let rel=relM?'R'+relM[1]:'',sell=sellM?'R'+sellM[1]:parsePrice(txt);let ss=parseSellerSource(txt);if(ss.source.includes('Helping'))ss.source='Pawn With Another Shop';if(txt.toLowerCase().includes('firststore'))ss.source='Pawn With FIRSTSTORE-SA';let firstLine=txt.split('\n')[0].trim();document.getElementById('aName').value=firstLine.substring(0,60);document.getElementById('aDesc').value=txt.substring(0,250);document.getElementById('aStart').value=rel;document.getElementById('aCurrent').value=sell;if(ss.seller==='FIRSTSTORE-SA')document.getElementById('aSellerSelect').value='FIRSTSTORE-SA';else{document.getElementById('aSellerSelect').value='CUSTOM';document.getElementById('aSellerCustom').value=ss.seller;}aSellerChanged();let opts=[...document.getElementById('aSourceSelect').options].map(o=>o.value);if(opts.includes(ss.source))document.getElementById('aSourceSelect').value=ss.source;else{document.getElementById('aSourceSelect').value='CUSTOM';document.getElementById('aSourceCustom').value=ss.source;}aSourceChanged();if(txt.toLowerCase().includes('cash crusader'))document.getElementById('aShopName').value='Cash Crusaders';let pv=document.getElementById('magicPreviewAuction');pv.style.display='block';pv.innerHTML='<b>✅ Auction Sorted!</b><br>Release: '+rel+'<br>Selling: '+sell+'<br>Seller: '+ss.seller+'<br>Source: '+ss.source;alert('✅ Auction Done! Add PHOTO + Expiry');}
 function sellerSelectChanged(){document.getElementById('sSellerCustom').classList.toggle('hidden',document.getElementById('sSellerSelect').value!=='CUSTOM');}
 function sourceSelectChanged(){document.getElementById('sSourceCustom').classList.toggle('hidden',document.getElementById('sSourceSelect').value!=='CUSTOM');}
 function aSellerChanged(){document.getElementById('aSellerCustom').classList.toggle('hidden',document.getElementById('aSellerSelect').value!=='CUSTOM');}
@@ -185,16 +94,7 @@ function getSellerValue(){let s=document.getElementById('sSellerSelect').value;r
 function getSourceValue(){let s=document.getElementById('sSourceSelect').value;return s==='CUSTOM'?(document.getElementById('sSourceCustom').value.trim()||'Helping Customer Sell'):s;}
 function getASeller(){let s=document.getElementById('aSellerSelect').value;return s==='CUSTOM'?(document.getElementById('aSellerCustom').value.trim()||'FIRSTSTORE-SA'):s;}
 function getASource(){let s=document.getElementById('aSourceSelect').value;return s==='CUSTOM'?(document.getElementById('aSourceCustom').value.trim()||'Pawn With FIRSTSTORE-SA'):s;}
-function saveShopItem(){
-let name=document.getElementById('sName').value.trim(),price=document.getElementById('sPrice').value.trim();if(!name||!price){alert('Fill Name + Price');return;}
-let seller=getSellerValue(),source=getSourceValue();
-let finalImage=shopPhotoData||document.getElementById('sImage').value.trim();
-let item={id:editShopId||Date.now(),cat:document.getElementById('sCat').value,name:name,price:price.startsWith('R')?price:'R'+price,old:document.getElementById('sOld').value.trim(),desc:document.getElementById('sDesc').value.trim(),emoji:document.getElementById('sEmoji').value.trim()||'📱',image:finalImage,seller:seller,source:source,stock:document.getElementById('sStock').value==='true'};
-let l=getShop();
-if(editShopId){let idx=l.findIndex(x=>x.id==editShopId);if(idx>=0){if(!finalImage&&l[idx].image)item.image=l[idx].image;l[idx]=item;}}else l.unshift(item);
-try{saveShop(l);}catch(e){alert('❌ Photo too big! Storage full. Remove photo or use smaller photo. Try again with 1 photo only.');return;}
-cancelEditShop();refreshAll();alert('✅ Saved WITH PHOTO!\nSeller: '+seller+'\nSource: '+source);
-}
+function saveShopItem(){let name=document.getElementById('sName').value.trim(),price=document.getElementById('sPrice').value.trim();if(!name||!price){alert('Fill Name + Price');return;}let seller=getSellerValue(),source=getSourceValue();let finalImage=shopPhotoData||document.getElementById('sImage').value.trim();let item={id:editShopId||Date.now(),cat:document.getElementById('sCat').value,name:name,price:price.startsWith('R')?price:'R'+price,old:document.getElementById('sOld').value.trim(),desc:document.getElementById('sDesc').value.trim(),emoji:document.getElementById('sEmoji').value.trim()||'📱',image:finalImage,seller:seller,source:source,stock:document.getElementById('sStock').value==='true'};let l=getShop();if(editShopId){let idx=l.findIndex(x=>x.id==editShopId);if(idx>=0){if(!finalImage&&l[idx].image)item.image=l[idx].image;l[idx]=item;}}else l.unshift(item);try{saveShop(l);}catch(e){alert('❌ Photo too big! Remove photo and try again.');return;}cancelEditShop();refreshAll();alert('✅ Saved WITH PHOTO! Seller: '+seller+' | Source: '+source);}
 function cancelEditShop(){editShopId=null;shopPhotoData='';document.getElementById('shopFormTitle').innerText='➕ Add Item For Sale';document.getElementById('shopSaveBtn').innerText='✅ SAVE ITEM →';document.getElementById('shopCancelBtn').classList.add('hidden');['sName','sPrice','sOld','sDesc','sImage','sSellerCustom','sSourceCustom'].forEach(id=>document.getElementById(id).value='');document.getElementById('sEmoji').value='📱';document.getElementById('sSellerSelect').value='FIRSTSTORE-SA';document.getElementById('sSourceSelect').value='Our Stock - FIRSTSTORE-SA';document.getElementById('sPhotoPreview').style.display='none';document.getElementById('sPhotoTick').style.display='none';document.getElementById('sPhotoFile').value='';sellerSelectChanged();sourceSelectChanged();}
 function editShop(id){let i=getShop().find(x=>x.id==id);if(!i)return;editShopId=id;document.getElementById('shopFormTitle').innerText='✏️ Editing: '+i.name;document.getElementById('shopSaveBtn').innerText='💾 Update →';document.getElementById('shopCancelBtn').classList.remove('hidden');document.getElementById('sName').value=i.name;document.getElementById('sCat').value=i.cat||'phone';document.getElementById('sPrice').value=i.price;document.getElementById('sOld').value=i.old||'';document.getElementById('sDesc').value=i.desc||'';document.getElementById('sEmoji').value=i.emoji||'📱';if(i.image&&i.image.startsWith('data:')){shopPhotoData=i.image;document.getElementById('sPhotoPreview').src=i.image;document.getElementById('sPhotoPreview').style.display='block';document.getElementById('sPhotoTick').style.display='block';}else{document.getElementById('sImage').value=i.image||'';}document.getElementById('sStock').value=i.stock?'true':'false';if(i.seller==='FIRSTSTORE-SA')document.getElementById('sSellerSelect').value='FIRSTSTORE-SA';else{document.getElementById('sSellerSelect').value='CUSTOM';document.getElementById('sSellerCustom').value=i.seller;}sellerSelectChanged();let src=i.source||'Our Stock - FIRSTSTORE-SA';let opts=[...document.getElementById('sSourceSelect').options].map(o=>o.value);if(opts.includes(src))document.getElementById('sSourceSelect').value=src;else{document.getElementById('sSourceSelect').value='CUSTOM';document.getElementById('sSourceCustom').value=src;}sourceSelectChanged();switchTab('shop');window.scrollTo(0,0);}
 function deleteShop(id){if(!confirm('Delete?'))return;saveShop(getShop().filter(x=>x.id!=id));refreshAll();}
@@ -214,4 +114,5 @@ function setClientStatus(id,st){let l=getClients();let c=l.find(x=>x.id==id);if(
 function deleteClient(id){if(!confirm('Delete?'))return;saveClients(getClients().filter(x=>x.id!=id));refreshAll();}
 document.getElementById('pinInput').addEventListener('keypress',e=>{if(e.key==='Enter')loginAdmin();});
 </script>
-</body></html>
+</body>
+</html>
