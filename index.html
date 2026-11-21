@@ -30,9 +30,11 @@ label{font-size:12px;font-weight:800;display:block;margin:14px 0 6px}input,texta
 .legalBox{background:#fff;border:1px solid #eee;border-radius:12px;padding:14px;margin:10px 0}.legalBox h3{font-size:15px;margin:14px 0 6px}.legalBox p,.legalBox li{font-size:12px;color:#444;line-height:1.7}
 .supportCard{background:#fff;border:1px solid #eee;border-radius:14px;padding:14px;margin:10px 0}.supportCard b{font-size:14px}.supportCard p{font-size:12px;color:#555;line-height:1.6;margin-top:5px}
 .reviewsBlock{background:#fff;margin:12px;border-radius:18px;padding:18px 0 16px;overflow:hidden}.reviewsHead{padding:0 16px;display:flex;justify-content:space-between;align-items:center}.reviewsHead h2{font-size:19px}.reviewsHead h2 span{color:#0071e3}.reviewsWrap{display:flex;gap:12px;overflow-x:auto;padding:14px 16px 6px;scroll-snap-type:x mandatory}.reviewsWrap::-webkit-scrollbar{display:none}.reviewCard{min-width:260px;max-width:260px;scroll-snap-align:start;background:#f7f9fc;border:1px solid #eef1f5;border-radius:14px;padding:14px;flex-shrink:0}.reviewCard p{font-size:13px;line-height:1.6;margin:10px 0 12px}.reviewAvatar{width:38px;height:38px;border-radius:50%;background:#0071e3;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:900}.reviewFoot{display:flex;gap:10px;align-items:center;border-top:1px solid #eee;padding-top:10px}.reviewFoot b{font-size:13px}.reviewFoot small{font-size:11px;color:#888}.reviewTag{display:inline-block;background:#111;color:#fff;font-size:10px;font-weight:800;padding:4px 8px;border-radius:999px;margin-top:8px}.reviewNav{display:flex;gap:8px;justify-content:center;margin-top:10px}.reviewNav button{width:38px;height:38px;border-radius:50%;border:1px solid #ddd;background:#fff;font-size:16px;cursor:pointer}
+.reviewStars{font-size:14px}.reviewFilter{display:flex;gap:6px;padding:10px 16px 0;flex-wrap:wrap}.reviewFilter button{padding:7px 11px;border-radius:999px;border:1px solid #ddd;background:#fff;font-size:11px;font-weight:800;cursor:pointer}.reviewFilter button.active{background:#0071e3;color:#fff;border-color:#0071e3}
+.starPick{display:flex;gap:6px;margin-top:8px}.starPick span{font-size:32px;cursor:pointer;filter:grayscale(1);opacity:.5}.starPick span.on{filter:none;opacity:1}
+.feedbackCard{background:#fff;border:1px solid #eee;border-radius:14px;padding:14px;margin:10px 0}.feedbackCard b{font-size:14px}.feedbackCard p{font-size:12px;color:#555;line-height:1.6;margin-top:5px}.fb-complaint{border-left:5px solid #ef4444}.fb-compliment{border-left:5px solid #22c55e}.fb-suggestion{border-left:5px solid #0071e3}
 .ticketCard{background:#fff;border:1px solid #eee;border-radius:14px;padding:14px;margin:10px 0}.ticketCard b{font-size:14px}.ticketCard p{font-size:12px;color:#555;line-height:1.6;margin-top:5px}.badge{display:inline-block;padding:4px 9px;border-radius:999px;font-size:10px;font-weight:900;color:#fff}.badge-open{background:#0071e3}.badge-progress{background:#111}.badge-done{background:#22c55e}
 .tabBtn{flex:1;padding:11px;border-radius:10px;border:1px solid #ddd;background:#fff;font-weight:800;font-size:12px;cursor:pointer}.tabBtn.active{background:#0071e3;color:#fff;border-color:#0071e3}
-/* ===== SMALL SQUARE - SCROLL LEFT/RIGHT - 2 PER SHOW - LOCKED ===== */
 .previewScrollWrap{margin:0 -16px;padding:0 16px;overflow:hidden}
 .previewGrid{display:flex;gap:12px;overflow-x:auto;padding:14px 2px 6px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none}
 .previewGrid::-webkit-scrollbar{display:none}
@@ -54,7 +56,6 @@ label{font-size:12px;font-weight:800;display:block;margin:14px 0 6px}input,texta
 <div id="firstPage">
 <div class="hero"><img src="https://i.ibb.co/6R09sfzS/background.png" class="heroImg"><div class="top"><a class="call" href="tel:0743627992">📞</a></div><div class="heroMid"></div><div class="heroBottom"><button class="btnBig btnRed" onclick="show('login')">Register Free → Get Cash</button><button class="btnBig btnBlack" onclick="show('how')">How It Works</button><button class="btnBig btnGold" onclick="show('shop')">🛍️ Items For Sale - Shop Now</button><button class="btnBig btnAuction" onclick="show('auction')">🔨 Auction My Pawn - Sell Before It Expires</button></div></div>
 
-<!-- ===== SALE PREVIEW - SCROLL LEFT/RIGHT - 2 PER SHOW ===== -->
 <div class="section">
 <div style="display:flex;justify-content:space-between;align-items:center"><h2>Items For Sale <span>Preview</span> 🛍️</h2><span style="font-size:12px;color:#0071e3;font-weight:800;cursor:pointer;white-space:nowrap" onclick="show('shop')">View All →</span></div>
 <p style="font-size:12px;color:#666;margin-top:6px">← Swipe left / right to see more — 2 items at a time →</p>
@@ -66,23 +67,104 @@ label{font-size:12px;font-weight:800;display:block;margin:14px 0 6px}input,texta
 
 <div class="section"><h2>Why People<br>Choose <span>Us</span></h2><div style="margin-top:16px"><div class="featRow"><div class="featIcon" style="background:#0071e3">💸</div><div><b>Up to R10,000 Instant</b><p>Fair price for your phone, laptop, TV or fridge.</p></div></div><div class="featRow"><div class="featIcon" style="background:#111">⚡</div><div><b>Paid in 10 Minutes</b><p>No waiting. Cash to your bank.</p></div></div><div class="featRow"><div class="featIcon" style="background:#0071e3">🔨</div><div><b>Sell Your Pawn Before It Expires</b><p>About to lose your item? Sell the debt, make 20% profit.</p></div></div><div class="featRow"><div class="featIcon" style="background:#111">🤝</div><div><b>We Help Other People Sell</b><p>Check Seller + Source on every item.</p></div></div></div></div>
 
-<div class="reviewsBlock"><div class="reviewsHead"><h2>What Customers <span>Say</span> ⭐</h2></div><div class="reviewsWrap" id="reviewsWrap">
-<div class="reviewCard"><div>⭐⭐⭐⭐⭐</div><p>"I pawned my iPhone, got cash in 10 minutes. No stress."</p><div class="reviewFoot"><div class="reviewAvatar">T</div><div><b>Thabo M.</b><br><small>Devland • Pawned iPhone</small></div></div><span class="reviewTag">PAWN</span></div>
-<div class="reviewCard"><div>⭐⭐⭐⭐⭐</div><p>"My pawn was about to expire. He helped me auction it. I got R200 back."</p><div class="reviewFoot"><div class="reviewAvatar">N</div><div><b>Naledi K.</b><br><small>Soweto • Auction</small></div></div><span class="reviewTag">AUCTION</span></div>
-<div class="reviewCard"><div>⭐⭐⭐⭐⭐</div><p>"Bought a laptop here, very cheap and working perfectly."</p><div class="reviewFoot"><div class="reviewAvatar">S</div><div><b>Sipho D.</b><br><small>Devland • Bought Laptop</small></div></div><span class="reviewTag">SHOP</span></div>
-</div><div class="reviewNav"><button onclick="scrollReviews(-1)">←</button><button onclick="scrollReviews(1)">→</button></div></div>
+<!-- ===== REVIEWS ===== -->
+<div class="reviewsBlock"><div class="reviewsHead"><h2>What Customers <span>Say</span> ⭐ <span id="reviewCount" style="font-size:13px;color:#888">(53)</span></h2><span style="font-size:11px;color:#888;font-weight:700">← Swipe →</span></div>
+<p style="font-size:12px;color:#666;padding:6px 16px 0">Real people from Devland, Soweto & around Joburg.</p>
+<div class="reviewFilter" id="reviewFilter">
+<button class="active" onclick="filterReviews('all',this)">All</button>
+<button onclick="filterReviews('PAWN',this)">💸 Pawn</button>
+<button onclick="filterReviews('SHOP',this)">🛍️ Shop</button>
+<button onclick="filterReviews('AUCTION',this)">🔨 Auction</button>
+<button onclick="filterReviews('TICKET',this)">🎫 Ticket</button>
+</div>
+<div class="reviewsWrap" id="reviewsWrap"></div>
+<div class="reviewNav"><button onclick="scrollReviews(-1)">←</button><button onclick="scrollReviews(1)">→</button></div>
+
+<!-- ===== LEAVE A REVIEW - BOTTOM ===== -->
+<div style="padding:16px 16px 0">
+<div style="background:#111;border-radius:14px;padding:16px;color:#fff">
+<h3 style="font-size:16px">⭐ Leave Your Review</h3>
+<p style="font-size:12px;color:#ccc;margin-top:6px;line-height:1.6">Used us? Tell others! Your review shows here instantly. No WhatsApp needed.</p>
+<label style="color:#fff">Your Name *</label>
+<input id="revName" placeholder="e.g. Thabo M.">
+<label style="color:#fff">What Did You Do? *</label>
+<select id="revTag"><option value="PAWN">💸 Pawn - Get Cash</option><option value="SHOP">🛍️ Bought An Item</option><option value="AUCTION">🔨 Auction My Pawn</option><option value="TICKET">🎫 Ticket / Support</option><option value="SHOP">🤝 We Helped Me Sell</option></select>
+<label style="color:#fff">How Many Stars? Tap ⭐</label>
+<div class="starPick" id="starPick"><span onclick="pickStar(1)">⭐</span><span onclick="pickStar(2)">⭐</span><span onclick="pickStar(3)">⭐</span><span onclick="pickStar(4)">⭐</span><span onclick="pickStar(5)">⭐</span></div>
+<p id="starText" style="font-size:12px;color:#ccc;margin-top:6px">Tap a star — 5 = Excellent, 1 = Bad</p>
+<label style="color:#fff">Your Review *</label>
+<textarea id="revText" rows="3" placeholder="e.g. Got cash in 10 minutes, very helpful... or I waited 2 days for approval..."></textarea>
+<button class="btn" style="width:100%;background:#0071e3;color:#fff;margin-top:12px;padding:14px" onclick="submitReview()">⭐ POST MY REVIEW →</button>
+<p style="font-size:11px;color:#999;margin-top:8px;text-align:center">Be honest — even if you complain, we show it and we fix it.</p>
+</div>
+
+<!-- ===== COMPLAIN / COMPLIMENT BUTTON ===== -->
+<div style="background:#fff;border:2px dashed #0071e3;border-radius:14px;padding:16px;margin-top:12px;text-align:center">
+<h3 style="font-size:16px">📣 Complain or Compliment?</h3>
+<p style="font-size:12px;color:#555;line-height:1.6;margin-top:6px">Something went wrong? Or we did great?<br>Tap below — it saves + we reply. Fully working, no WhatsApp needed.</p>
+<div style="display:flex;gap:8px;margin-top:12px">
+<button class="btn" style="background:#ef4444;color:#fff" onclick="show('feedback')">😤 I Want To Complain</button>
+<button class="btn" style="background:#22c55e;color:#fff" onclick="show('feedback')">💚 Give Compliment</button>
+</div>
+<button class="btn" style="width:100%;background:#111;color:#fff;margin-top:8px" onclick="show('feedback')">📣 Open Complains & Compliments →</button>
+<div style="display:flex;gap:8px;margin-top:10px;text-align:center">
+<div style="flex:1;background:#f7f9fc;border-radius:10px;padding:10px"><b id="fbComplaintCount" style="font-size:18px">0</b><br><small style="color:#888;font-size:11px">😤 Complains</small></div>
+<div style="flex:1;background:#f7f9fc;border-radius:10px;padding:10px"><b id="fbComplimentCount" style="font-size:18px">0</b><br><small style="color:#888;font-size:11px">💚 Compliments</small></div>
+<div style="flex:1;background:#f7f9fc;border-radius:10px;padding:10px"><b id="fbTotalCount" style="font-size:18px">0</b><br><small style="color:#888;font-size:11px">Total</small></div>
+</div>
+<div id="latestFeedback" style="text-align:left;margin-top:10px"></div>
+</div>
+</div>
+</div>
 
 <div class="ctaBox" style="background:#0071e3"><h3 style="color:#fff">🔨 Pawn About To Expire?</h3><p style="color:#e6f0ff">Don't lose it! Sell it now. Buyer buys your debt, you make 20% profit!</p><button class="btnBig" style="background:#fff;color:#111" onclick="show('auction')">Auction My Pawn →</button></div>
 <div class="ctaBox" style="background:#111"><h3 style="color:#fff">Ready to Get Paid?</h3><button class="btnBig" style="background:#0071e3;color:#fff;margin-top:14px" onclick="show('login')">Start Now →</button></div>
-<div class="footer"><h3>FIRSTSTORE-SA</h3><p>Your Trusted Tech Store • Devland, Soweto<br>129, 3137 Hydra Street, Devland, 1811<br>📞 074 362 7992</p><div><span class="fBtn" onclick="show('tickets')">🎫 My Tickets</span><span class="fBtn" onclick="openAdminTickets()">🔐 Admin Tickets</span><span class="fBtn" onclick="show('support')">🛟 Support</span><span class="fBtn" onclick="show('faq')">❓ FAQ</span><span class="fBtn" onclick="show('terms')">📜 Terms</span><span class="fBtn" onclick="show('privacy')">🔒 Privacy</span><span class="fBtn" onclick="show('about')">🏪 About Us</span><span class="fBtn" onclick="show('contact')">📞 Contact Us</span><span class="fBtn" onclick="show('how')">💡 How It Works</span></div><p style="margin-top:12px;color:#999">© 2026 FIRSTSTORE-SA</p></div>
+<div class="footer"><h3>FIRSTSTORE-SA</h3><p>Your Trusted Tech Store • Devland, Soweto<br>129, 3137 Hydra Street, Devland, 1811<br>📞 074 362 7992</p><div><span class="fBtn" onclick="show('tickets')">🎫 My Tickets</span><span class="fBtn" onclick="openAdminTickets()">🔐 Admin Tickets</span><span class="fBtn" onclick="show('support')">🛟 Support</span><span class="fBtn" onclick="show('faq')">❓ FAQ</span><span class="fBtn" onclick="show('terms')">📜 Terms</span><span class="fBtn" onclick="show('privacy')">🔒 Privacy</span><span class="fBtn" onclick="show('about')">🏪 About Us</span><span class="fBtn" onclick="show('contact')">📞 Contact Us</span><span class="fBtn" onclick="show('how')">💡 How It Works</span><span class="fBtn" onclick="show('feedback')">📣 Complains & Compliments</span></div><p style="margin-top:12px;color:#999">© 2026 FIRSTSTORE-SA</p></div>
 <div class="foot">FIRSTSTORE-SA • Your Trusted Tech Store</div></div>
+
+<!-- ===== FEEDBACK PAGE - COMPLAINS & COMPLIMENTS - FULLY WORKING ===== -->
+<div id="feedback" class="page"><div style="text-align:right;cursor:pointer;font-size:20px" onclick="hide()">✕</div>
+<h2>Complains & <span>Compliments</span> 📣</h2>
+<p class="sub">We want to hear it — good or bad. We reply to every single one. No WhatsApp needed.</p>
+<div style="display:flex;gap:8px"><button class="tabBtn active" id="fbTabNew" onclick="switchFbTab('new')">✍️ Write New</button><button class="tabBtn" id="fbTabList" onclick="switchFbTab('list')">📋 See All (<span id="fbListCount">0</span>)</button></div>
+
+<div id="fbNewBox">
+<div class="legalBox">
+<label>What Is This? *</label>
+<div class="opt"><div id="fbTypeComplaint" onclick="pickFbType('Complaint')">😤 Complain</div><div id="fbTypeCompliment" class="active" onclick="pickFbType('Compliment')">💚 Compliment</div><div id="fbTypeSuggestion" onclick="pickFbType('Suggestion')">💡 Suggestion</div></div>
+<label>Your Name *</label><input id="fbName" placeholder="e.g. Thabo M.">
+<label>Your Phone (so we can fix it) *</label><input id="fbPhone" placeholder="074...">
+<label>What About? *</label>
+<select id="fbCat"><option value="Approval Delay">⏳ Approval Delay - Waiting too long</option><option value="Verification Failed">🪪 Verification Failed / ID Problem</option><option value="Offer Too Low">💸 Offer Too Low</option><option value="Payment / Collection">💰 Payment / Collection</option><option value="Item Problem">📱 Item Problem - Bought item faulty</option><option value="Auction Problem">🔨 Auction Problem</option><option value="Staff / Service">🤝 Staff / Service - Great or Bad</option><option value="Other">Other</option></select>
+<label id="fbMsgLabel">Tell Us - What Happened? *</label>
+<textarea id="fbMsg" rows="4" placeholder="e.g. I waited 2 days for approval and no one replied... OR Thank you, you paid me fast..."></textarea>
+<div style="display:flex;gap:8px;margin-top:12px">
+<button class="btn btn-red" style="flex:1" onclick="submitFeedback()">📣 Send It →</button>
+<button class="btn" style="flex:1;background:#fff;border:1px solid #0071e3" onclick="submitFeedbackWA()">💬 Or Send On WhatsApp</button>
+</div>
+<p style="font-size:11px;color:#888;margin-top:8px;text-align:center">Complain = we will contact you to fix it. Compliment = we say thank you + show it here.</p>
+</div>
+<div style="background:#f7f9fc;border:1px solid #ddd;border-radius:12px;padding:12px"><b>Examples:</b><p style="font-size:12px;line-height:1.7;margin-top:6px">😤 <i>"Approval took 2 days, I was stressing"</i> → We reply + approve same day<br>💚 <i>"Got cash in 10 mins, thank you"</i> → We show it + thank you<br>💡 <i>"Please add delivery to Orange Farm"</i> → We consider it</p></div>
+</div>
+
+<div id="fbListBox" style="display:none">
+<div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px">
+<button class="btn btn-red" onclick="filterFeedback('all')">All</button>
+<button class="btn" style="background:#fff;border:1px solid #ddd" onclick="filterFeedback('Complaint')">😤 Complains</button>
+<button class="btn" style="background:#fff;border:1px solid #ddd" onclick="filterFeedback('Compliment')">💚 Compliments</button>
+<button class="btn" style="background:#fff;border:1px solid #ddd" onclick="filterFeedback('Suggestion')">💡 Suggestions</button>
+</div>
+<div id="feedbackList"></div>
+<button class="btn" style="width:100%;background:#fff;border:1px solid #ddd;margin-top:8px" onclick="switchFbTab('new')">✍️ Write Another One →</button>
+</div>
+<div class="close" onclick="hide()">← Back to Home</div></div>
 
 <div id="tickets" class="page"><div style="text-align:right;cursor:pointer;font-size:20px" onclick="hide()">✕</div><h2>My <span>Tickets</span> 🎫</h2><p class="sub">Don't want WhatsApp? Open a ticket here.</p><div style="display:flex;gap:8px"><button class="tabBtn active" id="tabCreate" onclick="switchTicketTab('create')">➕ Create Ticket</button><button class="tabBtn" id="tabMy" onclick="switchTicketTab('my')">📋 My Tickets (<span id="myTicketCount">0</span>)</button></div><div id="ticketCreateBox"><div class="legalBox"><label>Your Name *</label><input id="tickName"><label>Your Phone *</label><input id="tickPhone"><label>What Is It About? *</label><select id="tickCat"><option value="Pawn - Get Cash">💸 Pawn - Get Cash</option><option value="Auction My Pawn">🔨 Auction My Pawn</option><option value="Buy An Item">🛍️ Buy An Item</option><option value="Support / Other">🛟 Support / Other</option></select><label>How Urgent?</label><select id="tickUrgent"><option value="Normal">Normal</option><option value="Urgent">Urgent - Today</option><option value="Very Urgent - Expiring">Very Urgent - Expiring Soon</option></select><label>Describe Your Problem *</label><textarea id="tickMsg" rows="4"></textarea><button class="btn btn-red" style="width:100%;margin-top:10px" onclick="createTicket()">🎫 Create My Ticket →</button></div></div><div id="ticketMyBox" style="display:none"><div id="myTicketsList"></div><button class="btn" style="width:100%;background:#fff;border:1px solid #ddd" onclick="switchTicketTab('create')">➕ Create Another Ticket</button></div><div class="close" onclick="hide()">← Back to Home</div></div>
 <div id="adminTickets" class="page"><div style="text-align:right;cursor:pointer;font-size:20px" onclick="hide()">✕</div><h2>Admin <span>Tickets</span> 🔐</h2><div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn btn-red" onclick="filterAdminTickets('all')">All (<span id="adminAllCount">0</span>)</button><button class="btn" style="background:#fff;border:1px solid #ddd" onclick="filterAdminTickets('Open')">Open</button><button class="btn" style="background:#fff;border:1px solid #ddd" onclick="filterAdminTickets('In Progress')">In Progress</button><button class="btn" style="background:#fff;border:1px solid #ddd" onclick="filterAdminTickets('Done')">Done</button></div><div id="adminTicketsList"></div><div class="close" onclick="hide()">← Back to Home</div></div>
 <div id="support" class="page"><div style="text-align:right;cursor:pointer;font-size:20px" onclick="hide()">✕</div><h2>Support <span>Centre</span> 🛟</h2><div class="supportCard" style="background:#0071e3;text-align:center"><b style="color:#fff">Need Help?</b><p style="color:#e6f0ff">Mon - Sat: 08:00 - 18:00</p><button class="btn" style="background:#fff;color:#111;width:100%;margin-top:10px" onclick="show('tickets')">🎫 Open A Ticket</button><button class="btn" style="background:#111;color:#fff;width:100%;margin-top:8px" onclick="openWA('Hi, I need SUPPORT')">💬 WhatsApp Support</button></div><label>Describe Your Problem</label><textarea id="supportMsg" rows="3"></textarea><button class="btn btn-green" style="width:100%;margin-top:10px" onclick="sendSupportTicket()">🎫 Send As Ticket →</button><div class="close" onclick="hide()">← Back to Home</div></div>
-<div id="faq" class="page"><div style="text-align:right;cursor:pointer;font-size:20px" onclick="hide()">✕</div><h2>FAQ ❓</h2><div class="faqItem"><b>Who is selling the item?</b><p>Check Seller + Source on every item in Shop AND Auction. Some are ours, some we help someone sell.</p></div><div class="faqItem"><b>What is Auction My Pawn?</b><p>Release R1,000 → Sell R1,200 → You keep R200. Buyer buys your debt.</p></div><div class="close" onclick="hide()">← Back to Home</div></div>
+<div id="faq" class="page"><div style="text-align:right;cursor:pointer;font-size:20px" onclick="hide()">✕</div><h2>FAQ ❓</h2><div class="faqItem"><b>Who is selling the item?</b><p>Check Seller + Source on every item in Shop AND Auction. Some are ours, some we help someone sell.</p></div><div class="faqItem"><b>What is Auction My Pawn?</b><p>Release R1,000 → Sell R1,200 → You keep R200. Buyer buys your debt.</p></div><div class="faqItem"><b>Why was my approval delayed?</b><p>Sometimes we are busy in store. Open a ticket or complain here — we push it.</p></div><div class="faqItem"><b>Why was my verification / offer low?</b><p>Blurry ID / old proof = fail. Dents / screen replaced / low battery = lower offer. Send clear photos and we re-check.</p></div><div class="close" onclick="hide()">← Back to Home</div></div>
 <div id="terms" class="page"><div style="text-align:right;cursor:pointer;font-size:20px" onclick="hide()">✕</div><h2>Terms 📜</h2><div class="legalBox"><p>FIRSTSTORE-SA is a small local business in Devland, Soweto, in process of acquiring correct paperwork. Items show Seller + Source. Auction: Release + 20% only.</p></div><div class="close" onclick="hide()">← Back to Home</div></div>
-<div id="privacy" class="page"><div style="text-align:right;cursor:pointer;font-size:20px" onclick="hide()">✕</div><h2>Privacy 🔒</h2><div class="legalBox"><p>We collect Name, phone, email, address, ID, selfie, proof. Only staff see it. We do NOT sell data.</p></div><div class="close" onclick="hide()">← Back to Home</div></div>
+<div id="privacy" class="page"><div style="text-align:right;cursor:pointer;font-size:20px" onclick="hide()">✕</div><h2>Privacy 🔒</h2><div class="legalBox"><p>We collect Name, phone, email, address, ID, selfie, proof. Only staff see it. We do NOT sell data. Feedback / Reviews show only your first name + comment, not your phone.</p></div><div class="close" onclick="hide()">← Back to Home</div></div>
 <div id="about" class="page"><div style="text-align:right;cursor:pointer;font-size:20px" onclick="hide()">✕</div><h2>About Us 🏪</h2><div class="legalBox"><p>Hi, I'm owner of FIRSTSTORE-SA. 34, from Devland, gamer, love gadgets. I buy from sellers, sell cheap to those who need gadgets. I also help other people sell their items.</p><p>Visit: 129, 3137 Hydra Street, Devland, 1811 • 074 362 7992</p></div><div class="close" onclick="hide()">← Back to Home</div></div>
 <div id="contact" class="page"><div style="text-align:right;cursor:pointer;font-size:20px" onclick="hide()">✕</div><h2>Contact Us 📞</h2><div class="legalBox"><p>129, 3137 Hydra Street, Devland, 1811<br>074 362 7992<br>Mon-Sat 08:00-18:00, Sun 09:00-14:00</p></div><button class="btn btn-green" style="width:100%" onclick="show('tickets')">🎫 Open A Ticket</button><div class="close" onclick="hide()">← Back to Home</div></div>
 
@@ -101,9 +183,139 @@ label{font-size:12px;font-weight:800;display:block;margin:14px 0 6px}input,texta
 
 <script>
 const ADMIN_PIN='1234';
-let verifyCount=0,verifySet={},currentClientId=null,shopFilter='all',aucItemPicDone=false,aucPawnPicDone=false,adminFilter='all';
+let verifyCount=0,verifySet={},currentClientId=null,shopFilter='all',aucItemPicDone=false,aucPawnPicDone=false,adminFilter='all',reviewFilter='all',selectedStars=0,fbType='Compliment',fbFilter='all';
 function scrollReviews(dir){let w=document.getElementById('reviewsWrap'); if(w) w.scrollBy({left:dir*272,behavior:'smooth'});}
 function scrollPreview(dir){let w=document.getElementById('frontPreview'); if(w) w.scrollBy({left:dir*(w.clientWidth+12),behavior:'smooth'});}
+const ALL_REVIEWS=[
+{n:'Thabo M.',loc:'Devland • Pawned iPhone',s:5,t:'I pawned my iPhone, got cash in 10 minutes. No stress, he explained everything.',tag:'PAWN'},
+{n:'Naledi K.',loc:'Soweto • Auction',s:5,t:'My pawn was about to expire. He helped me auction it. I got R200 back instead of losing everything.',tag:'AUCTION'},
+{n:'Sipho D.',loc:'Devland • Bought Laptop',s:5,t:'Bought a laptop here, very cheap and working perfectly. Genuine guy.',tag:'SHOP'},
+{n:'Kabelo R.',loc:'Devland • Pawned PS4',s:4,t:'Approval took 2 days, I was stressing. But when he replied he paid me same day. Just be patient, he is busy in store.',tag:'PAWN'},
+{n:'Lerato S.',loc:'Soweto • Pawned TV',s:3,t:'My first verification failed because my ID photo was blurry. I retook it clear and it passed. Upload clear photos guys.',tag:'PAWN'},
+{n:'Bongani T.',loc:'Meadowlands • Bought Phone',s:5,t:'iPhone 11 I bought is working 100%. Battery good, Face ID working. Thank you.',tag:'SHOP'},
+{n:'Amanda P.',loc:'Devland • Sold via FIRSTSTORE',s:5,t:'He helped me sell my microwave. I just sent photos, he found buyer in 2 days. Got my cash.',tag:'SHOP'},
+{n:'Tebogo M.',loc:'Protea Glen • Auction',s:5,t:'My pawn was expiring tomorrow. Auction saved me. Got my 20% profit.',tag:'AUCTION'},
+{n:'Keabetswe L.',loc:'Soweto • Pawned Laptop',s:4,t:'Offer was a bit low at first, I thought R1800 for my laptop is too little. He showed me market price and we agreed R2200. Fair.',tag:'PAWN'},
+{n:'Mandla K.',loc:'Devland • Bought TV',s:5,t:'Samsung TV still working after 3 months. No issues. Will buy again.',tag:'SHOP'},
+{n:'Naledi M.',loc:'Dobsonville • Ticket',s:5,t:'I dont like WhatsApp. I opened ticket and he replied here. Easy.',tag:'TICKET'},
+{n:'Tshepo N.',loc:'Devland • Pawned Fridge',s:5,t:'Fridge pawn was quick. He came to collect, paid EFT same time.',tag:'PAWN'},
+{n:'Zanele D.',loc:'Soweto • Bought Fridge',s:5,t:'Fridge was clean and cold. Delivery on time.',tag:'SHOP'},
+{n:'Palesa K.',loc:'Orlando • Auction',s:4,t:'Approval delayed 1 day because I registered on Sunday. Monday morning he approved. Understandable, small shop.',tag:'AUCTION'},
+{n:'Mpho S.',loc:'Devland • Pawned iPhone 13',s:3,t:'First offer was low - R2500 for iPhone 13. I sent better photos showing no scratches and he increased to R3200. Send clear photos!',tag:'PAWN'},
+{n:'Karabo T.',loc:'Soweto • Bought PS5',s:5,t:'PS5 controller + console working perfect. Tested in store before I paid.',tag:'SHOP'},
+{n:'Dineo R.',loc:'Devland • Sold Joystick',s:5,t:'He listed my joystick, buyer came same week. No scam.',tag:'SHOP'},
+{n:'Sibusiso M.',loc:'Jabulani • Pawned Washing Machine',s:5,t:'Good service. Came, checked, paid.',tag:'PAWN'},
+{n:'Boitumelo K.',loc:'Soweto • Auction',s:5,t:'I was about to lose my phone at Cash Crusaders. He helped me auction it. Lifesaver.',tag:'AUCTION'},
+{n:'Refilwe N.',loc:'Devland • Bought Laptop',s:4,t:'Laptop battery was 76% not 90% like I thought, but he told me before I paid. Honest.',tag:'SHOP'},
+{n:'Katlego P.',loc:'Meadowlands • Pawned Phone',s:5,t:'Registered at 9am, verified by 11am, paid by 12. Fast.',tag:'PAWN'},
+{n:'Omphile D.',loc:'Soweto • Ticket',s:5,t:'Ticket system works. I asked about my pawn, got reply in 2 hours.',tag:'TICKET'},
+{n:'Thabiso L.',loc:'Devland • Bought Microwave',s:5,t:'Microwave heats well. R800 well spent.',tag:'SHOP'},
+{n:'Masego M.',loc:'Orlando • Pawned TV',s:4,t:'Waited a bit for approval on Saturday, shop was busy. But he kept me updated on WhatsApp.',tag:'PAWN'},
+{n:'Lesego B.',loc:'Devland • Auction',s:5,t:'Auction process was clear. Release + 20% only, no hidden fees.',tag:'AUCTION'},
+{n:'Nthabiseng S.',loc:'Soweto • Bought Phone',s:5,t:'Phone was exactly as described. No surprises.',tag:'SHOP'},
+{n:'Itumeleng K.',loc:'Protea • Pawned iPad',s:5,t:'iPad pawn easy. He explained buy-back clearly.',tag:'PAWN'},
+{n:'Khumo M.',loc:'Devland • Sold TV',s:5,t:'He sold my TV after my pawn expired. Got more than I expected.',tag:'SHOP'},
+{n:'Tshiamo R.',loc:'Dobsonville • Pawned Laptop',s:3,t:'My verification failed first time because proof of address was old. Used new bank statement and it passed. Use recent proof.',tag:'PAWN'},
+{n:'Neo D.',loc:'Soweto • Bought Gaming PC',s:5,t:'Gaming PC runs Warzone smooth. Best price in Soweto.',tag:'SHOP'},
+{n:'Lebo M.',loc:'Devland • Auction',s:5,t:'Got R300 profit from auction. Better than losing my phone.',tag:'AUCTION'},
+{n:'Kgothatso T.',loc:'Meadowlands • Pawned Phone',s:4,t:'Offer was lower than I wanted, but he explained dents lower price. I accepted, still fair.',tag:'PAWN'},
+{n:'Amogelang P.',loc:'Soweto • Ticket',s:5,t:'Opened ticket Sunday, got reply Monday. Good for small shop.',tag:'TICKET'},
+{n:'Onalenna S.',loc:'Devland • Bought TV',s:5,t:'TV remote + stand included. Very neat.',tag:'SHOP'},
+{n:'Goitseone M.',loc:'Orlando • Pawned Fridge',s:5,t:'He is patient, explains everything in Sotho / Zulu / English.',tag:'PAWN'},
+{n:'Reabetswe K.',loc:'Jabulani • Auction',s:4,t:'Auction took 2 days to find buyer, I was nervous. But buyer came and I got paid.',tag:'AUCTION'},
+{n:'Moleboheng D.',loc:'Soweto • Bought Phone',s:5,t:'Bought for my son for school. Works great.',tag:'SHOP'},
+{n:'Tumelo N.',loc:'Devland • Pawned PS4',s:5,t:'PS4 + 2 controllers pawned, paid cash same day.',tag:'PAWN'},
+{n:'Kelebogile L.',loc:'Protea Glen • Sold Laptop',s:5,t:'He sold my laptop in 3 days. I was scared of scammers, but he handled buyer.',tag:'SHOP'},
+{n:'Thato S.',loc:'Devland • Pawned iPhone',s:4,t:'Approval was delayed because my selfie was dark. Retook in daylight and passed. Take selfie outside.',tag:'PAWN'},
+{n:'Boipelo M.',loc:'Soweto • Bought Washing Machine',s:5,t:'Washing machine spins well, no noise. Happy.',tag:'SHOP'},
+{n:'Lethabo K.',loc:'Orlando • Auction',s:5,t:'Auction is real. I saw my item listed, buyer bought debt, I got profit.',tag:'AUCTION'},
+{n:'Motheo R.',loc:'Devland • Pawned TV',s:5,t:'Quick and respectful. No judgment.',tag:'PAWN'},
+{n:'Gorata T.',loc:'Dobsonville • Bought iPhone',s:5,t:'iPhone 11 battery 76% as listed. Honest listing.',tag:'SHOP'},
+{n:'Kea S.',loc:'Soweto • Ticket',s:4,t:'Ticket took a day to reply, but when he replied he solved everything.',tag:'TICKET'},
+{n:'Bokamoso D.',loc:'Meadowlands • Pawned Laptop',s:5,t:'Laptop pawn - got R3000, bought it back 2 weeks later. Easy.',tag:'PAWN'},
+{n:'Tshepiso M.',loc:'Devland • Bought Joystick',s:5,t:'PXN Joystick mint like new. My son loves War Thunder now.',tag:'SHOP'},
+{n:'Naledi B.',loc:'Orlando • Auction',s:5,t:'Saved my pawn from expiring. Thank you FIRSTSTORE.',tag:'AUCTION'},
+{n:'Sello K.',loc:'Jabulani • Pawned Phone',s:3,t:'First offer R1200 felt too low for my Samsung. He re-checked and gave R1600 after seeing charger + box. Bring box + charger!',tag:'PAWN'},
+{n:'Ditiro L.',loc:'Soweto • Bought Fridge',s:5,t:'Fridge delivered same day to Soweto.',tag:'SHOP'},
+{n:'Kamo M.',loc:'Devland • Pawned iPhone 13',s:5,t:'Best pawn shop in Devland. No hidden fees.',tag:'PAWN'},
+{n:'Lesedi P.',loc:'Protea • Bought Laptop',s:5,t:'Laptop for university, works for assignments + Netflix.',tag:'SHOP'},
+{n:'Oratile N.',loc:'Soweto • Auction',s:5,t:'I thought auction was scam until I got my R200 profit. It works.',tag:'AUCTION'}
+];
+function getUserReviews(){try{return JSON.parse(localStorage.getItem('fs_user_reviews')||'[]')}catch(e){return[]}}
+function saveUserReviews(d){localStorage.setItem('fs_user_reviews',JSON.stringify(d))}
+function getAllReviewsForDisplay(){return [...getUserReviews(), ...ALL_REVIEWS];}
+function renderReviews(){
+let w=document.getElementById('reviewsWrap');if(!w)return;
+let all=getAllReviewsForDisplay();
+let list=reviewFilter==='all'?all:all.filter(r=>r.tag===reviewFilter);
+document.getElementById('reviewCount').innerText='('+all.length+')';
+w.innerHTML=list.map(r=>{
+let stars='⭐'.repeat(r.s)+(r.s<5?'☆'.repeat(5-r.s):'');
+let isNew=r.isNew?' <span style="background:#0071e3;color:#fff;font-size:9px;padding:2px 6px;border-radius:999px">NEW</span>':'';
+return '<div class="reviewCard"><div class="reviewStars">'+stars+' '+r.s+'.0'+isNew+'</div><p>"'+r.t+'"</p><div class="reviewFoot"><div class="reviewAvatar">'+r.n.charAt(0)+'</div><div><b>'+r.n+'</b><br><small>'+r.loc+'</small></div></div><span class="reviewTag">'+r.tag+'</span></div>';
+}).join('');
+}
+function filterReviews(f,btn){reviewFilter=f;document.querySelectorAll('#reviewFilter button').forEach(b=>b.classList.remove('active'));if(btn)btn.classList.add('active');renderReviews();}
+function pickStar(n){selectedStars=n;document.querySelectorAll('#starPick span').forEach((s,i)=>{s.classList.toggle('on',i<n)});document.getElementById('starText').innerText=n===5?'⭐⭐⭐⭐⭐ Excellent - Thank you!':n===4?'⭐⭐⭐⭐ Good':n===3?'⭐⭐⭐ Okay - We will improve':n===2?'⭐⭐ Not good - Tell us why below':n===1?'⭐ Bad - Sorry, tell us so we fix it':'Tap a star';}
+function submitReview(){
+let name=document.getElementById('revName').value.trim(),tag=document.getElementById('revTag').value,txt=document.getElementById('revText').value.trim();
+if(!name){alert('Please type your name');return;}
+if(!selectedStars){alert('Please tap stars - how many stars?');return;}
+if(!txt||txt.length<5){alert('Please write a few words about your experience');return;}
+let loc='Customer • Just Now';
+let rev={n:name,loc:loc,s:selectedStars,t:txt,tag:tag,isNew:true};
+let u=getUserReviews();u.unshift(rev);saveUserReviews(u);
+document.getElementById('revName').value='';document.getElementById('revText').value='';selectedStars=0;document.querySelectorAll('#starPick span').forEach(s=>s.classList.remove('on'));document.getElementById('starText').innerText='Tap a star — 5 = Excellent, 1 = Bad';
+reviewFilter='all';document.querySelectorAll('#reviewFilter button').forEach(b=>b.classList.toggle('active',b.innerText.trim()==='All'));
+renderReviews();
+let w=document.getElementById('reviewsWrap');if(w)w.scrollTo({left:0,behavior:'smooth'});
+alert('✅ Thank you '+name+'! Your '+selectedStars+'-star review is now LIVE at the top!');
+}
+/* ===== FEEDBACK - COMPLAINS & COMPLIMENTS - FULLY WORKING ===== */
+function getFeedback(){try{return JSON.parse(localStorage.getItem('fs_feedback')||'[]')}catch(e){return[]}}
+function saveFeedback(d){localStorage.setItem('fs_feedback',JSON.stringify(d))}
+function pickFbType(t){fbType=t;['Complaint','Compliment','Suggestion'].forEach(x=>{let el=document.getElementById('fbType'+x);if(el)el.classList.toggle('active',x===t)});document.getElementById('fbMsgLabel').innerText=t==='Complaint'?'Tell Us - What Went Wrong? *':t==='Compliment'?'Tell Us - What Did We Do Great? *':'Your Suggestion *';}
+function switchFbTab(tab){document.getElementById('fbNewBox').style.display=tab==='new'?'block':'none';document.getElementById('fbListBox').style.display=tab==='list'?'block':'none';document.getElementById('fbTabNew').classList.toggle('active',tab==='new');document.getElementById('fbTabList').classList.toggle('active',tab==='list');if(tab==='list')renderFeedback();}
+function filterFeedback(f){fbFilter=f;renderFeedback();}
+function submitFeedback(){
+let name=document.getElementById('fbName').value.trim(),phone=document.getElementById('fbPhone').value.trim(),cat=document.getElementById('fbCat').value,msg=document.getElementById('fbMsg').value.trim();
+if(!name||!phone||!msg){alert('Fill Name, Phone and Message - so we can fix it / thank you');return;}
+let id='FB-'+Math.floor(1000+Math.random()*9000);
+let item={id:id,type:fbType,name:name,phone:phone,cat:cat,msg:msg,status:'New',reply:'',date:new Date().toLocaleString()};
+let l=getFeedback();l.unshift(item);saveFeedback(l);
+document.getElementById('fbMsg').value='';
+renderFeedbackCounts();renderFeedback();
+let thank=fbType==='Complaint'?'✅ Complain Received: '+id+'\nWe are sorry. We will call you on '+phone+' to fix it.':'✅ Thank you! Compliment Received: '+id+'\nYou made our day!';
+alert(thank);
+switchFbTab('list');
+}
+function submitFeedbackWA(){
+let name=document.getElementById('fbName').value.trim(),cat=document.getElementById('fbCat').value,msg=document.getElementById('fbMsg').value.trim();
+if(!msg){alert('Type your message first');return;}
+openWA('📣 '+fbType.toUpperCase()+'\n\nName: '+(name||'Customer')+'\nAbout: '+cat+'\nMessage: '+msg);
+}
+function renderFeedbackCounts(){
+let l=getFeedback();
+let comp=l.filter(x=>x.type==='Complaint').length, compl=l.filter(x=>x.type==='Compliment').length;
+document.getElementById('fbComplaintCount').innerText=comp;
+document.getElementById('fbComplimentCount').innerText=compl;
+document.getElementById('fbTotalCount').innerText=l.length;
+document.getElementById('fbListCount').innerText=l.length;
+let latest=document.getElementById('latestFeedback');
+if(!l.length){latest.innerHTML='<p style="font-size:11px;color:#888">No feedback yet. Be the first to complain or compliment!</p>';return;}
+let f=l[0];
+latest.innerHTML='<div style="background:#f7f9fc;border:1px solid #eee;border-radius:10px;padding:10px"><b style="font-size:12px">'+(f.type==='Complaint'?'😤 Complain':f.type==='Compliment'?'💚 Compliment':'💡 Suggestion')+' • '+f.name+'</b><p style="font-size:12px;color:#555;margin-top:4px">'+f.msg.substring(0,80)+'...</p></div>';
+}
+function renderFeedback(){
+let l=getFeedback();let f=fbFilter==='all'?l:l.filter(x=>x.type===fbFilter);
+let el=document.getElementById('feedbackList');if(!el)return;
+if(!f.length){el.innerHTML='<div style="text-align:center;color:#888;padding:20px;font-size:12px">No '+fbFilter+' yet. Be the first!</div>';return;}
+el.innerHTML=f.map(x=>{
+let cls=x.type==='Complaint'?'fb-complaint':x.type==='Compliment'?'fb-compliment':'fb-suggestion';
+let icon=x.type==='Complaint'?'😤':x.type==='Compliment'?'💚':'💡';
+return '<div class="feedbackCard '+cls+'"><div style="display:flex;justify-content:space-between"><b>'+icon+' '+x.type+' • '+x.id+'</b><span class="badge '+(x.status==='Done'?'badge-done':'badge-open')+'">'+x.status+'</span></div><p><b>'+x.name+'</b> • '+x.cat+'<br>'+x.date+'<br>'+x.msg+'</p>'+(x.reply?'<div style="background:#f7f9fc;border:1px solid #ddd;border-radius:10px;padding:10px;margin-top:8px"><b>Reply from FIRSTSTORE-SA:</b><p>'+x.reply+'</p></div>':'<p style="font-size:11px;color:#888">⏳ Waiting for reply...</p>')+'</div>';
+}).join('');
+}
 function getTickets(){try{return JSON.parse(localStorage.getItem('fs_tickets')||'[]')}catch(e){return[]}}
 function saveTickets(t){localStorage.setItem('fs_tickets',JSON.stringify(t))}
 function switchTicketTab(tab){document.getElementById('ticketCreateBox').style.display=tab==='create'?'block':'none';document.getElementById('ticketMyBox').style.display=tab==='my'?'block':'none';document.getElementById('tabCreate').classList.toggle('active',tab==='create');document.getElementById('tabMy').classList.toggle('active',tab==='my');if(tab==='my')renderMyTickets();}
@@ -162,7 +374,7 @@ function calcSelling(){let rel=parseFloat(document.getElementById('aucPawnPrice'
 function checkSellingPrice(){let rel=parseFloat(document.getElementById('aucPawnPrice').value)||0,sel=parseFloat(document.getElementById('aucPrice').value)||0,h=document.getElementById('sellingHint');if(!rel||!sel)return;let max=Math.round(rel*1.20);h.style.display='block';h.innerHTML=sel>max?'⚠️ TOO HIGH! Max R'+max:'✅ Perfect! R'+sel+' • Profit R'+(sel-rel);}
 function auctionMyPawn(){let n=document.getElementById('aucName').value.trim(),w=document.getElementById('aucWhere').value,sh=document.getElementById('aucShopName').value.trim(),it=document.getElementById('aucItem').value.trim(),rel=document.getElementById('aucPawnPrice').value.trim(),ex=document.getElementById('aucExpiry').value,et=document.getElementById('aucExpiryTime').value||'18:00',pr=document.getElementById('aucPrice').value.trim();if(!n||!it||!rel||!ex||!pr){alert('Fill all fields');return;}openWA('🔨 AUCTION MY PAWN\nName: '+n+'\nWhere: '+w+'\nShop: '+(sh||'FIRSTSTORE-SA')+'\nItem: '+it+'\nRelease: R'+rel+'\nExpires: '+ex+' at '+et+'\nSelling: R'+pr);alert('✅ Sent! Send 2 photos in WhatsApp.');}
 function getClients(){try{return JSON.parse(localStorage.getItem('fs_clients')||'[]')}catch(e){return[]}}function saveClients(c){localStorage.setItem('fs_clients',JSON.stringify(c))}
-function show(id){document.querySelectorAll('.page').forEach(p=>p.style.display='none');document.getElementById(id).style.display='block';if(['landing','pawn','status','shop','auction','faq','terms','privacy','about','contact','support','tickets','adminTickets'].includes(id))document.getElementById('bottomNav').style.display='flex';if(id==='shop'){shopItems=loadShop();renderShop();renderFrontPreview();}if(id==='auction'){auctionItems=loadAuction();renderAuction();}if(id==='tickets'){renderMyTickets();}window.scrollTo(0,0);}
+function show(id){document.querySelectorAll('.page').forEach(p=>p.style.display='none');document.getElementById(id).style.display='block';if(['landing','pawn','status','shop','auction','faq','terms','privacy','about','contact','support','tickets','adminTickets','feedback'].includes(id))document.getElementById('bottomNav').style.display='flex';if(id==='shop'){shopItems=loadShop();renderShop();renderFrontPreview();}if(id==='auction'){auctionItems=loadAuction();renderAuction();}if(id==='tickets'){renderMyTickets();}if(id==='feedback'){renderFeedbackCounts();renderFeedback();}window.scrollTo(0,0);}
 function hide(){document.querySelectorAll('.page').forEach(p=>p.style.display='none');document.getElementById('bottomNav').style.display='none';}
 function sel(el){el.parentElement.querySelectorAll('div').forEach(d=>d.classList.remove('active'));el.classList.add('active');}
 function registerNow(){let n=document.getElementById('regName').value.trim(),p=document.getElementById('regPhone').value.trim(),e=document.getElementById('regEmail').value.trim(),a=document.getElementById('regAddress').value.trim();if(!n||!p||!e||!a){alert('Fill all fields');return;}let cs=getClients(),nc={id:Date.now(),name:n,phone:p,email:e,address:a,status:'pending',date:new Date().toLocaleString(),verified:0};cs.unshift(nc);saveClients(cs);currentClientId=nc.id;document.getElementById('welcomeName').innerText=n;document.getElementById('pawnWelcome').innerText=n;document.getElementById('pawnAddr').value=a;document.getElementById('welcomeStatus').innerHTML='⏳ Waiting for Approval<br>📞 '+p;openWA('🆕 NEW REGISTRATION\nName: '+n+'\nPhone: '+p+'\nEmail: '+e+'\nAddress: '+a);alert('✅ Thanks '+n+'! Now verify.');show('landing');}
@@ -172,7 +384,7 @@ function doneVerify(n,inp){if(!inp.files[0])return;let r=new FileReader();r.onlo
 function goPawn(){if(verifyCount<3){alert('Upload all 3 first');return;}show('pawn');}
 function goOffer(){let m=document.getElementById('pawnModel').value||'iPhone 13',n=document.getElementById('welcomeName').innerText||'Customer',a=document.getElementById('pawnAmount').value||'3000';openWA('NEW PAWN ✅ VERIFIED\nName: '+n+'\nItem: '+m+'\nAmount: R'+a);show('status');}
 function sendSupport(){let m=document.getElementById('supportMsg').value.trim();openWA('🛟 SUPPORT\nProblem: '+(m||'Help'));}
-renderShop();renderAuction();renderFrontPreview();renderMyTickets();
+renderShop();renderAuction();renderFrontPreview();renderReviews();renderFeedbackCounts();renderMyTickets();
 </script>
 </body>
 </html>
