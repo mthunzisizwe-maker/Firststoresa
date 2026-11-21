@@ -5,7 +5,7 @@
 .hero{height:78vh;min-height:520px;background:#fff;position:relative;display:flex;flex-direction:column;overflow:hidden;margin:12px;border-radius:18px;box-shadow:0 2px 12px rgba(0,0,0,.06)}
 .heroImg{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#fff;pointer-events:none}
 .hero:after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,transparent 0%,transparent 55%,rgba(255,255,255,.1) 82%,#fff 100%);pointer-events:none}
-.top{position:relative;z-index:5;display:flex;justify-content:flex-end;padding:14px}.call{width:44px;height:44px;background:#fff;border:1px solid #eee;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.top{position:relative;z-index:5;display:flex;justify-content:flex-end;padding:14px}.call{width:44px;height:44px;background:#fff;border:1px solid #eee;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;text-decoration:none}
 .heroMid{flex:1}.heroBottom{position:relative;z-index:6;padding:0 16px 18px}
 .btnBig{display:block;width:100%;padding:13px;border-radius:12px;font-weight:800;font-size:14px;border:none;cursor:pointer}.btnRed{background:#0071e3;color:#fff}.btnBlack{background:#111;color:#fff;margin-top:8px}.btnGold{background:#111;color:#fff;margin-top:8px}.btnAuction{background:#0071e3;color:#fff;margin-top:8px}
 .section{padding:18px 16px;background:#fff;margin:12px;border-radius:18px;box-shadow:0 2px 12px rgba(0,0,0,.06)}.section h2{font-size:20px}.section h2 span{color:#0071e3}
@@ -13,7 +13,6 @@
 .ctaBox{border-radius:18px;padding:20px;margin:12px;text-align:center}.ctaBox h3{font-size:19px}.ctaBox p{font-size:13px;margin:8px 0 14px}.foot{text-align:center;padding:10px 16px 24px;color:#888;font-size:12px}
 .btn{flex:1;padding:12px;border-radius:10px;font-weight:800;cursor:pointer;font-size:13px;border:none}.btn-red{background:#0071e3;color:#fff}.btn-green{background:#0071e3;color:#fff}.btn-grey{background:#eee;color:#888}.btn-gold{background:#111;color:#fff}.btn-purple{background:#0071e3;color:#fff}
 .page{display:none;position:fixed;inset:0;background:#f0f2f5;z-index:99;overflow-y:auto;padding:16px 16px 100px}.page h2{font-size:22px}.page h2 span{color:#0071e3}.sub{color:#666;font-size:13px;line-height:1.6;margin:8px 0 12px}
-.step{padding:12px 0;border-bottom:1px solid #eee;display:flex;gap:10px}.num{background:#0071e3;color:#fff;width:30px;height:30px;min-width:30px;border-radius:50%;text-align:center;line-height:30px;font-weight:900;font-size:13px}.step b{font-size:14px}.step p{font-size:12px;color:#666;line-height:1.5;margin-top:3px}
 label{font-size:12px;font-weight:800;display:block;margin:14px 0 6px}input,textarea,select{width:100%;padding:12px;border-radius:10px;border:1px solid #ddd;background:#fff;font-size:14px}.close{padding:12px;text-align:center;font-weight:800;cursor:pointer;color:#888}
 .wa{position:fixed;right:16px;bottom:20px;background:#0071e3;width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;cursor:pointer;z-index:200;color:#fff}
 .welcome{background:#fff;border-radius:14px;padding:14px;margin-bottom:12px;border:1px solid #eee}.welcome h3{font-size:19px}.welcome h3 span{color:#0071e3}.welcome p{font-size:12px;color:#555;line-height:1.6;margin-top:6px}
@@ -28,16 +27,18 @@ label{font-size:12px;font-weight:800;display:block;margin:14px 0 6px}input,texta
 .countdownBox{background:#fff;border:1px solid #111;border-radius:10px;padding:10px;margin-top:8px;text-align:center}.countdownTime{font-size:18px;font-weight:900}.countdownExpired{border-color:#ddd!important;opacity:.6}
 .footer{background:#111;padding:18px 16px 20px;text-align:center;margin:12px;border-radius:18px}.footer h3{font-size:16px;color:#fff}.footer p{font-size:12px;color:#ccc;line-height:1.6;margin:8px 0}.fBtn{display:inline-block;background:#222;border:1px solid #333;border-radius:999px;padding:9px 13px;font-size:12px;font-weight:700;margin:4px;cursor:pointer;color:#fff}
 .faqItem{background:#fff;border:1px solid #eee;border-radius:12px;padding:13px;margin:10px 0}.faqItem b{font-size:14px}.faqItem p{font-size:12px;color:#555;line-height:1.6;margin-top:5px}
-.legalBox{background:#fff;border:1px solid #eee;border-radius:12px;padding:14px;margin:10px 0}.legalBox h3{font-size:15px;margin:14px 0 6px}.legalBox p,.legalBox li{font-size:12px;color:#444;line-height:1.7}.legalBox ul{padding-left:16px}
+.legalBox{background:#fff;border:1px solid #eee;border-radius:12px;padding:14px;margin:10px 0}.legalBox h3{font-size:15px;margin:14px 0 6px}.legalBox p,.legalBox li{font-size:12px;color:#444;line-height:1.7}
 .supportCard{background:#fff;border:1px solid #eee;border-radius:14px;padding:14px;margin:10px 0}.supportCard b{font-size:14px}.supportCard p{font-size:12px;color:#555;line-height:1.6;margin-top:5px}
 .reviewsBlock{background:#fff;margin:12px;border-radius:18px;padding:18px 0 16px;overflow:hidden}.reviewsHead{padding:0 16px;display:flex;justify-content:space-between;align-items:center}.reviewsHead h2{font-size:19px}.reviewsHead h2 span{color:#0071e3}.reviewsWrap{display:flex;gap:12px;overflow-x:auto;padding:14px 16px 6px;scroll-snap-type:x mandatory}.reviewsWrap::-webkit-scrollbar{display:none}.reviewCard{min-width:260px;max-width:260px;scroll-snap-align:start;background:#f7f9fc;border:1px solid #eef1f5;border-radius:14px;padding:14px;flex-shrink:0}.reviewCard p{font-size:13px;line-height:1.6;margin:10px 0 12px}.reviewAvatar{width:38px;height:38px;border-radius:50%;background:#0071e3;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:900}.reviewFoot{display:flex;gap:10px;align-items:center;border-top:1px solid #eee;padding-top:10px}.reviewFoot b{font-size:13px}.reviewFoot small{font-size:11px;color:#888}.reviewTag{display:inline-block;background:#111;color:#fff;font-size:10px;font-weight:800;padding:4px 8px;border-radius:999px;margin-top:8px}.reviewNav{display:flex;gap:8px;justify-content:center;margin-top:10px}.reviewNav button{width:38px;height:38px;border-radius:50%;border:1px solid #ddd;background:#fff;font-size:16px;cursor:pointer}
 .ticketCard{background:#fff;border:1px solid #eee;border-radius:14px;padding:14px;margin:10px 0}.ticketCard b{font-size:14px}.ticketCard p{font-size:12px;color:#555;line-height:1.6;margin-top:5px}.badge{display:inline-block;padding:4px 9px;border-radius:999px;font-size:10px;font-weight:900;color:#fff}.badge-open{background:#0071e3}.badge-progress{background:#111}.badge-done{background:#22c55e}
 .tabBtn{flex:1;padding:11px;border-radius:10px;border:1px solid #ddd;background:#fff;font-weight:800;font-size:12px;cursor:pointer}.tabBtn.active{background:#0071e3;color:#fff;border-color:#0071e3}
-/* ===== SMALL SQUARE ROUND PREVIEW BOXES - FRONT PAGE ===== */
-.previewGrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
-.previewBox{background:#fff;border:1px solid #eee;border-radius:16px;overflow:hidden;cursor:pointer}
+/* ===== SMALL SQUARE - SCROLL LEFT/RIGHT - 2 PER SHOW - LOCKED ===== */
+.previewScrollWrap{margin:0 -16px;padding:0 16px;overflow:hidden}
+.previewGrid{display:flex;gap:12px;overflow-x:auto;padding:14px 2px 6px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.previewGrid::-webkit-scrollbar{display:none}
+.previewBox{min-width:calc(50% - 6px);max-width:calc(50% - 6px);flex-shrink:0;scroll-snap-align:start;background:#fff;border:1px solid #eee;border-radius:16px;overflow:hidden;cursor:pointer}
 .previewBox:active{transform:scale(.97)}
-.previewSquare{width:100%;aspect-ratio:1/1;background:#f0f0f0;display:flex;align-items:center;justify-content:center;font-size:42px;overflow:hidden;border-radius:16px 16px 0 0}
+.previewSquare{width:100%;aspect-ratio:1/1;background:#f0f0f0;display:flex;align-items:center;justify-content:center;font-size:42px;overflow:hidden}
 .previewSquare img{width:100%;height:100%;object-fit:cover}
 .previewInfo{padding:10px}
 .previewInfo b{font-size:13px;line-height:1.3;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
@@ -46,16 +47,19 @@ label{font-size:12px;font-weight:800;display:block;margin:14px 0 6px}input,texta
 .previewTag{position:absolute;top:8px;left:8px;background:#111;color:#fff;font-size:10px;font-weight:800;padding:4px 8px;border-radius:999px}
 .previewTag.ours{background:#0071e3}
 .previewWrap{position:relative}
+.scrollBtns{display:flex;gap:8px;justify-content:center;margin-top:6px}
+.scrollBtns button{width:38px;height:38px;border-radius:50%;border:1px solid #ddd;background:#fff;font-size:16px;cursor:pointer}
 </style></head><body>
 
 <div id="firstPage">
 <div class="hero"><img src="https://i.ibb.co/6R09sfzS/background.png" class="heroImg"><div class="top"><a class="call" href="tel:0743627992">📞</a></div><div class="heroMid"></div><div class="heroBottom"><button class="btnBig btnRed" onclick="show('login')">Register Free → Get Cash</button><button class="btnBig btnBlack" onclick="show('how')">How It Works</button><button class="btnBig btnGold" onclick="show('shop')">🛍️ Items For Sale - Shop Now</button><button class="btnBig btnAuction" onclick="show('auction')">🔨 Auction My Pawn - Sell Before It Expires</button></div></div>
 
-<!-- ===== NEW: SMALL SQUARE PREVIEW ON FRONT PAGE ===== -->
+<!-- ===== SALE PREVIEW - SCROLL LEFT/RIGHT - 2 PER SHOW ===== -->
 <div class="section">
 <div style="display:flex;justify-content:space-between;align-items:center"><h2>Items For Sale <span>Preview</span> 🛍️</h2><span style="font-size:12px;color:#0071e3;font-weight:800;cursor:pointer;white-space:nowrap" onclick="show('shop')">View All →</span></div>
-<p style="font-size:12px;color:#666;margin-top:6px">Tap any square box to see full details, Seller + Source.</p>
-<div class="previewGrid" id="frontPreview"></div>
+<p style="font-size:12px;color:#666;margin-top:6px">← Swipe left / right to see more — 2 items at a time →</p>
+<div class="previewScrollWrap"><div class="previewGrid" id="frontPreview"></div></div>
+<div class="scrollBtns"><button onclick="scrollPreview(-1)">←</button><button onclick="scrollPreview(1)">→</button></div>
 <button class="btnBig btnGold" style="margin-top:14px" onclick="show('shop')">🛍️ See All Items For Sale →</button>
 <button class="btnBig" style="margin-top:8px;background:#fff;border:1px solid #ddd" onclick="show('auction')">🔨 See Auction Items →</button>
 </div>
@@ -99,6 +103,7 @@ label{font-size:12px;font-weight:800;display:block;margin:14px 0 6px}input,texta
 const ADMIN_PIN='1234';
 let verifyCount=0,verifySet={},currentClientId=null,shopFilter='all',aucItemPicDone=false,aucPawnPicDone=false,adminFilter='all';
 function scrollReviews(dir){let w=document.getElementById('reviewsWrap'); if(w) w.scrollBy({left:dir*272,behavior:'smooth'});}
+function scrollPreview(dir){let w=document.getElementById('frontPreview'); if(w) w.scrollBy({left:dir*(w.clientWidth+12),behavior:'smooth'});}
 function getTickets(){try{return JSON.parse(localStorage.getItem('fs_tickets')||'[]')}catch(e){return[]}}
 function saveTickets(t){localStorage.setItem('fs_tickets',JSON.stringify(t))}
 function switchTicketTab(tab){document.getElementById('ticketCreateBox').style.display=tab==='create'?'block':'none';document.getElementById('ticketMyBox').style.display=tab==='my'?'block':'none';document.getElementById('tabCreate').classList.toggle('active',tab==='create');document.getElementById('tabMy').classList.toggle('active',tab==='my');if(tab==='my')renderMyTickets();}
@@ -118,7 +123,10 @@ shopItems=[
 {id:1,cat:'other',name:'RGB Gaming PC - i5, 16GB RAM, 8GB Graphics',desc:'RGB case, tempered glass. i5-4690K, 16GB DDR3, 8GB Graphics, Gigabyte Z97X, 119GB, Windows 11 Pro',price:'R5000',old:'',emoji:'🎮',stock:true,seller:'Mpk Mtshali',source:'Helping Customer Sell - Facebook Marketplace'},
 {id:2,cat:'phone',name:'iPhone 13 128GB - Mint',desc:'Battery 89% • With charger',price:'R4,500',old:'R5,500',emoji:'📱',stock:true,seller:'FIRSTSTORE-SA',source:'Our Stock - FIRSTSTORE-SA'},
 {id:3,cat:'laptop',name:'HP ProBook Laptop i5',desc:'8GB RAM • 256GB SSD',price:'R3,200',old:'',emoji:'💻',stock:true,seller:'Thabo M. - Devland',source:'Helping Customer Sell'},
-{id:4,cat:'tv',name:'Samsung 55" Smart TV',desc:'4K • Remote • Tested',price:'R3,800',old:'',emoji:'📺',stock:true,seller:'Naledi K. - Soweto',source:'Helping Customer Sell - Facebook Marketplace'}
+{id:4,cat:'tv',name:'Samsung 55" Smart TV',desc:'4K • Remote • Tested',price:'R3,800',old:'',emoji:'📺',stock:true,seller:'Naledi K. - Soweto',source:'Helping Customer Sell - Facebook Marketplace'},
+{id:5,cat:'other',name:'PXN 2119 PRO Flight Simulator Joystick',desc:'Mint, barely used. PC, PS4, Xbox One. Ace Combat 7, War Thunder, DCS',price:'R950',old:'',emoji:'🕹️',stock:true,seller:'Lee MP Modise',source:'Helping Customer Sell - Facebook Marketplace'},
+{id:6,cat:'home',name:'Russell Hobbs Microwave',desc:'Good working condition. Perfect for everyday use.',price:'R800',old:'',emoji:'🍽️',stock:true,seller:'Jovann Williams',source:'Helping Customer Sell - Facebook Marketplace'},
+{id:7,cat:'phone',name:'iPhone 11 64GB Preowned',desc:'Face ID working. Battery 76%. Screen replaced.',price:'R2,500',old:'R2,700',emoji:'📱',stock:true,seller:'Mobilesoft Cellular',source:'Helping Customer Sell - Facebook Marketplace'}
 ];
 localStorage.setItem('fs_shop',JSON.stringify(shopItems));
 }
@@ -129,15 +137,14 @@ let exp=new Date();exp.setDate(exp.getDate()+2);exp.setHours(18,0,0,0);
 auctionItems=[{id:101,name:'iPhone 13 - Pawn Expiring',desc:'Release R1000 • Owner wants to sell',start:'R1,000',current:'R1,200',bids:3,emoji:'📱',expiry:exp.toISOString(),expiryDisplay:exp.toLocaleDateString('en-ZA',{day:'numeric',month:'long'})+' at 18:00',seller:'Thabo M. - Devland',source:'Pawn With Another Shop - Cash Crusaders'}];
 localStorage.setItem('fs_auction',JSON.stringify(auctionItems));
 }
-function formatCountdown(expISO){if(!expISO)return{text:'⏰ See Time',cls:'',urgent:false,expired:false};let diff=new Date(expISO)-new Date();if(diff<=0)return{text:'❌ EXPIRED',cls:'countdownExpired',urgent:false,expired:true};let d=Math.floor(diff/86400000),h=Math.floor(diff%86400000/3600000),m=Math.floor(diff%3600000/60000),s=Math.floor(diff%60000/1000);let pad=n=>String(n).padStart(2,'0');return{text:(d>0?d+' Day ':'')+pad(h)+':'+pad(m)+':'+pad(s),cls:diff<86400000?'':'',urgent:false,expired:false};}
+function formatCountdown(expISO){if(!expISO)return{text:'⏰ See Time',cls:'',urgent:false,expired:false};let diff=new Date(expISO)-new Date();if(diff<=0)return{text:'❌ EXPIRED',cls:'countdownExpired',urgent:false,expired:true};let d=Math.floor(diff/86400000),h=Math.floor(diff%86400000/3600000),m=Math.floor(diff%3600000/60000),s=Math.floor(diff%60000/1000);let pad=n=>String(n).padStart(2,'0');return{text:(d>0?d+' Day ':'')+pad(h)+':'+pad(m)+':'+pad(s),cls:'',urgent:false,expired:false};}
 function updateCountdowns(){document.querySelectorAll('.countdownBox').forEach(box=>{let info=formatCountdown(box.getAttribute('data-expiry'));let t=box.querySelector('.countdownTime');if(t)t.innerText=info.text;});let n=document.getElementById('nextExpiry');if(n&&auctionItems.length){let s=auctionItems.map(a=>new Date(a.expiry)).sort((a,b)=>a-b)[0];n.innerText='Next expiry: '+formatCountdown(s.toISOString()).text+' left';}}
 setInterval(updateCountdowns,1000);
 function sellerHtml(seller,source){let s=seller||'FIRSTSTORE-SA',src=source||'Our Stock - FIRSTSTORE-SA',isOurs=s==='FIRSTSTORE-SA'||src.toLowerCase().includes('our stock');return '<div class="sellerBox">👤 <b>Seller:</b> '+s+'<br>📦 <b>Source:</b> '+src+'<br><span class="sourceTag '+(isOurs?'ours':'')+'">'+(isOurs?'✅ OUR STOCK':'🤝 HELPING SOMEONE SELL')+'</span></div>';}
-/* ===== FRONT PAGE SMALL SQUARE PREVIEW ===== */
 function renderFrontPreview(){
 let el=document.getElementById('frontPreview');if(!el)return;
-let items=shopItems.slice(0,6);
-if(!items.length){el.innerHTML='<div style="grid-column:1/-1;text-align:center;color:#888;padding:10px;font-size:12px">No items yet. Check back soon.</div>';return;}
+let items=shopItems.slice(0,10);
+if(!items.length){el.innerHTML='<div style="min-width:100%;text-align:center;color:#888;padding:10px;font-size:12px">No items yet.</div>';return;}
 el.innerHTML=items.map(i=>{
 let isOurs=(i.seller||'FIRSTSTORE-SA')==='FIRSTSTORE-SA';
 return '<div class="previewBox" onclick="show(\'shop\')"><div class="previewWrap"><div class="previewSquare">'+(i.image?'<img src="'+i.image+'">':(i.emoji||'📱'))+'</div><span class="previewTag '+(isOurs?'ours':'')+'">'+(isOurs?'OUR STOCK':'HELPING SELL')+'</span></div><div class="previewInfo"><b>'+i.name+'</b><div class="pPrice">'+i.price+' '+(i.stock?'':'• SOLD')+'</div><div class="pSeller">👤 '+(i.seller||'FIRSTSTORE-SA')+'</div></div></div>';
@@ -148,7 +155,7 @@ function filterShop(f){shopFilter=f;renderShop();}
 function buyItem(id){let i=shopItems.find(x=>x.id==id);if(!i)return;openWA('🛍️ I WANT TO BUY\n\nItem: '+i.name+'\nPrice: '+i.price+'\n\n👤 Seller: '+(i.seller||'FIRSTSTORE-SA')+'\n📦 Source: '+(i.source||'Our Stock')+'\n\nIs it still available?');}
 function renderAuction(){let l=document.getElementById('auctionList');if(!auctionItems.length){l.innerHTML='<div style="text-align:center;color:#888;padding:20px">No live auctions yet.</div>';return;}l.innerHTML=auctionItems.map(i=>{let info=formatCountdown(i.expiry);return '<div class="auctionCard"><div style="display:flex;gap:12px;align-items:center">'+(i.image?'<img src="'+i.image+'" class="shopImg" style="object-fit:cover">':'<div class="shopImg">'+(i.emoji||'📱')+'</div>')+'<div><b>'+i.name+'</b><p>'+(i.desc||'')+'</p>'+(i.expiryDisplay?'<p style="font-weight:900;color:#0071e3">📅 '+i.expiryDisplay+'</p>':'')+'</div></div>'+sellerHtml(i.seller,i.source)+'<div class="countdownBox" data-expiry="'+i.expiry+'"><div style="font-size:12px;color:#888">⏰ Time left:</div><div class="countdownTime">'+info.text+'</div></div><div class="bidBox"><div><small>To Release</small><br><span style="text-decoration:line-through;color:#888">'+(i.start||'')+'</span></div><div style="text-align:right"><small>Buy Debt For • '+(i.bids||0)+' bids</small><br><span class="price" style="font-size:20px">'+i.current+'</span></div></div><div style="display:flex;gap:8px;margin-top:12px"><input id="bid-'+i.id+'" type="number" placeholder="Your bid" style="flex:1;margin:0"><button class="btn btn-purple" style="flex:1" '+(info.expired?'disabled':'onclick="placeBid('+i.id+',\''+i.name+'\',\''+i.current+'\')"')+'>'+(info.expired?'❌ Expired':'🔨 Buy Debt')+'</button></div></div>';}).join('');setTimeout(updateCountdowns,100);}
 function placeBid(id,name,cur){let v=document.getElementById('bid-'+id).value;if(!v){alert('Enter bid. Current '+cur);return;}let it=auctionItems.find(x=>x.id==id);openWA('🔨 I WANT TO BUY THIS PAWN DEBT\n\nItem: '+name+'\nI Will Pay: R'+v+'\nCurrent: '+cur+'\n\n👤 Seller: '+(it?it.seller:'')+'\n📦 Source: '+(it?it.source:'')+'');}
-function previewAucPic(inp,prev,tick){if(!inp.files[0])return;let r=new FileReader();r.onload=e=>{let img=document.getElementById(prev);img.src=e.target.result;img.style.display='block';document.getElementById(tick).style.display='block';if(prev==='aucItemPreview')aucItemPicDone=true;if(prev==='aucPawnPreview')aucPawnPicDone=true;};r.readAsDataURL(inp.files[0]);}
+function previewAucPic(inp,prev,tick){if(!inp.files[0])return;let r=new FileReader();r.onload=e=>{let img=document.getElementById(prev);img.src=e.target.result;img.style.display='block';document.getElementById(tick).style.display='block';};r.readAsDataURL(inp.files[0]);}
 function updateExpiryPreview(){let d=document.getElementById('aucExpiry').value,t=document.getElementById('aucExpiryTime').value||'18:00',box=document.getElementById('expiryPreview');if(!d){box.style.display='none';return;}let exp=new Date(d+'T'+t+':00');box.style.display='block';box.innerHTML='📅 Expires: '+exp.toLocaleDateString('en-ZA',{day:'numeric',month:'long',year:'numeric'})+' at '+t;}
 document.addEventListener('change',e=>{if(e.target&&(e.target.id==='aucExpiry'||e.target.id==='aucExpiryTime'))updateExpiryPreview();});
 function calcSelling(){let rel=parseFloat(document.getElementById('aucPawnPrice').value)||0,h=document.getElementById('sellingHint');if(rel<=0){h.style.display='none';return;}let sug=Math.round(rel*1.20);h.style.display='block';h.style.background='#f7f9fc';h.innerHTML='💡 Recommended: R'+sug+' • Profit R'+(sug-rel);let s=document.getElementById('aucPrice');if(!s.value)s.value=sug;checkSellingPrice();}
