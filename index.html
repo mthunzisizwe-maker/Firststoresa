@@ -33,6 +33,7 @@ label{font-size:12px;font-weight:800;display:block;margin:14px 0 6px}input,texta
 .reviewStars{font-size:14px}.reviewFilter{display:flex;gap:6px;padding:10px 16px 0;flex-wrap:wrap}.reviewFilter button{padding:7px 11px;border-radius:999px;border:1px solid #ddd;background:#fff;font-size:11px;font-weight:800;cursor:pointer}.reviewFilter button.active{background:#0071e3;color:#fff;border-color:#0071e3}
 .starPick{display:flex;gap:6px;margin-top:8px}.starPick span{font-size:32px;cursor:pointer;filter:grayscale(1);opacity:.5}.starPick span.on{filter:none;opacity:1}
 .feedbackCard{background:#fff;border:1px solid #eee;border-radius:14px;padding:14px;margin:10px 0}.feedbackCard b{font-size:14px}.feedbackCard p{font-size:12px;color:#555;line-height:1.6;margin-top:5px}.fb-complaint{border-left:5px solid #ef4444}.fb-compliment{border-left:5px solid #22c55e}.fb-suggestion{border-left:5px solid #0071e3}
+.reviewFullCard{background:#fff;border:1px solid #eee;border-radius:14px;padding:14px;margin:10px 0}
 .ticketCard{background:#fff;border:1px solid #eee;border-radius:14px;padding:14px;margin:10px 0}.ticketCard b{font-size:14px}.ticketCard p{font-size:12px;color:#555;line-height:1.6;margin-top:5px}.badge{display:inline-block;padding:4px 9px;border-radius:999px;font-size:10px;font-weight:900;color:#fff}.badge-open{background:#0071e3}.badge-progress{background:#111}.badge-done{background:#22c55e}
 .tabBtn{flex:1;padding:11px;border-radius:10px;border:1px solid #ddd;background:#fff;font-weight:800;font-size:12px;cursor:pointer}.tabBtn.active{background:#0071e3;color:#fff;border-color:#0071e3}
 .previewScrollWrap{margin:0 -16px;padding:0 16px;overflow:hidden}
@@ -67,24 +68,43 @@ label{font-size:12px;font-weight:800;display:block;margin:14px 0 6px}input,texta
 
 <div class="section"><h2>Why People<br>Choose <span>Us</span></h2><div style="margin-top:16px"><div class="featRow"><div class="featIcon" style="background:#0071e3">💸</div><div><b>Up to R10,000 Instant</b><p>Fair price for your phone, laptop, TV or fridge.</p></div></div><div class="featRow"><div class="featIcon" style="background:#111">⚡</div><div><b>Paid in 10 Minutes</b><p>No waiting. Cash to your bank.</p></div></div><div class="featRow"><div class="featIcon" style="background:#0071e3">🔨</div><div><b>Sell Your Pawn Before It Expires</b><p>About to lose your item? Sell the debt, make 20% profit.</p></div></div><div class="featRow"><div class="featIcon" style="background:#111">🤝</div><div><b>We Help Other People Sell</b><p>Check Seller + Source on every item.</p></div></div></div></div>
 
-<!-- ===== REVIEWS ===== -->
+<!-- ===== FRONT PAGE REVIEWS - ONLY SCROLL + BUTTONS - NO FORM HERE ===== -->
 <div class="reviewsBlock"><div class="reviewsHead"><h2>What Customers <span>Say</span> ⭐ <span id="reviewCount" style="font-size:13px;color:#888">(53)</span></h2><span style="font-size:11px;color:#888;font-weight:700">← Swipe →</span></div>
 <p style="font-size:12px;color:#666;padding:6px 16px 0">Real people from Devland, Soweto & around Joburg.</p>
-<div class="reviewFilter" id="reviewFilter">
-<button class="active" onclick="filterReviews('all',this)">All</button>
-<button onclick="filterReviews('PAWN',this)">💸 Pawn</button>
-<button onclick="filterReviews('SHOP',this)">🛍️ Shop</button>
-<button onclick="filterReviews('AUCTION',this)">🔨 Auction</button>
-<button onclick="filterReviews('TICKET',this)">🎫 Ticket</button>
-</div>
 <div class="reviewsWrap" id="reviewsWrap"></div>
 <div class="reviewNav"><button onclick="scrollReviews(-1)">←</button><button onclick="scrollReviews(1)">→</button></div>
+<div style="padding:14px 16px 0;display:flex;gap:8px">
+<button class="btn btn-red" onclick="show('allReviews')">⭐ See All Reviews + Leave Yours →</button>
+</div>
+<div style="padding:8px 16px 0;display:flex;gap:8px">
+<button class="btn" style="background:#fff;border:1px solid #ddd" onclick="show('feedback')">📣 Complain / Compliment →</button>
+</div>
+</div>
 
-<!-- ===== LEAVE A REVIEW - BOTTOM ===== -->
-<div style="padding:16px 16px 0">
-<div style="background:#111;border-radius:14px;padding:16px;color:#fff">
+<div class="ctaBox" style="background:#0071e3"><h3 style="color:#fff">🔨 Pawn About To Expire?</h3><p style="color:#e6f0ff">Don't lose it! Sell it now. Buyer buys your debt, you make 20% profit!</p><button class="btnBig" style="background:#fff;color:#111" onclick="show('auction')">Auction My Pawn →</button></div>
+<div class="ctaBox" style="background:#111"><h3 style="color:#fff">Ready to Get Paid?</h3><button class="btnBig" style="background:#0071e3;color:#fff;margin-top:14px" onclick="show('login')">Start Now →</button></div>
+<div class="footer"><h3>FIRSTSTORE-SA</h3><p>Your Trusted Tech Store • Devland, Soweto<br>129, 3137 Hydra Street, Devland, 1811<br>📞 074 362 7992</p><div><span class="fBtn" onclick="show('tickets')">🎫 My Tickets</span><span class="fBtn" onclick="openAdminTickets()">🔐 Admin Tickets</span><span class="fBtn" onclick="show('support')">🛟 Support</span><span class="fBtn" onclick="show('faq')">❓ FAQ</span><span class="fBtn" onclick="show('terms')">📜 Terms</span><span class="fBtn" onclick="show('privacy')">🔒 Privacy</span><span class="fBtn" onclick="show('about')">🏪 About Us</span><span class="fBtn" onclick="show('contact')">📞 Contact Us</span><span class="fBtn" onclick="show('how')">💡 How It Works</span><span class="fBtn" onclick="show('allReviews')">⭐ All Reviews</span><span class="fBtn" onclick="show('feedback')">📣 Complains & Compliments</span></div><p style="margin-top:12px;color:#999">© 2026 FIRSTSTORE-SA</p></div>
+<div class="foot">FIRSTSTORE-SA • Your Trusted Tech Store</div></div>
+
+<!-- ===== ALL REVIEWS PAGE - OWN PAGE ===== -->
+<div id="allReviews" class="page"><div style="text-align:right;cursor:pointer;font-size:20px" onclick="hide()">✕</div>
+<h2>All <span>Reviews</span> ⭐ <span id="reviewCount2" style="font-size:15px;color:#888">(53)</span></h2>
+<p class="sub">All 53 + yours. Filter, read, then leave yours at the bottom. Be honest — we show complains too and we fix them.</p>
+
+<div style="display:flex;gap:8px;flex-wrap:wrap">
+<button class="btn btn-red" onclick="filterReviewsPage('all')">All</button>
+<button class="btn" style="background:#fff;border:1px solid #ddd" onclick="filterReviewsPage('PAWN')">💸 Pawn</button>
+<button class="btn" style="background:#fff;border:1px solid #ddd" onclick="filterReviewsPage('SHOP')">🛍️ Shop</button>
+<button class="btn" style="background:#fff;border:1px solid #ddd" onclick="filterReviewsPage('AUCTION')">🔨 Auction</button>
+<button class="btn" style="background:#fff;border:1px solid #ddd" onclick="filterReviewsPage('TICKET')">🎫 Ticket</button>
+</div>
+
+<div id="allReviewsList" style="margin-top:10px"></div>
+
+<!-- LEAVE REVIEW - ONLY HERE, NOT ON FRONT PAGE -->
+<div style="background:#111;border-radius:14px;padding:16px;color:#fff;margin-top:16px">
 <h3 style="font-size:16px">⭐ Leave Your Review</h3>
-<p style="font-size:12px;color:#ccc;margin-top:6px;line-height:1.6">Used us? Tell others! Your review shows here instantly. No WhatsApp needed.</p>
+<p style="font-size:12px;color:#ccc;margin-top:6px;line-height:1.6">Used us? Tell others! Your review shows instantly + on front page scroll. No WhatsApp needed.</p>
 <label style="color:#fff">Your Name *</label>
 <input id="revName" placeholder="e.g. Thabo M.">
 <label style="color:#fff">What Did You Do? *</label>
@@ -98,36 +118,26 @@ label{font-size:12px;font-weight:800;display:block;margin:14px 0 6px}input,texta
 <p style="font-size:11px;color:#999;margin-top:8px;text-align:center">Be honest — even if you complain, we show it and we fix it.</p>
 </div>
 
-<!-- ===== COMPLAIN / COMPLIMENT BUTTON ===== -->
 <div style="background:#fff;border:2px dashed #0071e3;border-radius:14px;padding:16px;margin-top:12px;text-align:center">
 <h3 style="font-size:16px">📣 Complain or Compliment?</h3>
-<p style="font-size:12px;color:#555;line-height:1.6;margin-top:6px">Something went wrong? Or we did great?<br>Tap below — it saves + we reply. Fully working, no WhatsApp needed.</p>
+<p style="font-size:12px;color:#555;line-height:1.6;margin-top:6px">Something went wrong? Or we did great? Tap below — it saves + we reply.</p>
 <div style="display:flex;gap:8px;margin-top:12px">
 <button class="btn" style="background:#ef4444;color:#fff" onclick="show('feedback')">😤 I Want To Complain</button>
 <button class="btn" style="background:#22c55e;color:#fff" onclick="show('feedback')">💚 Give Compliment</button>
 </div>
-<button class="btn" style="width:100%;background:#111;color:#fff;margin-top:8px" onclick="show('feedback')">📣 Open Complains & Compliments →</button>
 <div style="display:flex;gap:8px;margin-top:10px;text-align:center">
-<div style="flex:1;background:#f7f9fc;border-radius:10px;padding:10px"><b id="fbComplaintCount" style="font-size:18px">0</b><br><small style="color:#888;font-size:11px">😤 Complains</small></div>
-<div style="flex:1;background:#f7f9fc;border-radius:10px;padding:10px"><b id="fbComplimentCount" style="font-size:18px">0</b><br><small style="color:#888;font-size:11px">💚 Compliments</small></div>
-<div style="flex:1;background:#f7f9fc;border-radius:10px;padding:10px"><b id="fbTotalCount" style="font-size:18px">0</b><br><small style="color:#888;font-size:11px">Total</small></div>
-</div>
-<div id="latestFeedback" style="text-align:left;margin-top:10px"></div>
+<div style="flex:1;background:#f7f9fc;border-radius:10px;padding:10px"><b id="fbComplaintCount2" style="font-size:18px">0</b><br><small style="color:#888;font-size:11px">😤 Complains</small></div>
+<div style="flex:1;background:#f7f9fc;border-radius:10px;padding:10px"><b id="fbComplimentCount2" style="font-size:18px">0</b><br><small style="color:#888;font-size:11px">💚 Compliments</small></div>
+<div style="flex:1;background:#f7f9fc;border-radius:10px;padding:10px"><b id="fbTotalCount2" style="font-size:18px">0</b><br><small style="color:#888;font-size:11px">Total</small></div>
 </div>
 </div>
-</div>
+<div class="close" onclick="hide()">← Back to Home</div></div>
 
-<div class="ctaBox" style="background:#0071e3"><h3 style="color:#fff">🔨 Pawn About To Expire?</h3><p style="color:#e6f0ff">Don't lose it! Sell it now. Buyer buys your debt, you make 20% profit!</p><button class="btnBig" style="background:#fff;color:#111" onclick="show('auction')">Auction My Pawn →</button></div>
-<div class="ctaBox" style="background:#111"><h3 style="color:#fff">Ready to Get Paid?</h3><button class="btnBig" style="background:#0071e3;color:#fff;margin-top:14px" onclick="show('login')">Start Now →</button></div>
-<div class="footer"><h3>FIRSTSTORE-SA</h3><p>Your Trusted Tech Store • Devland, Soweto<br>129, 3137 Hydra Street, Devland, 1811<br>📞 074 362 7992</p><div><span class="fBtn" onclick="show('tickets')">🎫 My Tickets</span><span class="fBtn" onclick="openAdminTickets()">🔐 Admin Tickets</span><span class="fBtn" onclick="show('support')">🛟 Support</span><span class="fBtn" onclick="show('faq')">❓ FAQ</span><span class="fBtn" onclick="show('terms')">📜 Terms</span><span class="fBtn" onclick="show('privacy')">🔒 Privacy</span><span class="fBtn" onclick="show('about')">🏪 About Us</span><span class="fBtn" onclick="show('contact')">📞 Contact Us</span><span class="fBtn" onclick="show('how')">💡 How It Works</span><span class="fBtn" onclick="show('feedback')">📣 Complains & Compliments</span></div><p style="margin-top:12px;color:#999">© 2026 FIRSTSTORE-SA</p></div>
-<div class="foot">FIRSTSTORE-SA • Your Trusted Tech Store</div></div>
-
-<!-- ===== FEEDBACK PAGE - COMPLAINS & COMPLIMENTS - FULLY WORKING ===== -->
+<!-- ===== FEEDBACK PAGE ===== -->
 <div id="feedback" class="page"><div style="text-align:right;cursor:pointer;font-size:20px" onclick="hide()">✕</div>
 <h2>Complains & <span>Compliments</span> 📣</h2>
 <p class="sub">We want to hear it — good or bad. We reply to every single one. No WhatsApp needed.</p>
 <div style="display:flex;gap:8px"><button class="tabBtn active" id="fbTabNew" onclick="switchFbTab('new')">✍️ Write New</button><button class="tabBtn" id="fbTabList" onclick="switchFbTab('list')">📋 See All (<span id="fbListCount">0</span>)</button></div>
-
 <div id="fbNewBox">
 <div class="legalBox">
 <label>What Is This? *</label>
@@ -144,9 +154,7 @@ label{font-size:12px;font-weight:800;display:block;margin:14px 0 6px}input,texta
 </div>
 <p style="font-size:11px;color:#888;margin-top:8px;text-align:center">Complain = we will contact you to fix it. Compliment = we say thank you + show it here.</p>
 </div>
-<div style="background:#f7f9fc;border:1px solid #ddd;border-radius:12px;padding:12px"><b>Examples:</b><p style="font-size:12px;line-height:1.7;margin-top:6px">😤 <i>"Approval took 2 days, I was stressing"</i> → We reply + approve same day<br>💚 <i>"Got cash in 10 mins, thank you"</i> → We show it + thank you<br>💡 <i>"Please add delivery to Orange Farm"</i> → We consider it</p></div>
 </div>
-
 <div id="fbListBox" style="display:none">
 <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px">
 <button class="btn btn-red" onclick="filterFeedback('all')">All</button>
@@ -183,7 +191,7 @@ label{font-size:12px;font-weight:800;display:block;margin:14px 0 6px}input,texta
 
 <script>
 const ADMIN_PIN='1234';
-let verifyCount=0,verifySet={},currentClientId=null,shopFilter='all',aucItemPicDone=false,aucPawnPicDone=false,adminFilter='all',reviewFilter='all',selectedStars=0,fbType='Compliment',fbFilter='all';
+let verifyCount=0,verifySet={},currentClientId=null,shopFilter='all',aucItemPicDone=false,aucPawnPicDone=false,adminFilter='all',reviewFilter='all',reviewPageFilter='all',selectedStars=0,fbType='Compliment',fbFilter='all';
 function scrollReviews(dir){let w=document.getElementById('reviewsWrap'); if(w) w.scrollBy({left:dir*272,behavior:'smooth'});}
 function scrollPreview(dir){let w=document.getElementById('frontPreview'); if(w) w.scrollBy({left:dir*(w.clientWidth+12),behavior:'smooth'});}
 const ALL_REVIEWS=[
@@ -247,31 +255,40 @@ function getAllReviewsForDisplay(){return [...getUserReviews(), ...ALL_REVIEWS];
 function renderReviews(){
 let w=document.getElementById('reviewsWrap');if(!w)return;
 let all=getAllReviewsForDisplay();
-let list=reviewFilter==='all'?all:all.filter(r=>r.tag===reviewFilter);
 document.getElementById('reviewCount').innerText='('+all.length+')';
-w.innerHTML=list.map(r=>{
+if(document.getElementById('reviewCount2'))document.getElementById('reviewCount2').innerText='('+all.length+')';
+w.innerHTML=all.map(r=>{
 let stars='⭐'.repeat(r.s)+(r.s<5?'☆'.repeat(5-r.s):'');
 let isNew=r.isNew?' <span style="background:#0071e3;color:#fff;font-size:9px;padding:2px 6px;border-radius:999px">NEW</span>':'';
 return '<div class="reviewCard"><div class="reviewStars">'+stars+' '+r.s+'.0'+isNew+'</div><p>"'+r.t+'"</p><div class="reviewFoot"><div class="reviewAvatar">'+r.n.charAt(0)+'</div><div><b>'+r.n+'</b><br><small>'+r.loc+'</small></div></div><span class="reviewTag">'+r.tag+'</span></div>';
 }).join('');
+renderReviewsPage();
 }
-function filterReviews(f,btn){reviewFilter=f;document.querySelectorAll('#reviewFilter button').forEach(b=>b.classList.remove('active'));if(btn)btn.classList.add('active');renderReviews();}
+function renderReviewsPage(){
+let el=document.getElementById('allReviewsList');if(!el)return;
+let all=getAllReviewsForDisplay();
+let list=reviewPageFilter==='all'?all:all.filter(r=>r.tag===reviewPageFilter);
+el.innerHTML=list.map(r=>{
+let stars='⭐'.repeat(r.s)+(r.s<5?'☆'.repeat(5-r.s):'');
+let isNew=r.isNew?' <span style="background:#0071e3;color:#fff;font-size:9px;padding:2px 6px;border-radius:999px">NEW - YOURS</span>':'';
+return '<div class="reviewFullCard"><div>'+stars+' '+r.s+'.0'+isNew+'</div><p style="font-size:13px;line-height:1.6;margin:8px 0">"'+r.t+'"</p><div class="reviewFoot"><div class="reviewAvatar">'+r.n.charAt(0)+'</div><div><b>'+r.n+'</b><br><small>'+r.loc+'</small></div></div><span class="reviewTag">'+r.tag+'</span></div>';
+}).join('');
+}
+function filterReviewsPage(f){reviewPageFilter=f;renderReviewsPage();}
 function pickStar(n){selectedStars=n;document.querySelectorAll('#starPick span').forEach((s,i)=>{s.classList.toggle('on',i<n)});document.getElementById('starText').innerText=n===5?'⭐⭐⭐⭐⭐ Excellent - Thank you!':n===4?'⭐⭐⭐⭐ Good':n===3?'⭐⭐⭐ Okay - We will improve':n===2?'⭐⭐ Not good - Tell us why below':n===1?'⭐ Bad - Sorry, tell us so we fix it':'Tap a star';}
 function submitReview(){
 let name=document.getElementById('revName').value.trim(),tag=document.getElementById('revTag').value,txt=document.getElementById('revText').value.trim();
 if(!name){alert('Please type your name');return;}
 if(!selectedStars){alert('Please tap stars - how many stars?');return;}
 if(!txt||txt.length<5){alert('Please write a few words about your experience');return;}
-let loc='Customer • Just Now';
-let rev={n:name,loc:loc,s:selectedStars,t:txt,tag:tag,isNew:true};
+let rev={n:name,loc:'Customer • Just Now',s:selectedStars,t:txt,tag:tag,isNew:true};
 let u=getUserReviews();u.unshift(rev);saveUserReviews(u);
+let stars=selectedStars;
 document.getElementById('revName').value='';document.getElementById('revText').value='';selectedStars=0;document.querySelectorAll('#starPick span').forEach(s=>s.classList.remove('on'));document.getElementById('starText').innerText='Tap a star — 5 = Excellent, 1 = Bad';
-reviewFilter='all';document.querySelectorAll('#reviewFilter button').forEach(b=>b.classList.toggle('active',b.innerText.trim()==='All'));
 renderReviews();
-let w=document.getElementById('reviewsWrap');if(w)w.scrollTo({left:0,behavior:'smooth'});
-alert('✅ Thank you '+name+'! Your '+selectedStars+'-star review is now LIVE at the top!');
+alert('✅ Thank you '+name+'! Your '+stars+'-star review is now LIVE! It shows on front page scroll + on All Reviews page.');
+show('allReviews');
 }
-/* ===== FEEDBACK - COMPLAINS & COMPLIMENTS - FULLY WORKING ===== */
 function getFeedback(){try{return JSON.parse(localStorage.getItem('fs_feedback')||'[]')}catch(e){return[]}}
 function saveFeedback(d){localStorage.setItem('fs_feedback',JSON.stringify(d))}
 function pickFbType(t){fbType=t;['Complaint','Compliment','Suggestion'].forEach(x=>{let el=document.getElementById('fbType'+x);if(el)el.classList.toggle('active',x===t)});document.getElementById('fbMsgLabel').innerText=t==='Complaint'?'Tell Us - What Went Wrong? *':t==='Compliment'?'Tell Us - What Did We Do Great? *':'Your Suggestion *';}
@@ -297,14 +314,8 @@ openWA('📣 '+fbType.toUpperCase()+'\n\nName: '+(name||'Customer')+'\nAbout: '+
 function renderFeedbackCounts(){
 let l=getFeedback();
 let comp=l.filter(x=>x.type==='Complaint').length, compl=l.filter(x=>x.type==='Compliment').length;
-document.getElementById('fbComplaintCount').innerText=comp;
-document.getElementById('fbComplimentCount').innerText=compl;
-document.getElementById('fbTotalCount').innerText=l.length;
-document.getElementById('fbListCount').innerText=l.length;
-let latest=document.getElementById('latestFeedback');
-if(!l.length){latest.innerHTML='<p style="font-size:11px;color:#888">No feedback yet. Be the first to complain or compliment!</p>';return;}
-let f=l[0];
-latest.innerHTML='<div style="background:#f7f9fc;border:1px solid #eee;border-radius:10px;padding:10px"><b style="font-size:12px">'+(f.type==='Complaint'?'😤 Complain':f.type==='Compliment'?'💚 Compliment':'💡 Suggestion')+' • '+f.name+'</b><p style="font-size:12px;color:#555;margin-top:4px">'+f.msg.substring(0,80)+'...</p></div>';
+if(document.getElementById('fbComplaintCount2')){document.getElementById('fbComplaintCount2').innerText=comp;document.getElementById('fbComplimentCount2').innerText=compl;document.getElementById('fbTotalCount2').innerText=l.length;}
+if(document.getElementById('fbListCount'))document.getElementById('fbListCount').innerText=l.length;
 }
 function renderFeedback(){
 let l=getFeedback();let f=fbFilter==='all'?l:l.filter(x=>x.type===fbFilter);
@@ -374,7 +385,7 @@ function calcSelling(){let rel=parseFloat(document.getElementById('aucPawnPrice'
 function checkSellingPrice(){let rel=parseFloat(document.getElementById('aucPawnPrice').value)||0,sel=parseFloat(document.getElementById('aucPrice').value)||0,h=document.getElementById('sellingHint');if(!rel||!sel)return;let max=Math.round(rel*1.20);h.style.display='block';h.innerHTML=sel>max?'⚠️ TOO HIGH! Max R'+max:'✅ Perfect! R'+sel+' • Profit R'+(sel-rel);}
 function auctionMyPawn(){let n=document.getElementById('aucName').value.trim(),w=document.getElementById('aucWhere').value,sh=document.getElementById('aucShopName').value.trim(),it=document.getElementById('aucItem').value.trim(),rel=document.getElementById('aucPawnPrice').value.trim(),ex=document.getElementById('aucExpiry').value,et=document.getElementById('aucExpiryTime').value||'18:00',pr=document.getElementById('aucPrice').value.trim();if(!n||!it||!rel||!ex||!pr){alert('Fill all fields');return;}openWA('🔨 AUCTION MY PAWN\nName: '+n+'\nWhere: '+w+'\nShop: '+(sh||'FIRSTSTORE-SA')+'\nItem: '+it+'\nRelease: R'+rel+'\nExpires: '+ex+' at '+et+'\nSelling: R'+pr);alert('✅ Sent! Send 2 photos in WhatsApp.');}
 function getClients(){try{return JSON.parse(localStorage.getItem('fs_clients')||'[]')}catch(e){return[]}}function saveClients(c){localStorage.setItem('fs_clients',JSON.stringify(c))}
-function show(id){document.querySelectorAll('.page').forEach(p=>p.style.display='none');document.getElementById(id).style.display='block';if(['landing','pawn','status','shop','auction','faq','terms','privacy','about','contact','support','tickets','adminTickets','feedback'].includes(id))document.getElementById('bottomNav').style.display='flex';if(id==='shop'){shopItems=loadShop();renderShop();renderFrontPreview();}if(id==='auction'){auctionItems=loadAuction();renderAuction();}if(id==='tickets'){renderMyTickets();}if(id==='feedback'){renderFeedbackCounts();renderFeedback();}window.scrollTo(0,0);}
+function show(id){document.querySelectorAll('.page').forEach(p=>p.style.display='none');document.getElementById(id).style.display='block';if(['landing','pawn','status','shop','auction','faq','terms','privacy','about','contact','support','tickets','adminTickets','feedback','allReviews'].includes(id))document.getElementById('bottomNav').style.display='flex';if(id==='shop'){shopItems=loadShop();renderShop();renderFrontPreview();}if(id==='auction'){auctionItems=loadAuction();renderAuction();}if(id==='tickets'){renderMyTickets();}if(id==='feedback'){renderFeedbackCounts();renderFeedback();}if(id==='allReviews'){renderReviewsPage();renderFeedbackCounts();}window.scrollTo(0,0);}
 function hide(){document.querySelectorAll('.page').forEach(p=>p.style.display='none');document.getElementById('bottomNav').style.display='none';}
 function sel(el){el.parentElement.querySelectorAll('div').forEach(d=>d.classList.remove('active'));el.classList.add('active');}
 function registerNow(){let n=document.getElementById('regName').value.trim(),p=document.getElementById('regPhone').value.trim(),e=document.getElementById('regEmail').value.trim(),a=document.getElementById('regAddress').value.trim();if(!n||!p||!e||!a){alert('Fill all fields');return;}let cs=getClients(),nc={id:Date.now(),name:n,phone:p,email:e,address:a,status:'pending',date:new Date().toLocaleString(),verified:0};cs.unshift(nc);saveClients(cs);currentClientId=nc.id;document.getElementById('welcomeName').innerText=n;document.getElementById('pawnWelcome').innerText=n;document.getElementById('pawnAddr').value=a;document.getElementById('welcomeStatus').innerHTML='⏳ Waiting for Approval<br>📞 '+p;openWA('🆕 NEW REGISTRATION\nName: '+n+'\nPhone: '+p+'\nEmail: '+e+'\nAddress: '+a);alert('✅ Thanks '+n+'! Now verify.');show('landing');}
